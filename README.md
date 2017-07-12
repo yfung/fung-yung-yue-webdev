@@ -1,8 +1,8 @@
 # web-dev-template
 
-1. git clone https://github.com/jannunzi/web-dev-template.git
-1. cd web-dev-template
-1. npm install
-1. mongod
-1. node server.js
-1. browse to localhost:3000
+NAME: Yung-Yue Fung
+Occupation: Senior Computer Science Major at Northeastern University
+
+Heroku App: https://fung-yungyue-webdev.herokuapp.com/
+Project: https://fung-yung-yue-webdev.herokuapp.com/project/index.html
+Assignment: https://fung-yung-yue-webdev.herokuapp.com/assignment/index.html
