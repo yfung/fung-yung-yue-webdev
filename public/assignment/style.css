@@ -25,10 +25,14 @@
 }
 
 .navbar {
-    background-color: dodgerblue;
-    color: white;
     font-size: 30px;
     padding: 10px;
+    border: none;
+}
+
+.navbar[name=website-navbar] {
+    background-color: dodgerblue;
+    color: white;
 }
 
 .container-fluid {
@@ -36,5 +40,23 @@
 }
 
 ul {
+    color: dodgerblue;
+}
+
+.navbar[name=page-navbar] {
+    background-color: whitesmoke;
+    color: dimgray;
+}
+
+#page-back {
+    color: black;
+}
+
+
+#page-plus {
+    color: black;
+}
+
+#page-user {
     color: dodgerblue;
 }
