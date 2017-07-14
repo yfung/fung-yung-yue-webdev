@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <header href="index.html">
+        <a href="website-list.html">
+            <span class="glyphicon glyphicon-chevron-left"
+                  name="back-glyph">
+            </span>
+        </a>
+        <a href="website-list.html">
+            <span class="glyphicon glyphicon-ok"
+                  name="ok-glyph">
+            </span>
+        </a>
+        Edit Website
+    </header>
+
+</nav>
+
+<div class="container-fluid">
+
+    <div class="form-group">
+        <label for="name">Website Name</label>
+        <input name="name"
+               id="name"
+               placeholder="Name"
+               type="text"
+               class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="description">Website Description</label>
+        <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
+                  rows="5"></textarea>
+    </div>
+
+    <a class="btn btn-default btn-block btn-danger"
+       href="website-list.html"
+       role="button">Delete</a>
+
+    <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <a href="profile.html">
+            <span class="glyphicon glyphicon-user" name="user-glyph"></span>
+        </a>
+    </nav>
+
+</div>
+
+</body>
+</html>
