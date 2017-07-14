@@ -1,5 +1,27 @@
-.glyphicon {
+.glyphicon[name=ok-glyph] {
     float: right;
+}
+
+.glyphicon[name=user-glyph] {
+    float: right;
+}
+
+.glpyhicon[name=back-glyph] {
+    float: left;
+}
+
+.glyphicon[name=plus-glyph] {
+    float: right;
+}
+
+.glyphicon[name=cog-glyph] {
+    color: dodgerblue;
+    float: right;
+}
+
+.glyphicon {
+    padding: 5px;
+    color: white;
 }
 
 .navbar {
@@ -9,10 +31,10 @@
     padding: 10px;
 }
 
-#user-glyph {
-    color: black;
-}
-
 .container-fluid {
     padding-top: 80px;
+}
+
+ul {
+    color: dodgerblue;
 }
