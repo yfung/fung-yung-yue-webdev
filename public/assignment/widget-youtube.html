@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+
+<body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" name="page-navbar">
+    <header href="index.html">
+        <a href="widget-list.html">
+            <span class="glyphicon glyphicon-chevron-left"
+                  name="back-glyph"
+                  id="page-back">
+            </span>
+        </a>
+        <a href="widget-list.html">
+            <span class="glyphicon glyphicon-ok"
+                  name="ok-glyph"
+                  id="page-plus">
+            </span>
+        </a>
+        Widget Edit
+    </header>
+
+</nav>
+
+<div class="container-fluid">
+
+    <div class="form-group">
+        <label for="youtube-name">Name</label>
+        <input name="youtube-name"
+               id="youtube-name"
+               type="text"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="youtube-text">Text</label>
+        <input name="youtube-text"
+               id="youtube-text"
+               type="text"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="youtube-url">URL</label>
+        <input name="youtube-url"
+               id="youtube-url"
+               type="text"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="youtube-width">Width</label>
+        <input name="youtube-width"
+               id="youtube-width"
+               type="text"
+               class="form-control"/>
+    </div>
+
+    <a class="btn btn-default btn-block btn-danger"
+       href="widget-list.html"
+       role="button">Delete</a>
+
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom" name="page-navbar">
+    <a href="profile.html">
+        <span class="glyphicon glyphicon-user" name="user-glyph" id="page-user"></span>
+    </a>
+</nav>
+
+</body>
+</html>
