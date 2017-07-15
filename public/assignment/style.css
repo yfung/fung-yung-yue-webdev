@@ -38,6 +38,7 @@
 .container-fluid {
     padding-bottom: 80px;
     padding-top: 80px;
+    overflow: scroll;
 }
 
 ul {
@@ -65,11 +66,6 @@ input[type=file] {
     padding-bottom: 10px;
 }
 
-#widget-cog {
-    display: none;
-    float: right;
-}
-
 div:hover #widget-cog {
     display: block;
 }
@@ -82,8 +78,4 @@ iframe {
     padding-top: 10px;
     width: 560px;
     height: 315px;
-}
-
-div[name=youtube-widget] {
-    border: none;
 }
