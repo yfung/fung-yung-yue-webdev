@@ -2,9 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
+    <link href="../vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
 </head>
+
 <body>
+
+<!-- Fixed navbar -->
+<nav class="navbar navbar-inverse navbar-fixed-top" name="page-navbar">
+    <header href="index.html">
+        <a href="page-list.html">
+            <span class="glyphicon glyphicon-chevron-left"
+                  name="back-glyph"
+                  id="page-back">
+            </span>
+        </a>
+        <a href="page-list.html">
+            <span class="glyphicon glyphicon-ok"
+                  name="ok-glyph"
+                  id="page-plus">
+            </span>
+        </a>
+        New Page
+    </header>
+
+</nav>
+
+<div class="container-fluid">
+
+    <div class="form-group">
+        <label for="page-name">Name</label>
+        <input name="page-name"
+               id="page-name"
+               type="text"
+               placeholder="Name"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="page-title">Title</label>
+        <input name="page-title"
+               id="page-title"
+               type="text"
+               placeholder="Page Title"
+               class="form-control"/>
+    </div>
+
+</div>
+
+<nav class="navbar navbar-inverse navbar-fixed-bottom" name="page-navbar">
+    <a href="profile.html">
+        <span class="glyphicon glyphicon-user" name="user-glyph" id="page-user"></span>
+    </a>
+</nav>
 
 </body>
 </html>
