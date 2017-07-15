@@ -60,3 +60,7 @@ ul {
 #page-user {
     color: dodgerblue;
 }
+
+input[type=file] {
+    padding-bottom: 10px;
+}
