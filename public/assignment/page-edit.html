@@ -13,13 +13,13 @@
 <nav class="navbar navbar-fixed-top" name="page-navbar">
     <header href="index.html">
         <a href="page-list.html">
-            <span class="glyphicon glyphicon-chevron-left"
+            <span class="glyphicon glyphicon-chevron-left pull-left"
                   name="back-glyph"
                   id="page-back">
             </span>
         </a>
         <a href="page-list.html">
-            <span class="glyphicon glyphicon-ok"
+            <span class="glyphicon glyphicon-ok pull-right"
                   name="ok-glyph"
                   id="page-plus">
             </span>
@@ -31,33 +31,63 @@
 
 <div class="container-fluid">
 
-    <div class="form-group">
-        <label for="page-name">Name</label>
-        <input name="page-name"
-               id="page-name"
-               type="text"
-               placeholder="Name"
-               class="form-control"/>
+    <div class="hidden-xs col-sm-3">
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-2 hidden-xs">
+                        <a href="page-list.html">Wikipedia</a>
+                    </div>
+                    <div class="col-sm-1 hidden-xs pull-right">
+                        <a href="website-edit.html">
+                            <span class="glyphicon glyphicon-cog pull-right" name="cog-glyph"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-sm-2 hidden-xs">
+                        <a href="page-list.html">CNN</a>
+                    </div>
+                    <div class="col-sm-1 hidden-xs pull-right">
+                        <a href="website-edit.html">
+                            <span class="glyphicon glyphicon-cog pull-right" name="cog-glyph"></span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 
-    <div class="form-group">
-        <label for="page-title">Title</label>
-        <input name="page-title"
-               id="page-title"
-               type="text"
-               placeholder="Page Title"
-               class="form-control"/>
+    <div class="col-sm-9">
+        <div class="form-group">
+            <label for="page-name">Name</label>
+            <input name="page-name"
+                   id="page-name"
+                   type="text"
+                   placeholder="Name"
+                   class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="page-title">Title</label>
+            <input name="page-title"
+                   id="page-title"
+                   type="text"
+                   placeholder="Page Title"
+                   class="form-control"/>
+        </div>
+
+        <a class="btn btn-default btn-block btn-danger"
+           href="page-list.html"
+           role="button">Delete</a>
     </div>
-
-    <a class="btn btn-default btn-block btn-danger"
-       href="page-list.html"
-       role="button">Delete</a>
-
 </div>
 
 <nav class="navbar navbar-inverse navbar-fixed-bottom" name="page-navbar">
     <a href="profile.html">
-        <span class="glyphicon glyphicon-user" name="user-glyph" id="page-user"></span>
+        <span class="glyphicon glyphicon-user pull-right" name="user-glyph" id="page-user"></span>
     </a>
 </nav>
 

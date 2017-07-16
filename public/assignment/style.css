@@ -1,22 +1,5 @@
-.glyphicon[name=ok-glyph] {
-    float: right;
-}
-
-.glyphicon[name=user-glyph] {
-    float: right;
-}
-
-.glpyhicon[name=back-glyph] {
-    float: left;
-}
-
-.glyphicon[name=plus-glyph] {
-    float: right;
-}
-
 .glyphicon[name=cog-glyph] {
     color: dodgerblue;
-    float: right;
 }
 
 .glyphicon {
