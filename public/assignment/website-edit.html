@@ -13,14 +13,10 @@
 <nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">
         <a href="website-list.html">
-            <span class="glyphicon glyphicon-chevron-left pull-left"
-                  name="back-glyph">
-            </span>
+            <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
         <a href="website-list.html">
-            <span class="glyphicon glyphicon-ok pull-right"
-                  name="ok-glyph">
-            </span>
+            <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
         Edit Website
     </header>
@@ -29,7 +25,7 @@
 
 <div class="container-fluid">
 
-    <div class="hidden-xs col-sm-3">
+    <div class="hidden-xs col-sm-3" id="side-pane">
         <ul class="list-group">
             <li class="list-group-item">
                 <div class="row">
@@ -38,7 +34,7 @@
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
                         <a href="website-edit.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="cog-glyph"></span>
+                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>
                     </div>
                 </div>
@@ -50,7 +46,7 @@
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
                         <a href="website-edit.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="cog-glyph"></span>
+                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>
                     </div>
                 </div>
@@ -76,6 +72,7 @@
 
         <a class="btn btn-default btn-block btn-danger"
            href="website-list.html"
+           id="delete-button"
            role="button">Delete</a>
     </div>
 
@@ -83,7 +80,7 @@
 
 <nav class="navbar navbar-fixed-bottom" name="website-navbar">
     <a href="profile.html">
-        <span class="glyphicon glyphicon-user pull-right" name="user-glyph"></span>
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
 
