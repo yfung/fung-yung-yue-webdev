@@ -34,7 +34,7 @@
     border-right: 1px solid dodgerblue;
     overflow-y: scroll;
     width: 20%;
-    height: 100%;
+    height: 100vh;
 }
 
 ul {
