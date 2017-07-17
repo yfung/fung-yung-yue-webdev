@@ -29,9 +29,12 @@
 }
 
 #side-pane {
+    position: relative;
     padding-right: 20px;
     border-right: 1px solid dodgerblue;
     overflow-y: scroll;
+    width: 20%;
+    height: 100%;
 }
 
 ul {
