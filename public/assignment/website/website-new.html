@@ -4,25 +4,21 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="style.css" rel="stylesheet"/>
+    <link href="../style.css" rel="stylesheet"/>
 </head>
 
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-fixed-top" name="page-navbar">
+<nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">
-        <a href="page-list.html">
-            <span class="glyphicon glyphicon-chevron-left pull-left"
-                  name="page-glyph">
-            </span>
+        <a href="website-list.html">
+            <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="page-list.html">
-            <span class="glyphicon glyphicon-ok pull-right"
-                  name="page-glyph">
-            </span>
+        <a href="website-list.html">
+            <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
-        New Page
+        New Website
     </header>
 
 </nav>
@@ -34,7 +30,7 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
-                        <a href="page-list.html">Wikipedia</a>
+                        <a href="../page/page-list.html">Wikipedia</a>
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
                         <a href="website-edit.html">
@@ -46,7 +42,7 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
-                        <a href="page-list.html">CNN</a>
+                        <a href="../page/page-list.html">CNN</a>
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
                         <a href="website-edit.html">
@@ -59,33 +55,30 @@
     </div>
 
     <div class="col-sm-9">
-
         <div class="form-group">
-            <label for="page-name">Name</label>
-            <input name="page-name"
-                   id="page-name"
-                   type="text"
+            <label for="name">Name</label>
+            <input name="name"
+                   id="name"
                    placeholder="Name"
-                   class="form-control"/>
+                   type="text"
+                   class="form-control">
         </div>
 
         <div class="form-group">
-            <label for="page-title">Title</label>
-            <input name="page-title"
-                   id="page-title"
-                   type="text"
-                   placeholder="Page Title"
-                   class="form-control"/>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
+                      rows="3"></textarea>
         </div>
     </div>
 
 </div>
 
-<nav class="navbar navbar-fixed-bottom" name="page-navbar">
-    <a href="profile.html">
-        <span class="glyphicon glyphicon-user pull-right" name="website-glyph"></span>
+<nav class="navbar navbar-fixed-bottom" name="website-navbar">
+    <a href="../profile.html">
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
+
 
 </body>
 </html>
