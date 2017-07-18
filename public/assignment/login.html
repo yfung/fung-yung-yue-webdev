@@ -1,8 +1,8 @@
 <div class="container">
     <div ng-controller="loginController">
 
-        <div ng-show="welcomeUser" class="alert alert-info">
-            Welcome Back {{welcomeUser.username}}
+        <div ng-show="errorMessage" class="alert alert-danger">
+            {{errorMessage}}
         </div>
 
         <div class="page-header">
@@ -39,5 +39,4 @@
         </div>
 
     </div>
-
 </div>
