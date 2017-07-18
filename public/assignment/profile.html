@@ -10,12 +10,14 @@
 </nav>
 
 <div class="container-fluid">
+    <div ng-controller="profileController">
 
     <div class="form-group">
         <label for="username">Username</label>
         <input name="username"
                id="username"
                type="text"
+               ng-model="user.username"
                placeholder="Username"
                class="form-control">
     </div>
@@ -57,6 +59,7 @@
            role="button">Logout</a>
     </div>
 
+    </div>
 </div>
 
 <nav class="navbar navbar-fixed-bottom" name="website-navbar">
