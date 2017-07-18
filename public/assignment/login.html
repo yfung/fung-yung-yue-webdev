@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="my-app">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
-    <script src="app.js">
-
-    </script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-</head>
-
-<body>
-
 <div class="container">
     <div ng-controller="loginController">
 
-        <div ng-show="" class="alert alert-info">
-            Incorrect Username or Password. Please try again.
+        <div ng-show="welcomeUser" class="alert alert-info">
+            Welcome Back {{welcomeUser.username}}
         </div>
 
         <div class="page-header">
@@ -55,6 +41,3 @@
     </div>
 
 </div>
-
-</body>
-</html>
