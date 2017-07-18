@@ -14,6 +14,7 @@
                    id="username"
                    placeholder="Username"
                    type="text"
+                   ng-model="user.username"
                    class="form-control">
         </div>
 
@@ -22,6 +23,7 @@
                    id="password"
                    type="password"
                    type="text"
+                   ng-model="user.password"
                    placeholder="Password"
                    class="form-control"/>
         </div>
@@ -30,6 +32,7 @@
             <a class="btn btn-default btn-block btn-primary"
                href="profile.html"
                id="login-button"
+               ng-click="login(user)"
                role="button">Login</a>
 
             <a class="btn btn-default btn-block btn-success"
