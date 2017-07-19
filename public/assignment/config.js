@@ -7,15 +7,24 @@
 
     function configuration($routeProvider) {
         $routeProvider
-            .when("/login", {
-                templateURL: "/views/user/login.view.client.html"
+            .when("/login", "/default", {
+                templateURL: "views/user/login.view.client.html"
             })
             .when("/register", {
-                templateURL: "/views/user/register.view.client.html"
+                templateURL: "views/user/register.view.client.html"
             })
             // : refers to a place holder with the name userId
             .when("/profile/:userId", {
-                templateURL: "/views/user/profile.view.client.html"
+                templateURL: "views/user/profile.view.client.html"
+            })
+            .when("/profile/:userId/website", {
+                templateURL: "views/website/website-list.view.client.html"
+            })
+            .when("/profile/:userId/website/new", {
+                templateURL: "views/website/website-new.view.client.html"
+            })
+            .when("/profile/:userId/website/:websiteId", {
+                templateURL: "views/website/website-list.view.client.html"
             });
     }
 
