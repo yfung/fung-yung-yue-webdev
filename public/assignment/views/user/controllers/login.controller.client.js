@@ -6,11 +6,18 @@
         .controller("loginController", loginController);
 
     function loginController($scope, $location, userService) {
-        $scope.login = function (user) {
+        $scope.login = login;
+
+        function init() {
+
+        }
+        init();
+
+        function login(user) {
             if (userService.findUserByUsernameAndPassword(user.username, user.password) === null) {
                 $scope.errorMessage = "Username or password was incorrect. Please try again!"
             } else {
-                $location.url("user/" + "");
+                $location.url("user/" + user._id);
             }
         }
     }

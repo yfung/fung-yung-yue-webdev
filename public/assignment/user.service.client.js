@@ -14,7 +14,8 @@
         ];
 
         var api = {
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword
+            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "findUserById": findUserById
         };
         return api;
 
@@ -27,6 +28,16 @@
             }
             return null;
         }
+
+        function findUserById(userId) {
+            for (var u in users) {
+                if (users[u]._id === userId) {
+                    return users[u];
+                }
+            }
+            return null;
+        }
+
     }
 
 })();

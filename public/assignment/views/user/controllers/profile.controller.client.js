@@ -6,12 +6,23 @@
         .controller("profileController", profileController);
 
     function profileController($scope, $routeParams, userService) {
-        // routeParams is a map to all parameters of possible routes we gave i.e. /login
         var userId = $routeParams["userId"];
-        for (var u in users) {
-            if (users[u]._id === userId) {
-                $scope.user = users[u];
-            }
+
+        $scope.updateUser = updateUser;
+        $scope.unregister = unregister;
+
+        function init() {
+            // routeParams is a map to all parameters of possible routes we gave i.e. /login
+            $scope.user = (userService.findUserById(userId));
+        }
+        init();
+
+        function updateUser() {
+
+        }
+
+        function unregister() {
+
         }
     }
 
