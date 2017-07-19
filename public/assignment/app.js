@@ -28,7 +28,6 @@ function profileController($scope, $routeParams) {
             $scope.user = users[u];
         }
     }
-
 }
 
 function loginController($scope, $location) {
