@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../style.css" rel="stylesheet"/>
+    <link href="../../style.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -12,17 +12,17 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-fixed-top" name="page-navbar">
     <header href="index.html">
-        <a href="page-list.html">
+        <a href="page-list.view.client.html">
             <span class="glyphicon glyphicon-chevron-left pull-left"
                   name="page-glyph">
             </span>
         </a>
-        <a href="page-list.html">
+        <a href="page-list.view.client.html">
             <span class="glyphicon glyphicon-ok pull-right"
                   name="page-glyph">
             </span>
         </a>
-        New Page
+        Edit Page
     </header>
 
 </nav>
@@ -34,10 +34,10 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
-                        <a href="page-list.html">Wikipedia</a>
+                        <a href="page-list.view.client.html">Wikipedia</a>
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="../website/website-edit.html">
+                        <a href="../website/website-edit.view.client.html">
                             <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>
                     </div>
@@ -46,10 +46,10 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
-                        <a href="page-list.html">CNN</a>
+                        <a href="page-list.view.client.html">CNN</a>
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="../website/website-edit.html">
+                        <a href="../website/website-edit.view.client.html">
                             <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>
                     </div>
@@ -59,7 +59,6 @@
     </div>
 
     <div class="col-sm-9">
-
         <div class="form-group">
             <label for="page-name">Name</label>
             <input name="page-name"
@@ -77,12 +76,15 @@
                    placeholder="Page Title"
                    class="form-control"/>
         </div>
-    </div>
 
+        <a class="btn btn-default btn-block btn-danger"
+           href="page-list.view.client.html"
+           role="button">Delete</a>
+    </div>
 </div>
 
-<nav class="navbar navbar-fixed-bottom" name="page-navbar">
-    <a href="../profile.html">
+<nav class="navbar navbar-inverse navbar-fixed-bottom" name="page-navbar">
+    <a href="../user/profile.view.client.html">
         <span class="glyphicon glyphicon-user pull-right" name="website-glyph"></span>
     </a>
 </nav>

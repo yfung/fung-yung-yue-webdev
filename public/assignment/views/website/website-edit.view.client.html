@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../style.css" rel="stylesheet"/>
+    <link href="../../style.css" rel="stylesheet"/>
 </head>
 
 <body>
@@ -12,13 +12,13 @@
 <!-- Fixed navbar -->
 <nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">
-        <a href="website-list.html">
+        <a href="website-list.view.client.html">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="website-list.html">
+        <a href="website-list.view.client.html">
             <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
-        New Website
+        Edit Website
     </header>
 
 </nav>
@@ -30,10 +30,10 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
-                        <a href="../page/page-list.html">Wikipedia</a>
+                        <a href="../page/page-list.view.client.html">Wikipedia</a>
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="website-edit.html">
+                        <a href="website-edit.view.client.html">
                             <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>
                     </div>
@@ -42,10 +42,10 @@
             <li class="list-group-item">
                 <div class="row">
                     <div class="col-sm-2 hidden-xs">
-                        <a href="../page/page-list.html">CNN</a>
+                        <a href="../page/page-list.view.client.html">CNN</a>
                     </div>
                     <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="website-edit.html">
+                        <a href="website-edit.view.client.html">
                             <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>
                     </div>
@@ -56,7 +56,7 @@
 
     <div class="col-sm-9">
         <div class="form-group">
-            <label for="name">Name</label>
+            <label for="name">Website Name</label>
             <input name="name"
                    id="name"
                    placeholder="Name"
@@ -65,20 +65,24 @@
         </div>
 
         <div class="form-group">
-            <label for="description">Description</label>
+            <label for="description">Website Description</label>
             <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
-                      rows="3"></textarea>
+                      rows="5"></textarea>
         </div>
+
+        <a class="btn btn-default btn-block btn-danger"
+           href="website-list.view.client.html"
+           id="delete-button"
+           role="button">Delete</a>
     </div>
 
 </div>
 
 <nav class="navbar navbar-fixed-bottom" name="website-navbar">
-    <a href="../profile.html">
+    <a href="../user/profile.view.client.html">
         <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
-
 
 </body>
 </html>
