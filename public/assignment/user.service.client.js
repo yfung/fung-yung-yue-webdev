@@ -35,6 +35,20 @@
             return user;
         }
 
+        function findUserByUsername(user) {
+            for (var u in users) {
+                var _user = users[u];
+                if (_user.username === user.username) {
+                    return _user;
+                }
+            }
+            return null;
+        }
+
+        function updateUser(userId, user) {
+
+        }
+
         function findUserById(userId) {
             for (var u in users) {
                 if (users[u]._id === userId) {
