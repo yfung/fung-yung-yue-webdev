@@ -8,14 +8,20 @@
     function configuration($routeProvider) {
         $routeProvider
             .when("/login", "/default", {
-                templateURL: "views/user/login.view.client.html"
+                templateURL: "views/user/login.view.client.html",
+                controller: "loginController",
+                controllerAs: "ctrl"
             })
             .when("/register", {
-                templateURL: "views/user/register.view.client.html"
+                templateURL: "views/user/register.view.client.html",
+                controller: "registerController",
+                controllerAs: "ctrl"
             })
             // : refers to a place holder with the name userId
             .when("/user/:userId", {
-                templateURL: "views/user/profile.view.client.html"
+                templateURL: "views/user/profile.view.client.html",
+                controller: "profileController",
+                controllerAs: "ctrl"
             })
             .when("/user/:userId/website", {
                 templateURL: "views/website/website-list.view.client.html"

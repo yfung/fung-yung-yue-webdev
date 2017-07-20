@@ -17,7 +17,7 @@
         <input name="username"
                id="username"
                type="text"
-               ng-model="user.username"
+               ng-model="ctrl.user.username"
                placeholder="Username"
                class="form-control">
     </div>
@@ -55,7 +55,7 @@
            role="button">Websites</a>
 
         <a class="btn btn-default btn-block btn-danger"
-           ng-click="updateUser()"
+           ng-click="ctrl.updateUser()"
            role="button">Unregister</a>
 
         <a class="btn btn-default btn-block btn-danger"

@@ -5,8 +5,10 @@
         .module("my-app")
         .controller("loginController", loginController);
 
-    function loginController($scope, $location, userService) {
-        $scope.login = login;
+    function loginController($location, userService) {
+        var model = this;
+
+        model.login = login;
 
         function init() {
 
@@ -15,7 +17,7 @@
 
         function login(user) {
             if (userService.findUserByUsernameAndPassword(user.username, user.password) === null) {
-                $scope.errorMessage = "Username or password was incorrect. Please try again!"
+                model.errorMessage = "Username or password was incorrect. Please try again!"
             } else {
                 $location.url("user/" + user._id);
             }

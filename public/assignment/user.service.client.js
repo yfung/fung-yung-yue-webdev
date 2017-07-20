@@ -29,6 +29,12 @@
             return null;
         }
 
+        function registerUser(user) {
+            user._id = (new Date()).getTime() + "";
+            users.push(user);
+            return user;
+        }
+
         function findUserById(userId) {
             for (var u in users) {
                 if (users[u]._id === userId) {

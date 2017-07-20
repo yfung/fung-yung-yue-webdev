@@ -5,15 +5,16 @@
         .module("my-app")
         .controller("profileController", profileController);
 
-    function profileController($scope, $routeParams, userService) {
+    function profileController($routeParams, userService) {
+        var model = this;
         var userId = $routeParams["userId"];
 
-        $scope.updateUser = updateUser;
-        $scope.unregister = unregister;
+        this.updateUser = updateUser;
+        this.unregister = unregister;
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
-            $scope.user = (userService.findUserById(userId));
+            this.user = (userService.findUserById(userId));
         }
         init();
 

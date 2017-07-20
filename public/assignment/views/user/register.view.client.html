@@ -8,6 +8,7 @@
         <input name="username"
                id="username"
                type="text"
+               ng-model="user.username"
                placeholder="Username"
                class="form-control">
     </div>
@@ -15,6 +16,7 @@
     <div class="form-group">
         <input name="password"
                id="password"
+               ng-model="user.password"
                type="password"
                type="text"
                placeholder="Password"
@@ -24,6 +26,7 @@
     <div class="form-group">
         <input name="verify"
                id="verify"
+               ng-model="user.passwordv"
                type="password"
                type="text"
                placeholder="Verify Password"
@@ -33,6 +36,7 @@
     <div class="form-group">
         <a class="btn btn-default btn-block btn-primary"
            href="profile.view.client.html"
+           ng-click="ctrl.registerUser(user)"
            id="register-button"
            role="button">Register</a>
 
@@ -41,6 +45,5 @@
            id="cancel-button"
            role="button">Cancel</a>
     </div>
-
 
 </div>

@@ -1,44 +1,42 @@
 <div class="container-fluid">
-    <div ng-controller="loginController">
 
-        <div ng-show="errorMessage" class="alert alert-danger">
-            {{errorMessage}}
-        </div>
-
-        <div class="page-header">
-            <h1 id="login-header">Login</h1>
-        </div>
-
-        <div class="form-group">
-            <input name="username"
-                   id="username"
-                   placeholder="Username"
-                   type="text"
-                   ng-model="user.username"
-                   class="form-control">
-        </div>
-
-        <div class="form-group">
-            <input name="password"
-                   id="password"
-                   type="password"
-                   ng-model="user.password"
-                   placeholder="Password"
-                   class="form-control"/>
-        </div>
-
-        <div class="form-group">
-            <a class="btn btn-default btn-block btn-primary"
-               href="#/user/123"
-               id="login-button"
-               ng-click="login(user)"
-               role="button">Login</a>
-
-            <a class="btn btn-default btn-block btn-success"
-               href="#/register"
-               id="register-button"
-               role="button">Sign Up</a>
-        </div>
-
+    <div ng-show="ctrl.errorMessage" class="alert alert-danger">
+        {{ctrl.errorMessage}}
     </div>
+
+    <div class="page-header">
+        <h1 id="login-header">Login</h1>
+    </div>
+
+    <div class="form-group">
+        <input name="username"
+               id="username"
+               placeholder="Username"
+               type="text"
+               ng-model="user.username"
+               class="form-control">
+    </div>
+
+    <div class="form-group">
+        <input name="password"
+               id="password"
+               type="password"
+               ng-model="user.password"
+               placeholder="Password"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-default btn-block btn-primary"
+           href="#/user/123"
+           id="login-button"
+           ng-click="ctrl.login(user)"
+           role="button">Login</a>
+
+        <a class="btn btn-default btn-block btn-success"
+           href="#/register"
+           id="register-button"
+           role="button">Sign Up</a>
+    </div>
+
 </div>
