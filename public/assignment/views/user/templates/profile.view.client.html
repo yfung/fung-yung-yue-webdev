@@ -17,7 +17,7 @@
         <input name="username"
                id="username"
                type="text"
-               ng-model="ctrl.user.username"
+               ng-model="model.user.username"
                placeholder="Username"
                class="form-control">
     </div>
@@ -27,7 +27,6 @@
         <input name="email"
                id="email"
                type="text"
-               ng-model="ctrl.user.email"
                placeholder="Email"
                class="form-control"/>
     </div>
@@ -37,7 +36,7 @@
         <input name="firstName"
                id="firstName"
                type="text"
-               ng-model="ctrl.user.firstname"
+               ng-model="model.user.firstName"
                placeholder="First Name"
                class="form-control"/>
     </div>
@@ -47,26 +46,26 @@
         <input name="lastName"
                id="lastName"
                type="text"
-               ng-model="ctrl.user.lastname"
+               ng-model="model.user.lastName"
                placeholder="Last Name"
                class="form-control"/>
     </div>
 
     <div class="form-group">
         <a class="btn btn-default btn-block btn-primary"
-           href="#!/user/{{ctrl.user._id}}/website"
+           href="#!/user/{{model.user._id}}/website"
            role="button">Websites</a>
 
         <a class="btn btn-default btn-block btn-danger"
-           ng-click="ctrl.updateUser()"
-           role="button">Unregister</a>
-
-        <a class="btn btn-default btn-block btn-danger"
-           href="login.view.client.html"
+           ng-click="model.updateUser()"
            role="button">Update</a>
 
         <a class="btn btn-default btn-block btn-danger"
-           href="login.view.client.html"
+           ng-click="ctrl.unregister()"
+           role="button">Unregister</a>
+
+        <a class="btn btn-default btn-block btn-danger"
+           href="#!/login"
            role="button">Logout</a>
     </div>
 

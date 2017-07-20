@@ -9,8 +9,8 @@
         var model = this;
         var userId = $routeParams["userId"];
 
-        this.updateUser = updateUser;
-        this.unregister = unregister;
+        model.updateUser = updateUser;
+        model.unregister = unregister;
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
@@ -19,7 +19,7 @@
         init();
 
         function updateUser() {
-
+            userService.updateUser(user._id, user);
         }
 
         function unregister() {

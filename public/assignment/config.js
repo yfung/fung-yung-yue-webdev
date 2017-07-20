@@ -10,23 +10,23 @@
             .when("/login", "/default", {
                 templateURL: "views/user/login.view.client.html",
                 controller: "loginController",
-                controllerAs: "ctrl"
+                controllerAs: "model"
             })
             .when("/register", {
                 templateURL: "views/user/register.view.client.html",
                 controller: "registerController",
-                controllerAs: "ctrl"
+                controllerAs: "model"
             })
             // : refers to a place holder with the name userId
             .when("/user/:userId", {
                 templateURL: "views/user/profile.view.client.html",
                 controller: "profileController",
-                controllerAs: "ctrl"
+                controllerAs: "model"
             })
             .when("/user/:userId/website", {
                 templateURL: "views/website/website-list.view.client.html",
                 controller: "websiteListController",
-                controllerAs: "ctrl"
+                controllerAs: "model"
             })
             .when("/user/:userId/website/new", {
                 templateURL: "views/website/website-new.view.client.html"
