@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../style.css" rel="stylesheet"/>
+    <link href="../../../style.css" rel="stylesheet"/>
 </head>
 
 <body>
 
 <!-- Fixed navbar -->
-<nav class="navbar navbar-fixed-top" name="page-navbar">
+<nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">
-        <a href="../website/website-list.view.client.html">
-            <span class="glyphicon glyphicon-chevron-left pull-left"
-                  name="page-glyph">
-            </span>
+        <a href="../../user/templates/profile.view.client.html">
+            <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="page-new.view.client.html">
-            <span class="glyphicon glyphicon-plus pull-right"
-                  name="page-glyph"></span>
+        <a href="website-new.view.client.html">
+            <span class="glyphicon glyphicon-plus pull-right"></span>
         </a>
-        Pages
+        Website
     </header>
 
 </nav>
@@ -29,21 +26,21 @@
 <div class="container-fluid">
 
     <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item" id="table-header">
             <div class="row">
                 <div class="col-xs-10">Name</div>
                 <div class="col-xs-2">
-                    <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
                 </div>
             </div>
         </li>
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-10">
-                    <a href="../widget/widget-list.view.client.html">Wikipedia</a>
+                    <a href="../../page/templates/page-list.view.client.html">Wikipedia</a>
                 </div>
                 <div class="col-xs-2 pull-right">
-                    <a href="page-edit.view.client.html">
+                    <a href="website-edit.view.client.html">
                         <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                     </a>
                 </div>
@@ -52,10 +49,10 @@
         <li class="list-group-item">
             <div class="row">
                 <div class="col-xs-10">
-                    <a href="../widget/widget-list.view.client.html">CNN</a>
+                    <a href="../../page/templates/page-list.view.client.html">CNN</a>
                 </div>
                 <div class="col-xs-2 pull-right">
-                    <a href="page-edit.view.client.html">
+                    <a href="website-edit.view.client.html">
                         <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                     </a>
                 </div>
@@ -65,9 +62,9 @@
 
 </div>
 
-<nav class="navbar navbar-fixed-bottom" name="page-navbar">
-    <a href="../user/profile.view.client.html">
-        <span class="glyphicon glyphicon-user pull-right" name="website-glyph"></span>
+<nav class="navbar navbar-fixed-bottom" name="website-navbar">
+    <a href="../../user/templates/profile.view.client.html">
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
 
