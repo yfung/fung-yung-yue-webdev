@@ -22,22 +22,10 @@
                 </div>
             </div>
         </li>
-        <li class="list-group-item">
+        <li ng-repeat="website in ctrl.websites" class="list-group-item">
             <div class="row">
                 <div class="col-xs-10">
-                    <a href="../../page/templates/page-list.view.client.html">Wikipedia</a>
-                </div>
-                <div class="col-xs-2 pull-right">
-                    <a href="website-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-10">
-                    <a href="../../page/templates/page-list.view.client.html">CNN</a>
+                    <a href="../../page/templates/page-list.view.client.html">{{website.name}}</a>
                 </div>
                 <div class="col-xs-2 pull-right">
                     <a href="website-edit.view.client.html">

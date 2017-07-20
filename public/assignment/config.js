@@ -24,7 +24,9 @@
                 controllerAs: "ctrl"
             })
             .when("/user/:userId/website", {
-                templateURL: "views/website/website-list.view.client.html"
+                templateURL: "views/website/website-list.view.client.html",
+                controller: "websiteListController",
+                controllerAs: "ctrl"
             })
             .when("/user/:userId/website/new", {
                 templateURL: "views/website/website-new.view.client.html"
