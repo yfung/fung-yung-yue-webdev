@@ -18,7 +18,8 @@
             "findUserById": findUserById,
             "findUserById": findUserById,
             "registerUser": registerUser,
-            "updateUser": updateUser
+            "updateUser": updateUser,
+            "deleteUser": deleteUser
         };
 
         return api;
@@ -63,6 +64,16 @@
             for (var u in users) {
                 if (users[u]._id === userId) {
                     return users[u];
+                }
+            }
+            return null;
+        }
+
+        function deleteUser(userId) {
+            for (var u in users) {
+                if (users[u]._id === userId) {
+                    users.splice(u, 1);
+                    return;
                 }
             }
             return null;

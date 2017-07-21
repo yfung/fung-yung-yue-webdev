@@ -39,6 +39,18 @@
             })
             .when("/user/:userId/website/:websiteId/page/new", {
                 templateURL: "views/page/templates/page-new.view.client.html"
+            })
+            .when("/user/:userId/website/:websiteId/page/:pageId", {
+                templateURL: "views/page/templates/page-edit.view.client.html"
+            })
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget", {
+                templateURL: "views/page/templates/widget-list.view.client.html"
+            })
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/new", {
+                templateURL: "views/page/templates/widget-choose.view.client.html"
+            })
+            .when("/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", {
+                templateURL: "views/page/templates/widget-edit.view.client.html"
             });
     }
 })();
