@@ -1,6 +1,6 @@
 <nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">Profile
-        <a href="profile.view.client.html">
+        <a href="#!/user/{{model.user._id}}">
             <span class="glyphicon glyphicon-ok pull-right"
                   name="ok-glyph">
             </span>
@@ -73,5 +73,7 @@
 </div>
 
 <nav class="navbar navbar-fixed-bottom" name="website-navbar">
-    <span class="glyphicon glyphicon-user pull-right" name="user-glyph"></span>
+    <a href="#!/user/{{model.user._id}}">
+        <span class="glyphicon glyphicon-user pull-right" name="user-glyph"></span>
+    </a>
 </nav>

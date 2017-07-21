@@ -16,7 +16,8 @@
         init();
 
         function login(user) {
-            if (userService.findUserByUsernameAndPassword(user.username, user.password) === null) {
+            user = userService.findUserByUsernameAndPassword(user.username, user.password);
+            if (user === null) {
                 model.errorMessage = "Username or password was incorrect. Please try again!"
             } else {
                 $location.url("user/" + user._id);
