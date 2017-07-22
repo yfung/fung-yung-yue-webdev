@@ -12,6 +12,12 @@
             model.websites = websiteService.findWebsitesForUser(model.userId);
         }
         init();
+
+        function addWebsite(website) {
+            var site = websiteService.createWebsite(userId, website);
+            $location.url = "/" + site._id;
+        }
+
     }
 
 })();

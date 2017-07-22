@@ -3,7 +3,7 @@
         <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="#!/user/{{model.userId}}/website">
+        <a ng-click="model.addWebsite(website)">
             <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
         New Website
@@ -15,9 +15,9 @@
 
     <div class="hidden-xs col-sm-3" id="side-pane">
         <ul class="list-group">
-            <li ng-repeat="website in model.websites" class="list-group-item">
+            <li ng-repeat="websiteitem in model.websites" class="list-group-item">
                 <div class="row">
-                    <div class="col-xs-10">{{website.name}}</div>
+                    <div class="col-xs-10">{{websiteitem.name}}</div>
                     <div class="col-xs-2 pull-right">
                         <a href="website-edit.view.client.html">
                             <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
@@ -35,12 +35,14 @@
                    id="name"
                    placeholder="Name"
                    type="text"
+                   ng-model="website.name"
                    class="form-control">
         </div>
 
         <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
+                      ng-model="website.description"
                       rows="3"></textarea>
         </div>
     </div>

@@ -27,6 +27,7 @@
 
         function createWebsite(userId, website) {
             website.developerId = userId;
+            website._id = (new Date()).getTime() + "";
             websites.push(website);
             return website;
         }
