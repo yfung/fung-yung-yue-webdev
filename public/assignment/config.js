@@ -17,7 +17,6 @@
                 controller: "registerController",
                 controllerAs: "model"
             })
-            // : refers to a place holder with the name userId
             .when("/user/:userId", {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
@@ -29,7 +28,9 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/new", {
-                templateUrl: "views/website/templates/website-new.view.client.html"
+                templateUrl: "views/website/templates/website-new.view.client.html",
+                controller: "websiteNewController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId", {
                 templateUrl: "views/website/templates/website-list.view.client.html"

@@ -1,9 +1,9 @@
 <nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">
-        <a href="../../user/templates/profile.view.client.html">
+        <a href="#!/user/{{model.userId}}">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="website-new.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/new">
             <span class="glyphicon glyphicon-plus pull-right"></span>
         </a>
         Website
@@ -11,22 +11,22 @@
 
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" name="website-content">
 
     <ul class="list-group">
         <li class="list-group-item" id="table-header">
             <div class="row">
                 <div class="col-xs-10">Name</div>
                 <div class="col-xs-2">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                    <a href="#!/user/{{model.userId}}/website/new">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
                 </div>
             </div>
         </li>
-        <li ng-repeat="website in ctrl.websites" class="list-group-item">
+        <li ng-repeat="website in model.websites" class="list-group-item">
             <div class="row">
-                <div class="col-xs-10">
-                    <a href="../../page/templates/page-list.view.client.html">{{website.name}}</a>
-                </div>
+                <div class="col-xs-10">{{website.name}}</div>
                 <div class="col-xs-2 pull-right">
                     <a href="website-edit.view.client.html">
                         <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
@@ -39,7 +39,7 @@
 </div>
 
 <nav class="navbar navbar-fixed-bottom" name="website-navbar">
-    <a href="../../user/templates/profile.view.client.html">
+    <a href="#!/user/{{model.userId}}">
         <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>

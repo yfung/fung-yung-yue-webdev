@@ -1,9 +1,9 @@
 <nav class="navbar navbar-fixed-top" name="website-navbar">
     <header href="index.html">
-        <a href="website-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="website-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
         New Website
@@ -11,28 +11,14 @@
 
 </nav>
 
-<div class="container-fluid">
+<div class="container-fluid" name="website-content">
 
     <div class="hidden-xs col-sm-3" id="side-pane">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="website in model.websites" class="list-group-item">
                 <div class="row">
-                    <div class="col-sm-2 hidden-xs">
-                        <a href="../../page/templates/page-list.view.client.html">Wikipedia</a>
-                    </div>
-                    <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="website-edit.view.client.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-sm-2 hidden-xs">
-                        <a href="../../page/templates/page-list.view.client.html">CNN</a>
-                    </div>
-                    <div class="col-sm-1 hidden-xs pull-right">
+                    <div class="col-xs-10">{{website.name}}</div>
+                    <div class="col-xs-2 pull-right">
                         <a href="website-edit.view.client.html">
                             <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
                         </a>

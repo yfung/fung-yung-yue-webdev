@@ -1,15 +1,19 @@
 (function () {
     angular
         .module("yungApp")
-        .service("websiteService", websiteService);
+        .factory("websiteService", websiteService);
 
     function websiteService() {
 
-        this.findWebsitesForUser = findWebsitesForUser;
-        this.createWebsite = createWebsite;
-        this.findWebsiteById = findWebsiteById;
-        this.updateWebsite = updateWebsite;
-        this.deleteWebsite = deleteWebsite;
+        var api = {
+            "findWebsitesForUser": findWebsitesForUser,
+            "createWebsite": createWebsite,
+            "findWebsiteById": findWebsiteById,
+            "updateWebsite": updateWebsite,
+            "deleteWebsite": deleteWebsite
+        };
+
+        return api;
 
         var websites = [
             {"_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem"},
@@ -63,7 +67,6 @@
                     sites.push(websites[w]);
                 }
             }
-
             return sites;
         }
     }

@@ -17,10 +17,10 @@
 }
 
 .navbar {
-    position: fixed;
+    /*position: fixed;
     left: 0px;
     right: 0px;
-    /* top/bottom: 0px; (header or footer) body should have padding instead of container*/
+     top/bottom: 0px; (header or footer) body should have padding instead of container*/
     font-size: 30px;
     padding: 10px;
     border: none;

@@ -14,7 +14,7 @@
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
-            this.user = (userService.findUserById(userId));
+            model.user = (userService.findUserById(userId));
         }
         init();
 
