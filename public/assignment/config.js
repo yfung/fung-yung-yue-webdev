@@ -33,7 +33,9 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId", {
-                templateUrl: "views/website/templates/website-list.view.client.html"
+                templateUrl: "views/website/templates/website-edit.view.client.html",
+                controller: "websiteEditController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId/page", {
                 templateUrl: "views/page/templates/page-list.view.client.html"

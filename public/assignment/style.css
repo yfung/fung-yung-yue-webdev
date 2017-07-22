@@ -1,14 +1,10 @@
-.glyphicon[name=website-glyph] {
-    color: dodgerblue;
-}
-
-.glyphicon[name=page-glyph] {
-    color: black;
-}
-
 .glyphicon {
     padding: 5px;
     color: white;
+}
+
+.glyphicon[name=list-glyph] {
+    color: black;
 }
 
 .alert {
@@ -16,22 +12,32 @@
     position: relative;
 }
 
-.navbar {
-    /*position: fixed;
+.navbar-fixed-top{
+    position: fixed;
     left: 0px;
     right: 0px;
-     top/bottom: 0px; (header or footer) body should have padding instead of container*/
-    font-size: 30px;
+    top: 0px;
+    font-size: 36px;
     padding: 10px;
     border: none;
+    background-color: black;
+    color: white;
+    font-family: "Garamond";
 }
 
-.navbar[name=website-navbar] {
-    background-color: dodgerblue;
+.navbar-fixed-bottom{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    font-size: 36px;
+    padding: 10px;
+    border: none;
+    background-color: black;
     color: white;
 }
 
-.container-fluid[name=website-content] {
+.container-fluid {
     padding-bottom: 80px;
     padding-top: 80px;
     overflow: scroll;
@@ -46,21 +52,16 @@
 }
 
 ul {
-    color: dodgerblue;
+    color: black;
 }
 
 a {
-    color: dodgerblue;
+    color: black;
 }
 
 #table-header {
-    background-color: dodgerblue;
+    background-color: black;
     color: white;
-}
-
-.navbar[name=page-navbar] {
-    background-color: whitesmoke;
-    color: black;
 }
 
 input[type=file] {

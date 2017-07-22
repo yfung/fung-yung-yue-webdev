@@ -12,6 +12,7 @@
             model.websites = websiteService.findWebsitesForUser(model.userId);
         }
         init();
+
     }
 
 })();

@@ -1,22 +1,18 @@
-<nav class="navbar navbar-fixed-top" name="website-navbar">
-    <header href="index.html">{{model.user.firstName}} {{model.user.lastName}}
+<nav class="navbar navbar-fixed-top">
+    <header>{{model.user.firstName}} {{model.user.lastName}}
         <a href="#!/user/{{model.user._id}}">
-            <span class="glyphicon glyphicon-ok pull-right"
-                  name="ok-glyph">
+            <span class="glyphicon glyphicon-ok pull-right">
             </span>
         </a>
     </header>
-    </div>
 </nav>
 
 <div class="container-fluid">
-    <div ng-controller="profileController">
 
     <div class="form-group">
         <label for="username">Username</label>
         <input name="username"
                id="username"
-               type="text"
                ng-model="model.user.username"
                placeholder="Username"
                class="form-control">
@@ -26,7 +22,6 @@
         <label for="email">Email</label>
         <input name="email"
                id="email"
-               type="text"
                ng-model="Email"
                class="form-control"/>
     </div>
@@ -35,7 +30,6 @@
         <label for="firstName">First Name</label>
         <input name="firstName"
                id="firstName"
-               type="text"
                ng-model="model.user.firstName"
                placeholder="First Name"
                class="form-control"/>
@@ -45,7 +39,6 @@
         <label for="lastName">Last Name</label>
         <input name="lastName"
                id="lastName"
-               type="text"
                ng-model="model.user.lastName"
                placeholder="Last Name"
                class="form-control"/>
@@ -66,11 +59,10 @@
            href="#!/login">Logout</a>
     </div>
 
-    </div>
 </div>
 
-<nav class="navbar navbar-fixed-bottom" name="website-navbar">
+<nav class="navbar navbar-fixed-bottom">
     <a href="#!/user/{{model.user._id}}">
-        <span class="glyphicon glyphicon-user pull-right" name="user-glyph"></span>
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>

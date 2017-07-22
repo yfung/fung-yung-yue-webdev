@@ -5,16 +5,6 @@
 
     function websiteService() {
 
-        var api = {
-            "findWebsitesForUser": findWebsitesForUser,
-            "createWebsite": createWebsite,
-            "findWebsiteById": findWebsiteById,
-            "updateWebsite": updateWebsite,
-            "deleteWebsite": deleteWebsite
-        };
-
-        return api;
-
         var websites = [
             {"_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem"},
             {"_id": "234", "name": "Tweeter", "developerId": "456", "description": "Lorem"},
@@ -24,6 +14,16 @@
             {"_id": "678", "name": "Checkers", "developerId": "123", "description": "Lorem"},
             {"_id": "789", "name": "Chess", "developerId": "234", "description": "Lorem"}
         ];
+
+        var api = {
+            "findWebsitesForUser": findWebsitesForUser,
+            "createWebsite": createWebsite,
+            "findWebsiteById": findWebsiteById,
+            "updateWebsite": updateWebsite,
+            "deleteWebsite": deleteWebsite
+        };
+
+        return api;
 
         function createWebsite(userId, website) {
             website.developerId = userId;

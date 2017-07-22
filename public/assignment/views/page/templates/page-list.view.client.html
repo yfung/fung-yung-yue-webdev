@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../../style.css" rel="stylesheet"/>
-</head>
-
-<body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-fixed-top" name="page-navbar">
+<nav class="navbar navbar-fixed-top">
     <header href="index.html">
         <a href="../../website/templates/website-list.view.client.html">
-            <span class="glyphicon glyphicon-chevron-left pull-left"
-                  name="page-glyph">
-            </span>
+            <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
         <a href="page-new.view.client.html">
-            <span class="glyphicon glyphicon-plus pull-right"
-                  name="page-glyph"></span>
+            <span class="glyphicon glyphicon-plus pull-right"></span>
         </a>
         Pages
     </header>
@@ -29,34 +14,20 @@
 <div class="container-fluid">
 
     <ul class="list-group">
-        <li class="list-group-item">
+        <li class="list-group-item" id="table-header">
             <div class="row">
                 <div class="col-xs-10">Name</div>
                 <div class="col-xs-2">
-                    <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
+                    <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
                 </div>
             </div>
         </li>
-        <li class="list-group-item">
+        <li ng-repeat="page in model.pages" class="list-group-item">
             <div class="row">
-                <div class="col-xs-10">
-                    <a href="../../widget/template/widget-list.view.client.html">Wikipedia</a>
-                </div>
+                <a class="col-xs-10" href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page/{{page._id}}/widget">{{page.name}}</a>
                 <div class="col-xs-2 pull-right">
-                    <a href="page-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
-                    </a>
-                </div>
-            </div>
-        </li>
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-10">
-                    <a href="../../widget/template/widget-list.view.client.html">CNN</a>
-                </div>
-                <div class="col-xs-2 pull-right">
-                    <a href="page-edit.view.client.html">
-                        <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
+                    <a href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page/{{page._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
                     </a>
                 </div>
             </div>
@@ -65,11 +36,8 @@
 
 </div>
 
-<nav class="navbar navbar-fixed-bottom" name="page-navbar">
-    <a href="../../user/templates/profile.view.client.html">
-        <span class="glyphicon glyphicon-user pull-right" name="website-glyph"></span>
+<nav class="navbar navbar-fixed-bottom">
+    <a href="#!/user/{{model.userId}}">
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
-
-</body>
-</html>

@@ -8,6 +8,8 @@
 
         model.userId = $routeParams.userId;
 
+        model.addWebsite = addWebsite;
+
         function init() {
             model.websites = websiteService.findWebsitesForUser(model.userId);
         }
@@ -15,7 +17,7 @@
 
         function addWebsite(website) {
             var site = websiteService.createWebsite(userId, website);
-            $location.url = "/" + site._id;
+            $location.url = "/" + site._id + "/page";
         }
 
     }

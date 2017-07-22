@@ -1,9 +1,9 @@
-<nav class="navbar navbar-fixed-top" name="website-navbar">
+<nav class="navbar navbar-fixed-top">
     <header href="index.html">
-        <a href="website-list.view.client.html">
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="website-list.view.client.html">
+        <a ng-click="model.updateWebsite(website)">
             <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
         Edit Website
@@ -15,26 +15,12 @@
 
     <div class="hidden-xs col-sm-3" id="side-pane">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="website in model.websites" class="list-group-item">
                 <div class="row">
-                    <div class="col-sm-2 hidden-xs">
-                        <a href="../../page/templates/page-list.view.client.html">Wikipedia</a>
-                    </div>
-                    <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="website-edit.view.client.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-sm-2 hidden-xs">
-                        <a href="../../page/templates/page-list.view.client.html">CNN</a>
-                    </div>
-                    <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="website-edit.view.client.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
+                    <a class="col-xs-10" href="/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                    <div class="col-xs-2 pull-right">
+                        <a href="/user/{{model.userId}}/website/{{website._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
                         </a>
                     </div>
                 </div>
@@ -48,26 +34,26 @@
             <input name="name"
                    id="name"
                    placeholder="Name"
-                   type="text"
+                   ng-model="website.name"
                    class="form-control">
         </div>
 
         <div class="form-group">
             <label for="description">Website Description</label>
-            <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
+            <textarea name="description" id="description" type="text" ng-model="website.description" class="form-control"
                       rows="5"></textarea>
         </div>
 
         <a class="btn btn-default btn-block btn-danger"
-           href="website-list.view.client.html"
-           id="delete-button"
-           role="button">Delete</a>
+           ng-click="model.deleteWebsite()"
+           href="#!/user/{{model.userId}}/website"
+           id="delete-button">Delete</a>
     </div>
 
 </div>
 
 <nav class="navbar navbar-fixed-bottom" name="website-navbar">
-    <a href="../../user/templates/profile.view.client.html">
+    <a href="#!/user/{{model.userId}}">
         <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>

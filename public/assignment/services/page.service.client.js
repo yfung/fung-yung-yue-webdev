@@ -1,21 +1,25 @@
 (function () {
     angular
         .module("yungApp")
-        .service("pageService", pageService);
+        .factory("pageService", pageService);
 
     function pageService() {
 
-        this.createPage = createPage;
-        this.findPagesByWebsiteId = findPagesByWebsiteId;
-        this.findPageById = findPageById;
-        this.updatePage = updatePage;
-        this.deletePage = deletePage;
-
         var pages = [
-            { "_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem" },
-            { "_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem" },
-            { "_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem" }
+            {"_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem"},
+            {"_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem"},
+            {"_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem"}
         ];
+
+        var api = {
+            "createPage": createPage,
+            "findPagesByWebsiteId": findPagesByWebsiteId,
+            "findPageById": findPageById,
+            "updatePage": updatePage,
+            "deletePage": deletePage
+        };
+
+        return api;
 
         function createPage(websiteId, page) {
             page.websiteId = websiteId;
