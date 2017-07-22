@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("my-app")
+        .module("yungApp")
         .controller("websiteListController", websiteListController);
 
     function websiteListController($routeParams, websiteService) {

@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module("my-app")
-        .service("websiteService", pageService);
+        .module("yungApp")
+        .service("pageService", pageService);
 
     function pageService() {
 

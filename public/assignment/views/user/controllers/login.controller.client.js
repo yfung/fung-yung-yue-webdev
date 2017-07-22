@@ -2,7 +2,7 @@
 
     // controllers and configs return the app itself, so they do not all need to be declared
     angular
-        .module("my-app")
+        .module("yungApp")
         .controller("loginController", loginController);
 
     function loginController($location, userService) {

@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("my-app")
+        .module("yungApp")
         .service("websiteService", websiteService);
 
     function websiteService() {

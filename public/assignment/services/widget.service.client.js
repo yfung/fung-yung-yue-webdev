@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module("my-app")
-        .service("websiteService", widgetService);
+        .module("yungApp")
+        .service("widgetService", widgetService);
 
     function widgetService() {
 

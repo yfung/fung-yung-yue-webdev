@@ -1,8 +1,8 @@
 (function () {
 
     angular
-        .module("my-app")
-        .factory("user-mgmt", userService);
+        .module("yungApp")
+        .factory("userService", userService);
 
     function userService() {
 
@@ -15,7 +15,7 @@
 
         var api = {
             "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
-            "findUserById": findUserById,
+            "findUserByUsername": findUserByUsername,
             "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,

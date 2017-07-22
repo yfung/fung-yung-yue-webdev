@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("my-app")
+        .module("yungApp")
         .controller("registerController", registerController);
 
     function registerController(userService, $location) {
@@ -16,14 +16,10 @@
         function registerUser(user) {
             var _user = userService.findUserByUsername(user.username);
             if (!_user) {
-                model.error = "User already exists!"
+                var user = userService.registerUser(user);
+                $location.url("/user/" + user._id);
             }
-            var user = userService.registerUser(user);
-            $location.url("/user/" + user._id);
-        }
-
-        function updateUser(user) {
-            userService.updateUser(user._id, user);
+            model.error = "User already exists!"
         }
     }
 
