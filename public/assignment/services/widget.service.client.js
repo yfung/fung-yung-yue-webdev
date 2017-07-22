@@ -1,14 +1,9 @@
 (function () {
     angular
         .module("yungApp")
-        .service("widgetService", widgetService);
+        .factory("widgetService", widgetService);
 
     function widgetService() {
-
-        this.createWidget = createWidget;
-        this.findWidgetsByPageId = findWidgetsByPageId;
-        this.findWidgetById = findWidgetById;
-        this.updateWidget = updateWidget;
 
         var widgets = [
             { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
@@ -21,6 +16,16 @@
                 "url": "https://youtu.be/AM2Ivdi9c4E" },
             { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
         ];
+
+        var api = {
+            "createWidget": createWidget,
+            "findWidgetsByPageId": findWidgetsByPageId,
+            "findWidgetById": findWidgetById,
+            "updateWidget": updateWidget,
+            "deleteWidget": deleteWidget
+        };
+
+        return api;
 
         function createWidget(pageId, widget) {
             widget.pageId = pageId;
