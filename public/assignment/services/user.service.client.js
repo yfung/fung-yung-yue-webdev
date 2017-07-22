@@ -28,7 +28,7 @@
             for (var u in users) {
                 var _user = users[u];
                 if (_user.username === username && _user.password === password) {
-                     return _user._id;
+                     return _user;
                 }
             }
             return null;

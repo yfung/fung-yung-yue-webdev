@@ -11,6 +11,11 @@
     color: white;
 }
 
+.alert {
+    margin-top: 30px;
+    position: relative;
+}
+
 .navbar {
     position: fixed;
     left: 0px;
@@ -26,7 +31,7 @@
     color: white;
 }
 
-.container-fluid {
+.container-fluid[name=website-content] {
     padding-bottom: 80px;
     padding-top: 80px;
     overflow: scroll;
