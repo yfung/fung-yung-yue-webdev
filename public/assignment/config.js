@@ -53,10 +53,14 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId/page/:pageId/widget", {
-                templateUrl: "views/page/templates/widget-list.view.client.html"
+                templateUrl: "views/widget/templates/widget-list.view.client.html",
+                controller: "widgetListController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId/page/:pageId/widget/new", {
-                templateUrl: "views/page/templates/widget-choose.view.client.html"
+                templateUrl: "views/page/templates/widget-choose.view.client.html",
+                controller: "widgetNewController",
+                controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", {
                 templateUrl: "views/page/templates/widget-edit.view.client.html"
