@@ -1,26 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../../style.css" rel="stylesheet"/>
-</head>
-
-<body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-fixed-top" name="page-navbar">
-    <header href="index.html">
-        <a href="page-list.view.client.html">
-            <span class="glyphicon glyphicon-chevron-left pull-left"
-                  name="page-glyph">
-            </span>
+<nav class="navbar navbar-fixed-top">
+    <header>
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page">
+            <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="page-list.view.client.html">
-            <span class="glyphicon glyphicon-ok pull-right"
-                  name="page-glyph">
-            </span>
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+            ng-click="model.updatePage(model.page)">
+            <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
         Edit Page
     </header>
@@ -31,26 +16,12 @@
 
     <div class="hidden-xs col-sm-3" id="side-pane">
         <ul class="list-group">
-            <li class="list-group-item">
+            <li ng-repeat="page in model.pages" class="list-group-item">
                 <div class="row">
-                    <div class="col-sm-2 hidden-xs">
-                        <a href="page-list.view.client.html">Wikipedia</a>
-                    </div>
-                    <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="../../website/templates/website-edit.view.client.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
-                        </a>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-sm-2 hidden-xs">
-                        <a href="page-list.view.client.html">CNN</a>
-                    </div>
-                    <div class="col-sm-1 hidden-xs pull-right">
-                        <a href="../../website/templates/website-edit.view.client.html">
-                            <span class="glyphicon glyphicon-cog pull-right" name="website-glyph"></span>
+                    <a class="col-xs-10" href="index.html#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
+                    <div class="col-xs-2 pull-right">
+                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                            <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
                         </a>
                     </div>
                 </div>
@@ -65,6 +36,7 @@
                    id="page-name"
                    type="text"
                    placeholder="Name"
+                   ng-model="model.page.name"
                    class="form-control"/>
         </div>
 
@@ -74,20 +46,19 @@
                    id="page-title"
                    type="text"
                    placeholder="Page Title"
+                   ng-model="model.page.description"
                    class="form-control"/>
         </div>
 
         <a class="btn btn-default btn-block btn-danger"
-           href="page-list.view.client.html"
-           role="button">Delete</a>
+           ng-click="model.deletePage()"
+           href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+           id="deleteButton">Delete</a>
     </div>
 </div>
 
-<nav class="navbar navbar-inverse navbar-fixed-bottom" name="page-navbar">
-    <a href="../../user/templates/profile.view.client.html">
-        <span class="glyphicon glyphicon-user pull-right" name="website-glyph"></span>
+<nav class="navbar navbar-inverse navbar-fixed-bottom">
+    <a href="#!/user/{{model.userId}}">
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
-
-</body>
-</html>

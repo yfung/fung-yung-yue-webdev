@@ -3,7 +3,7 @@
         <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"
+        <a href="#!/user/{{model.userId}}/website"
            ng-click="model.updateWebsite(model.website)">
             <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
@@ -42,7 +42,7 @@
         <div class="form-group">
             <label for="description">Website Description</label>
             <textarea name="description" id="description" type="text" ng-model="model.website.description" class="form-control"
-                      rows="5"></textarea>
+                      placeholder="Description" rows="5"></textarea>
         </div>
 
         <a class="btn btn-default btn-block btn-danger"

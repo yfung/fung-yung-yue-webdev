@@ -18,10 +18,9 @@
         <ul class="list-group">
             <li ng-repeat="page in model.pages" class="list-group-item">
                 <div class="row">
-                    <a class="col-xs-10"
-                       href="index.html#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
+                    <a class="col-xs-10" href="index.html#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">{{page.name}}</a>
                     <div class="col-xs-2 pull-right">
-                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/edit">
+                        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                             <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
                         </a>
                     </div>
