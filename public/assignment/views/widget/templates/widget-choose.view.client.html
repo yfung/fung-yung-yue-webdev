@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../../../style.css" rel="stylesheet"/>
-</head>
-
-<body>
-
-<!-- Fixed navbar -->
-<nav class="navbar navbar-fixed-top" name="page-navbar">
+<nav class="navbar navbar-fixed-top">
     <header href="index.html">
-        <a href="widget-list.view.client.html">
-            <span class="glyphicon glyphicon-chevron-left pull-left"
-                  name="page-glyph">
-            </span>
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget">
+            <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
         Choose Widget
     </header>
@@ -34,17 +20,16 @@
         <li class="list-group-item">
             <a href="widget-youtube.view.client.html">Youtube</a>
         </li>
+        <li class="list-group-item">
+            <a href="widget-youtube.view.client.html">Youtube</a>
+        </li>
     </ul>
 
 </div>
 
 
-<nav class="navbar navbar-fixed-bottom" name="page-navbar">
-    <a href="../../user/templates/profile.view.client.html">
-        <span class="glyphicon glyphicon-user pull-right" name="website-glyph"></span>
+<nav class="navbar navbar-fixed-bottom">
+    <a href="#!/user/{{model.userId}}">
+        <span class="glyphicon glyphicon-user pull-right"></span>
     </a>
 </nav>
-
-
-</body>
-</html>
