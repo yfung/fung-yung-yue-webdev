@@ -73,11 +73,16 @@ div:hover #widget-cog {
 }
 
 img {
-    width: 40%;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 iframe {
-    padding-top: 10px;
-    width: 560px;
-    height: 315px;
+    height: 100%;
+    border: none;
+}
+
+#widget-list {
+    padding-left: 20px;
+    padding-right: 20px;
 }

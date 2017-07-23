@@ -13,26 +13,66 @@
 
 <div class="container-fluid">
 
-    <div ng-repeat="widget in model.widgets">
+    <div ng-repeat="widget in model.widgets" id="widget-list">
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADING">
                 <div ng-switch="widget.size">
                     <div ng-switch-when="4">
-                        <h4>{{widget.text}}</h4>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <h4>{{widget.text}}</h4>
+                            </div>
+                            <a class="col-xs-2"
+                               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+                            </a>
+                        </div>
                     </div>
                     <div ng-switch-when="2">
-                        <h2>{{widget.text}}</h2>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                <h2>{{widget.text}}</h2>
+                            </div>
+                            <a class="col-xs-2"
+                               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div ng-switch-when="IMAGE">
-                <img src="{{widget.url}}">
+                <div class="row">
+                    <div class="col-xs-10">
+                        <img src="{{widget.url}}" width="{{widget.width}}">
+                    </div>
+                    <a class="col-xs-2"
+                       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+                    </a>
+                </div>
             </div>
             <div ng-switch-when="YOUTUBE">
-                <iframe src="{{widget.url}}"></iframe>
+                <div class="row">
+                    <div class="col-xs-10">
+                        <iframe src="{{widget.url}}" width="{{widget.width}}"></iframe>
+                    </div>
+                    <a class="col-xs-2"
+                       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+                    </a>
+                </div>
             </div>
             <div ng-switch-when="HTML">
-                <p>{{widget.text}}</p>
+                <div class="row">
+                    <div class="col-xs-10">
+                        <p>{{widget.text}}</p>
+                    </div>
+                    <a class="col-xs-2"
+                       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                        <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
