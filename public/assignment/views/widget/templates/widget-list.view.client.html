@@ -16,13 +16,23 @@
     <div ng-repeat="widget in model.widgets">
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADING">
-                <ng-include src="'widget-heading.view.client.html'">
+                <div ng-switch="widget.size">
+                    <div ng-switch-when="4">
+                        <h4>{{widget.text}}</h4>
+                    </div>
+                    <div ng-switch-when="2">
+                        <h2>{{widget.text}}</h2>
+                    </div>
+                </div>
             </div>
             <div ng-switch-when="IMAGE">
-                <ng-include src="'widget-image.view.client.html'">
+                <img src="{{widget.url}}">
             </div>
             <div ng-switch-when="YOUTUBE">
-                <ng-include src="'widget-youtube.view.client.html'">
+                <iframe src="{{widget.url}}"></iframe>
+            </div>
+            <div ng-switch-when="HTML">
+                <p>{{widget.text}}</p>
             </div>
         </div>
     </div>
