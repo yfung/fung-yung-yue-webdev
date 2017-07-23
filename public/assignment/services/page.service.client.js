@@ -23,6 +23,7 @@
 
         function createPage(websiteId, page) {
             page.websiteId = websiteId;
+            page._id = (new Date()).getTime() + "";
             pages.push(page);
             return page;
         }
