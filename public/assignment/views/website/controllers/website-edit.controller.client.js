@@ -14,6 +14,7 @@
 
         function init() {
             model.websites = websiteService.findWebsitesForUser(model.userId);
+            model.website = websiteService.findWebsiteById(model.websiteId);
         }
         init();
 

@@ -42,7 +42,7 @@
 
         function updateWebsite(websiteId, website) {
             for (var w in websites) {
-                if (website[w]._id === websiteId) {
+                if (websites[w]._id === websiteId) {
                     websites[w] = website;
                     return;
                 }

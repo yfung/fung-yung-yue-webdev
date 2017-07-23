@@ -16,7 +16,7 @@
         init();
 
         function addWebsite(website) {
-            var site = websiteService.createWebsite(userId, website);
+            var site = websiteService.createWebsite(model.userId, website);
             $location.url = "/" + site._id + "/page";
         }
 
