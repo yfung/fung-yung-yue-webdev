@@ -7,23 +7,23 @@
 
     function profileController($routeParams, userService, $location) {
         var model = this;
-        var userId = $routeParams["userId"];
+        model.userId = $routeParams["userId"];
 
         model.updateUser = updateUser;
         model.unregister = unregister;
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
-            model.user = (userService.findUserById(userId));
+            model.user = (userService.findUserById(model.userId));
         }
         init();
 
         function updateUser() {
-            userService.updateUser(user._id, user);
+            userService.updateUser(model.userId, model.user);
         }
 
         function unregister() {
-            userService.deleteUser(user._id);
+            userService.deleteUser(model.user._id);
             $location.url("/login");
         }
     }
