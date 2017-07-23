@@ -63,7 +63,9 @@
                 controllerAs: "model"
             })
             .when("/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", {
-                templateUrl: "views/page/templates/widget-edit.view.client.html"
+                templateUrl: "views/widget/templates/widget-edit.view.client.html",
+                controller: "widgetEditController",
+                controllerAs: "model"
             });
     }
 })();
