@@ -1,9 +1,9 @@
 <nav class="navbar navbar-fixed-top">
-    <header href="index.html">
-        <a href="../../website/templates/website-list.view.client.html">
+    <header>
+        <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a href="page-new.view.client.html">
+        <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
             <span class="glyphicon glyphicon-plus pull-right"></span>
         </a>
         Pages
@@ -18,7 +18,9 @@
             <div class="row">
                 <div class="col-xs-10">Name</div>
                 <div class="col-xs-2">
-                    <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new">
+                        <span class="glyphicon glyphicon-cog pull-right"></span>
+                    </a>
                 </div>
             </div>
         </li>
@@ -26,7 +28,7 @@
             <div class="row">
                 <a class="col-xs-10" href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page/{{page._id}}/widget">{{page.name}}</a>
                 <div class="col-xs-2 pull-right">
-                    <a href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page/{{page._id}}">
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                         <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
                     </a>
                 </div>

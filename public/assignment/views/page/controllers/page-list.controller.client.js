@@ -6,8 +6,8 @@
     function pageListController($routeParams, pageService) {
         var model = this;
 
-        model.userId = $routeParams.userId;
         model.websiteId = $routeParams.websiteId;
+        model.userId = $routeParams.userId;
 
         function init() {
             model.pages = pageService.findPagesByWebsiteId(model.websiteId);
