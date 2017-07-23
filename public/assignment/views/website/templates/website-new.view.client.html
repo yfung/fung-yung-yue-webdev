@@ -3,7 +3,8 @@
         <a href="#!/user/{{model.userId}}/website">
             <span class="glyphicon glyphicon-chevron-left pull-left"></span>
         </a>
-        <a ng-click="model.addWebsite(website)">
+        <a href="#!/user/{{model.userId}}/website/{{model.website._id}}/page"
+           ng-click="model.addWebsite()">
             <span class="glyphicon glyphicon-ok pull-right"></span>
         </a>
         New Website
@@ -35,14 +36,14 @@
                    id="name"
                    placeholder="Name"
                    type="text"
-                   ng-model="website.name"
+                   ng-model="model.website.name"
                    class="form-control">
         </div>
 
         <div class="form-group">
             <label for="description">Description</label>
             <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
-                      ng-model="website.description"
+                      ng-model="model.website.description"
                       rows="3"></textarea>
         </div>
     </div>

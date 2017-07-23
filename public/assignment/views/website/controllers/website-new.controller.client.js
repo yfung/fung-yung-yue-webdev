@@ -12,11 +12,12 @@
 
         function init() {
             model.websites = websiteService.findWebsitesForUser(model.userId);
+            model.website = websiteService.findWebsiteById(model.websiteId);
         }
         init();
 
-        function addWebsite(website) {
-            var site = websiteService.createWebsite(model.userId, website);
+        function addWebsite() {
+            model.website = websiteService.createWebsite(model.userId, model.website);
             $location.url = "/" + site._id + "/page";
         }
 
