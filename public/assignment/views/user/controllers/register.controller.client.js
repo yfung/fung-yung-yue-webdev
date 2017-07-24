@@ -15,6 +15,10 @@
         init();
 
         function registerUser(user) {
+            if (user.passwordv != user.password) {
+                model.error = "Passwords do not match!";
+                return;
+            }
             var _user = userService.findUserByUsername(user.username);
             if (_user === null) {
                 var user = userService.registerUser(user);
