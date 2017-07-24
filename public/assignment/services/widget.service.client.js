@@ -42,11 +42,6 @@
                     pageWidgets.push(widgets[w]);
                 }
             }
-            for (var p in pageWidgets) {
-                if (pageWidgets[p].widgetType === "HTML") {
-                    pageWidgets[p].text = pageWidgets[p].text.replace(">", "<").split("<")[2];
-                }
-            }
             return pageWidgets;
         }
 
