@@ -7,19 +7,34 @@
     </header>
 </nav>
 
-<div ng-switch="{{model.widget.widgetType}}">
-    <div ng-switch-when="HEADING">
-        <ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'">
+<div class="container-fluid" id="edit-page">
+
+    <div ng-switch="model.widget.widgetType">
+        <div ng-switch-when="HEADING">
+            <ng-include src="'views/widget/templates/widget-heading-edit.view.client.html'">
+        </div>
+        <div ng-switch-when="IMAGE">
+            <ng-include src="'views/widget/templates/widget-image-edit.view.client.html'">
+        </div>
+        <div ng-switch-when="YOUTUBE">
+            <ng-include src="'views/widget/templates/widget-youtube-edit.view.client.html'">
+        </div>
+        <div ng-switch-when="HTML">
+            <ng-include src="'views/widget/templates/widget-html-edit.view.client.html'">
+        </div>
+
     </div>
-    <div ng-switch-when="IMAGE">
-        <ng-include src="'views/widget/templates/widget-image-edit.view.client.html'">
-    </div>
-    <div ng-switch-when="YOUTUBE">
-        <ng-include src="'views/widget/templates/widget-youtube-edit.view.client.html'">
-    </div>
-    <!--<div ng-switch-when="HTML">
-        <ng-include src="'views/widget/templates/widget-html-edit.view.client.html'">
-    </div>-->
+
+    <a class="btn btn-default btn-block btn-primary"
+       ng-click="model.updateWidget()"
+       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+       id="update-button">Update</a>
+
+    <a class="btn btn-default btn-block btn-danger"
+       ng-click="model.deleteWidget()"
+       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+       id="delete-button">Delete</a>
+
 </div>
 
 <nav class="navbar navbar-fixed-bottom">

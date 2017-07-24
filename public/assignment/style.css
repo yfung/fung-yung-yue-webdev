@@ -86,3 +86,8 @@ iframe {
     padding-left: 20px;
     padding-right: 20px;
 }
+
+#edit-page {
+    padding-top: 0px;
+    overflow: scroll;
+}
