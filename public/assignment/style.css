@@ -45,9 +45,9 @@
 #side-pane {
     position: relative;
     padding-right: 20px;
-    height: 100%;
+    height: 100vh;
     border-right: 1px solid dodgerblue;
-    overflow-y: scroll;
+    overflow: auto;
 }
 
 ul {

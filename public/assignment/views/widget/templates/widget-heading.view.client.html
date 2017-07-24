@@ -1,4 +1,15 @@
 <div ng-switch="widget.size">
+    <div ng-switch-when="5">
+        <div class="row">
+            <div class="col-xs-10">
+                <h5>{{widget.text}}</h5>
+            </div>
+            <a class="col-xs-2"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+            </a>
+        </div>
+    </div>
     <div ng-switch-when="4">
         <div class="row">
             <div class="col-xs-10">
@@ -10,10 +21,32 @@
             </a>
         </div>
     </div>
+    <div ng-switch-when="3">
+        <div class="row">
+            <div class="col-xs-10">
+                <h3>{{widget.text}}</h3>
+            </div>
+            <a class="col-xs-2"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+            </a>
+        </div>
+    </div>
     <div ng-switch-when="2">
         <div class="row">
             <div class="col-xs-10">
                 <h2>{{widget.text}}</h2>
+            </div>
+            <a class="col-xs-2"
+               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
+                <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
+            </a>
+        </div>
+    </div>
+    <div ng-switch-when="1">
+        <div class="row">
+            <div class="col-xs-10">
+                <h1>{{widget.text}}</h1>
             </div>
             <a class="col-xs-2"
                href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget/{{widget._id}}">
