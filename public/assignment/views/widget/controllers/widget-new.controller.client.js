@@ -22,7 +22,7 @@
         init();
 
         function editNewHeader() {
-            model.widget.widgetType = "HEADER";
+            model.widget.widgetType = "HEADING";
             model.widget = widgetService.createWidget(model.pageId, model.widget);
         }
 

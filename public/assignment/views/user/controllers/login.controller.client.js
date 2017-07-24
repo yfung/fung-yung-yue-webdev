@@ -5,7 +5,7 @@
         .module("yungApp")
         .controller("loginController", loginController);
 
-    function loginController($location, userService) {
+    function loginController($location, userService, $rootScope) {
         var model = this;
 
         model.login = login;
@@ -20,6 +20,7 @@
             if (user === null) {
                 model.errorMessage = "Username or password was incorrect. Please try again!"
             } else {
+                $rootScope.currentUser = user;
                 $location.url("user/" + user._id);
             }
         }
