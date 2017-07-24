@@ -27,7 +27,9 @@
 
         return api;
 
-        function createWidget(pageId, widget) {
+        function createWidget(pageId) {
+            var widget = {};
+            widget._id = (new Date()).getTime() + "";
             widget.pageId = pageId;
             widgets.push(widget);
             return widget;
