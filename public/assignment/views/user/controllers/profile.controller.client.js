@@ -14,7 +14,10 @@
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
-            model.user = (userService.findUserById(model.userId));
+            var promise = userService.findUserById(model.userId);
+            promise.then(function(response) {
+                model.user = response.data;
+            })
         }
         init();
 
