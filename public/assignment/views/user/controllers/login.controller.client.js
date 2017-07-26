@@ -16,13 +16,17 @@
         init();
 
         function login(user) {
-            user = userService.findUserByUsernameAndPassword(user.username, user.password);
-            if (user === null) {
-                model.errorMessage = "Username or password was incorrect. Please try again!"
-            } else {
-                $rootScope.currentUser = user;
-                $location.url("user/" + user._id);
-            }
+            var promise = userService.findUserByUsernameAndPassword(user.username, user.password);
+            promise
+                .then(function(response) {
+                    user = response.data;
+                    if (user === "0") {
+                        model.errorMessage = "Username or password was incorrect. Please try again!"
+                    } else {
+                        $rootScope.currentUser = user;
+                        $location.url("user/" + user._id);
+                    }
+                });
         }
     }
 })();

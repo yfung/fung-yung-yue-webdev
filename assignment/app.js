@@ -10,6 +10,7 @@ var users = [
 // All url with api are meant to return dynamic data
 app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
+app.get("/api/user", findUserByUsernameAndPassword);
 
 function getAllUsers(req, response) {
     response.send(users);
@@ -21,4 +22,18 @@ function getUserById(req, response) {
             response.send(users[u])
         }
     }
+}
+
+function findUserByUsernameAndPassword(req, response) {
+    var username = req.query.username;
+    var password = req.query.password;
+
+    for (var u in users) {
+        var _user = users[u];
+        if (_user.username === username && _user.password === password) {
+            response.send(_user);
+            return;
+        }
+    }
+    response.send("0");
 }
