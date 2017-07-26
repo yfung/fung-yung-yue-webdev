@@ -19,13 +19,17 @@
                 model.error = "Passwords do not match!";
                 return;
             }
-            var _user = userService.findUserByUsername(user.username);
-            if (_user === null) {
-                var user = userService.registerUser(user);
-                $location.url("/user/" + user._id);
-            } else {
-                model.error = "User already exists!";
-            }
+            var promise = userService.findUserByUsername(user.username);
+            promise
+                .then(function (response) {
+                    var _user = response.data;
+                    if (_user === "0") {
+                        user = userService.registerUser(user);
+                        $location.url("/user/" + user._id);
+                    } else {
+                        model.error = "User already exists!";
+                    }
+                });
         }
     }
 

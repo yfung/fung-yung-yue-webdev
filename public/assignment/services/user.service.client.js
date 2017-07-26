@@ -35,18 +35,11 @@
         }
 
         function registerUser(user) {
-            user._id = (new Date()).getTime() + "";
-            users.push(user);
-            return user;
+            return $http.post("/api/users", user);
         }
 
         function findUserByUsername(username) {
-            for (var u in users) {
-                if (users[u].username === username) {
-                    return users[u];
-                }
-            }
-            return null;
+            return $http.get("/api/user?username=" + username);
         }
 
         function findUserById(userId) {
