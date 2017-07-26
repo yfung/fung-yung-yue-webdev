@@ -49,7 +49,7 @@
             return null;
         }
         function findUserById(userId) {
-            return $http.get("http://localhost:3000/user/" + userId);
+            return $http.get("http://localhost:3000/api/user/" + userId);
         }
 
         function findUserByUsernameAndPassword(username, password) {
