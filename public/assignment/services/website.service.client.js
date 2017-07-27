@@ -26,10 +26,7 @@
         return api;
 
         function createWebsite(userId, website) {
-            website.developerId = userId;
-            website._id = (new Date()).getTime() + "";
-            websites.push(website);
-            return website;
+            return $http.post("/api/user/" + userId + "/website", website);
         }
 
         function findWebsiteById(websiteId) {

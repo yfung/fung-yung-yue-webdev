@@ -11,12 +11,19 @@
         model.addWebsite = addWebsite;
 
         function init() {
-            model.websites = websiteService.findWebsitesForUser(model.userId);
+            websiteService.findWebsitesForUser(model.userId)
+                .then(function(websites) {
+                    model.websites = websites;
+                })
         }
         init();
 
-        function addWebsite() {
-            model.website = websiteService.createWebsite(model.userId, model.website);
+        function addWebsite(website) {
+            websiteService
+                .createWebsite(model.userId, website)
+                .then(function() {
+
+                });
         }
 
     }

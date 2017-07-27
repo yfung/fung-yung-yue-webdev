@@ -11,6 +11,7 @@ var websites = [
 ];
 
 app.get("/api/user/:userId/website", findWebsitesForUser);
+app.post("/api/user/:userId/website", createWebsite);
 
 function findWebsitesForUser(request, response) {
     var userId = request.params.userId;
@@ -22,4 +23,14 @@ function findWebsitesForUser(request, response) {
         }
     }
     response.json(sites);
+}
+
+function createWebsite(request, response) {
+    var userId = request.params.userId;
+    var website = request.body;
+
+    website.developerId = userId;
+    website._id = (new Date()).getTime() + "";
+    websites.push(website);
+    response.json(website);
 }
