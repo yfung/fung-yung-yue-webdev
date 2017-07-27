@@ -3,7 +3,7 @@
         .module("yungApp")
         .factory("websiteService", websiteService);
 
-    function websiteService() {
+    function websiteService($http) {
 
         var websites = [
             {"_id": "123", "name": "Facebook", "developerId": "456", "description": "Lorem"},
@@ -62,15 +62,12 @@
         }
 
         function findWebsitesForUser(userId) {
-            var sites = [];
-
-            for (var w in websites) {
-                if (websites[w].developerId === userId) {
-                    sites.push(websites[w]);
-                }
-            }
-            return sites;
+            return $http.get("/api/user/" + userId + "/website")
+                .then(function(response) {
+                    return response.data;
+                });
         }
+
     }
 
 })();
