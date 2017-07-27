@@ -27,13 +27,14 @@
                         var promise2 = userService.registerUser(user);
                         promise2
                             .then(function(response) {
-                                _user = response.data;
+                              _user = response.data;
                                 $location.url("/user/" + _user._id);
                             });
                     } else {
                         model.error = "User already exists!";
                     }
                 });
+
         }
     }
 

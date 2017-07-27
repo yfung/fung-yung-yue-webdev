@@ -27,7 +27,7 @@
         }
 
         function registerUser(user) {
-            return $http.post("/api/users", user);
+            return $http.post("/api/user", user);
         }
 
         function findUserByUsername(username) {
