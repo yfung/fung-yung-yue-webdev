@@ -1,7 +1,6 @@
 .glyphicon {
     padding: 5px;
     color: white;
-    pointer-events: all;
 }
 
 .glyphicon[name=list-glyph] {

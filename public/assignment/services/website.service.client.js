@@ -29,13 +29,8 @@
             return $http.post("/api/user/" + userId + "/website", website);
         }
 
-        function findWebsiteById(websiteId) {
-            for (var w in websites) {
-                if (websites[w]._id === websiteId) {
-                    return websites[w];
-                }
-            }
-            return null;
+        function findWebsiteById(userId, websiteId) {
+            return $http.get("/api/user/" + userId + "/website/" + websiteId);
         }
 
         function updateWebsite(websiteId, website) {

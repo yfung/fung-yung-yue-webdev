@@ -12,6 +12,7 @@ var websites = [
 
 app.get("/api/user/:userId/website", findWebsitesForUser);
 app.post("/api/user/:userId/website", createWebsite);
+app.get("/api/user/:userId/website/:websiteId", findWebsiteById);
 
 function findWebsitesForUser(request, response) {
     var userId = request.params.userId;
@@ -33,4 +34,13 @@ function createWebsite(request, response) {
     website._id = (new Date()).getTime() + "";
     websites.push(website);
     response.json(website);
+}
+
+function findWebsiteById(request, response) {
+    for (var w in websites) {
+        if (websites[w]._id === request.params.websiteId) {
+            response.json(websites[w]);
+        }
+    }
+    response.sendStatus(404);
 }
