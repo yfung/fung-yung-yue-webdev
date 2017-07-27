@@ -23,15 +23,7 @@
         return api;
 
         function updateUser(userId, user) {
-            for (var u in users) {
-                if (users[u]._id === userId) {
-                    users[u].username = user.username;
-                    users[u].firstName = user.firstName;
-                    users[u].lastName = user.lastName;
-                    return;
-                }
-            }
-            return null;
+            return $http.put("/api/user/" + userId, user)
         }
 
         function registerUser(user) {

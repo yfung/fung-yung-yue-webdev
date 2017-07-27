@@ -12,6 +12,7 @@ app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", registerUser);
+app.put("/api/user", updateUser);
 
 function getAllUsers(req, response) {
     response.send(users);
@@ -48,9 +49,23 @@ function findUser(request, response) {
     response.send("0");
 }
 
-function registerUser(req, response) {
-    var user = req.body;
+function registerUser(request, response) {
+    var user = request.body;
     user._id = (new Date()).getTime() + "";
     users.push(user);
     response.send(user);
+}
+
+function updateUser(request, response) {
+    var userId = request.params.userId;
+    var user = request.body;
+
+    for (var u in users) {
+        if (users[u]._id === userId) {
+            users[u] = user;
+            response.send(user);
+            return;
+        }
+    }
+    response.send("404");
 }
