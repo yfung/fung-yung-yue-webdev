@@ -13,12 +13,12 @@
         function init() {
 
         }
+
         init();
 
         function login(user) {
-            var promise = userService.findUserByUsernameAndPassword(user.username, user.password);
-            promise
-                .then(function(response) {
+            userService.findUserByUsernameAndPassword(user.username, user.password)
+                .then(function (response) {
                     user = response.data;
                     if (user === "0") {
                         model.errorMessage = "Username or password was incorrect. Please try again!"
