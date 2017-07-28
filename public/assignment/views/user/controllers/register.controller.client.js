@@ -23,8 +23,7 @@
                 .then(function (response) {
                     var _user = response.data;
                     if (_user === "0") {
-                        userService.registerUser(user)
-
+                        userService.registerUser(user);
                     } else {
                         model.error = "User already exists!";
                     }
