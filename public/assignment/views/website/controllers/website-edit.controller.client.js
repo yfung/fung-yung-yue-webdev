@@ -28,7 +28,7 @@
         init();
 
         function updateWebsite(website) {
-            websiteService.updateWebsite(model.websiteId, website);
+            websiteService.updateWebsite(model.websiteId, model.userId, website);
         }
 
         function deleteWebsite() {

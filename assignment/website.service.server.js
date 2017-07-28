@@ -13,6 +13,7 @@ var websites = [
 app.get("/api/user/:userId/website", findWebsitesForUser);
 app.post("/api/user/:userId/website", createWebsite);
 app.get("/api/user/:userId/website/:websiteId", findWebsiteById);
+app.put("/api/user/:userId/website/:websiteId", updateWebsite);
 
 function findWebsitesForUser(request, response) {
     var userId = request.params.userId;
@@ -40,6 +41,20 @@ function findWebsiteById(request, response) {
     for (var w in websites) {
         if (websites[w]._id === request.params.websiteId) {
             response.json(websites[w]);
+        }
+    }
+    response.sendStatus(404);
+}
+
+function updateWebsite(request, response) {
+    var websiteId = request.params.websiteId;
+    var website = request.body;
+
+    for (var w in websites) {
+        if (websites[w]._id === websiteId) {
+            websites[w] = website;
+            response.json(website);
+            return;
         }
     }
     response.sendStatus(404);

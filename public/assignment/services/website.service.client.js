@@ -33,14 +33,9 @@
             return $http.get("/api/user/" + userId + "/website/" + websiteId);
         }
 
-        function updateWebsite(websiteId, website) {
-            for (var w in websites) {
-                if (websites[w]._id === websiteId) {
-                    websites[w] = website;
-                    return;
-                }
-            }
-            return null;
+        function updateWebsite(websiteId, userId, website) {
+            return $http.put("/api/user/" + userId + "/website/" + websiteId, website);
+
         }
 
         function deleteWebsite(websiteId) {
