@@ -34,7 +34,7 @@
 
         function findWebsitesForUser(userId) {
             return $http.get("/api/user/" + userId + "/website")
-                .then(function(response) {
+                .then(function (response) {
                     return response.data;
                 });
         }

@@ -10,7 +10,11 @@
         model.userId = $routeParams.userId;
 
         function init() {
-            model.pages = pageService.findPagesByWebsiteId(model.websiteId);
+            pageService
+                .findPagesByWebsiteId(model.websiteId, model.userId)
+                .then(function(pages) {
+                    model.pages = pages;
+                });
         }
         init();
 

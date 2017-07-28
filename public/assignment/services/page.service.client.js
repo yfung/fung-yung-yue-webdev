@@ -3,13 +3,7 @@
         .module("yungApp")
         .factory("pageService", pageService);
 
-    function pageService() {
-
-        var pages = [
-            {"_id": "321", "name": "Post 1", "websiteId": "456", "description": "Lorem"},
-            {"_id": "432", "name": "Post 2", "websiteId": "456", "description": "Lorem"},
-            {"_id": "543", "name": "Post 3", "websiteId": "456", "description": "Lorem"}
-        ];
+    function pageService($http) {
 
         var api = {
             "createPage": createPage,
@@ -28,16 +22,11 @@
             return page;
         }
 
-        function findPagesByWebsiteId(websiteId) {
-            var webPages = [];
-
-            for (var p in pages) {
-                if (pages[p].websiteId === websiteId) {
-                    webPages.push(pages[p]);
-                }
-            }
-
-            return webPages;
+        function findPagesByWebsiteId(websiteId, userId) {
+            return $http.get("/api/user/" + userId + "/website/" + websiteId + "/page")
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
         function findPageById(pageId) {
