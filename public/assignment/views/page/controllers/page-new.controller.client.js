@@ -3,7 +3,7 @@
         .module("yungApp")
         .controller("pageNewController", pageNewController);
 
-    function pageNewController($routeParams, pageService) {
+    function pageNewController($routeParams, pageService, $location) {
         var model = this;
 
         model.websiteId = $routeParams.websiteId;
@@ -20,8 +20,12 @@
         }
         init();
 
-        function addPage() {
-            model.page = pageService.createPage(model.websiteId, model.page);
+        function addPage(page) {
+            pageService
+                .createPage(model.websiteId, model.userId, page)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page")
+                });
         }
 
     }

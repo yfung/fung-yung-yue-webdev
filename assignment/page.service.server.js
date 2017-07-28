@@ -7,6 +7,7 @@ var pages = [
 ];
 
 app.get("/api/user/:userId/website/:websiteId/page", findPagesForWebsite);
+app.post("api/user/:userId/website/:websiteId/page", createPage);
 
 function findPagesForWebsite(request, response) {
     var websiteId = request.params.websiteId;
@@ -18,4 +19,14 @@ function findPagesForWebsite(request, response) {
         }
     }
     response.json(webPages);
+}
+
+function createPage(request, response) {
+    var websiteId = request.params.websiteId;
+    var page = request.body;
+
+    page.websiteId = websiteId;
+    page._id = (new Date()).getTime() + "";
+    pages.push(page);
+    response.json(page);
 }

@@ -15,11 +15,8 @@
 
         return api;
 
-        function createPage(websiteId, page) {
-            page.websiteId = websiteId;
-            page._id = (new Date()).getTime() + "";
-            pages.push(page);
-            return page;
+        function createPage(websiteId, userId, page) {
+            return $http.post("/api/user/" + userId + "/website/" + websiteId +  "/page", page);
         }
 
         function findPagesByWebsiteId(websiteId, userId) {

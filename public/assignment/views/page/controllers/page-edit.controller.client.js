@@ -14,7 +14,11 @@
         model.deletePage = deletePage;
 
         function init() {
-            model.pages = pageService.findPagesByWebsiteId(model.websiteId);
+            pageService
+                .findPagesByWebsiteId(model.websiteId, model.userId)
+                .then(function(pages) {
+                    model.pages = pages;
+                });
             model.page = pageService.findPageById(model.pageId)
         }
         init();
