@@ -27,8 +27,13 @@
         }
 
         function unregister() {
-            userService.deleteUser(model.user._id);
-            $location.url("/login");
+            userService
+                .deleteUser(model.userId)
+                .then(function (response) {
+                    if (response.data === "1") {
+                        $location.url("/login");
+                    }
+                });
         }
     }
 

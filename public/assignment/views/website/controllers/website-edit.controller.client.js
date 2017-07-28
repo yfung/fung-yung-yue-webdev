@@ -3,7 +3,7 @@
         .module("yungApp")
         .controller("websiteEditController", websiteEditController);
 
-    function websiteEditController($routeParams, websiteService) {
+    function websiteEditController($routeParams, websiteService, $location) {
         var model = this;
 
         model.websiteId = $routeParams.websiteId;
@@ -28,11 +28,21 @@
         init();
 
         function updateWebsite(website) {
-            websiteService.updateWebsite(model.websiteId, model.userId, website);
+            websiteService
+                .updateWebsite(model.websiteId, model.userId, website)
+                .then(function () {
+                    $location.url("/user/" + model.userId + "/website");
+                })
         }
 
         function deleteWebsite() {
-            websiteService.deleteWebsite(model.websiteId);
+            websiteService
+                .deleteWebsite(model.websiteId, model.userId)
+                .then(function (response) {
+                    if (response.data === "1") {
+                        $location.url("/user/" + model.userId + "/website");
+                    }
+                })
         }
     }
 

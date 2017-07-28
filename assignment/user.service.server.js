@@ -13,6 +13,7 @@ app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", registerUser);
 app.put("/api/user/:userId", updateUser);
+app.delete("/api/user/:userId", deleteUser);
 
 function getAllUsers(req, response) {
     response.send(users);
@@ -64,6 +65,20 @@ function updateUser(request, response) {
         if (users[u]._id === userId) {
             users[u] = user;
             response.send(user);
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function deleteUser(request, response) {
+    var userId = request.params.userId;
+
+    for (var u in users) {
+        if (users[u]._id === userId) {
+            users.splice(u, 1);
+            // 1 means success
+            response.send("1");
             return;
         }
     }
