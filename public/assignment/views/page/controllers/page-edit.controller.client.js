@@ -41,7 +41,7 @@
             pageService
                 .deletePage(model.pageId)
                 .then(function (response) {
-                    if (response === "1") {
+                    if (response.data === "1") {
                         $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page");
                     }
                 });

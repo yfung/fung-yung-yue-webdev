@@ -63,7 +63,7 @@ function updatePage(request, response) {
     for (var p in pages) {
         if (pages[p]._id === pageId) {
             pages[p] = page;
-            response.send(page);
+            response.json(page);
             return;
         }
     }
