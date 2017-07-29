@@ -19,7 +19,8 @@
                     model.websites = websites;
                 });
 
-            websiteService.findWebsiteById(model.userId, model.websiteId)
+            websiteService
+                .findWebsiteById(model.userId, model.websiteId)
                 .then(function (response) {
                     model.website = response.data;
                 });
@@ -32,7 +33,7 @@
                 .updateWebsite(model.websiteId, model.userId, website)
                 .then(function () {
                     $location.url("/user/" + model.userId + "/website");
-                })
+                });
         }
 
         function deleteWebsite() {
@@ -42,7 +43,7 @@
                     if (response.data === "1") {
                         $location.url("/user/" + model.userId + "/website");
                     }
-                })
+                });
         }
     }
 

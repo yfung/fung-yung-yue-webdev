@@ -8,6 +8,9 @@ var pages = [
 
 app.get("/api/user/:userId/website/:websiteId/page", findPagesForWebsite);
 app.post("/api/user/:userId/website/:websiteId/page", createPage);
+app.get("/api/user/:userId/website/:websiteId/page/:pageId", findPageById);
+app.delete("/api/user/:userId/website/:websiteId/page/:pageId", deletePage);
+app.put("/api/user/:userId/website/:websiteId/page/:pageId", updatePage);
 
 function findPagesForWebsite(request, response) {
     var websiteId = request.params.websiteId;
@@ -29,4 +32,40 @@ function createPage(request, response) {
     page._id = (new Date()).getTime() + "";
     pages.push(page);
     response.json(page);
+}
+
+function findPageById(request, response) {
+    for (var p in pages) {
+        if (pages[p]._id === request.params.pageId) {
+            response.send(pages[p]);
+            return;
+        }
+    }
+}
+
+function deletePage(request, response) {
+    var pageId = request.params.pageId;
+
+    for (var p in pages) {
+        if (pages[p]._id === pageId) {
+            pages.splice(p, 1);
+            response.send("1");
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function updatePage(request, response) {
+    var pageId = request.params.pageId;
+    var page = request.body;
+
+    for (var p in pages) {
+        if (pages[p]._id === pageId) {
+            pages[p] = page;
+            response.send(page);
+            return;
+        }
+    }
+    response.sendStatus(404);
 }

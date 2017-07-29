@@ -26,32 +26,16 @@
                 });
         }
 
-        function findPageById(pageId) {
-            for (var p in pages) {
-                if (pages[p]._id === pageId) {
-                    return pages[p];
-                }
-            }
-            return null;
+        function findPageById(pageId, userId, websiteId) {
+            return $http.get("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId);
         }
 
-        function updatePage(pageId, page) {
-            for (var p in pages) {
-                if (pages[p]._id === pageId) {
-                    pages[p] = page;
-                    return;
-                }
-            }
-            return null;
+        function updatePage(pageId, userId, websiteId, page) {
+            $http.put("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId, page)
         }
 
-        function deletePage(pageId) {
-            for (var p in pages) {
-                if (pages[p]._id === pageId) {
-                    pages.splice(p, 1);
-                    return;
-                }
-            }
+        function deletePage(pageId, userId, websiteId) {
+            $http.delete("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId);
         }
 
     }
