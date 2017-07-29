@@ -7,7 +7,7 @@ var pages = [
 ];
 
 app.get("/api/user/:userId/website/:websiteId/page", findPagesForWebsite);
-app.post("api/user/:userId/website/:websiteId/page", createPage);
+app.post("/api/user/:userId/website/:websiteId/page", createPage);
 
 function findPagesForWebsite(request, response) {
     var websiteId = request.params.websiteId;
