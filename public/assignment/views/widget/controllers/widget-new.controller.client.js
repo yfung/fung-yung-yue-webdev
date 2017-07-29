@@ -3,7 +3,7 @@
         .module("yungApp")
         .controller("widgetNewController", widgetNewController);
 
-    function widgetNewController($routeParams, widgetService) {
+    function widgetNewController($routeParams, widgetService, $location) {
         var model = this;
 
         model.widget = {};
@@ -19,26 +19,43 @@
 
         function init() {
         }
+
         init();
 
-        function editNewHeader() {
-            model.widget.widgetType = "HEADING";
-            model.widget = widgetService.createWidget(model.pageId, model.widget);
+        function editNewHeader(widget) {
+            widget.widgetType = "HEADING";
+            widgetService.createWidget(model.pageId, model.userId, model.websiteId, widget)
+                .then(function (response) {
+                    model.widget = response.data;
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widget._id);
+                });
         }
 
-        function editNewImage() {
-            model.widget.widgetType = "IMAGE";
-            model.widget = widgetService.createWidget(model.pageId, model.widget);
+        function editNewImage(widget) {
+            widget.widgetType = "IMAGE";
+            widgetService.createWidget(model.pageId, model.userId, model.websiteId, widget)
+                .then(function (response) {
+                    model.widget = response.data;
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widget._id);
+                });
         }
 
-        function editNewYoutube() {
-            model.widget.widgetType = "YOUTUBE";
-            model.widget = widgetService.createWidget(model.pageId, model.widget);
+        function editNewYoutube(widget) {
+            widget.widgetType = "YOUTUBE";
+            widgetService.createWidget(model.pageId, model.userId, model.websiteId, widget)
+                .then(function (response) {
+                    model.widget = response.data;
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widget._id);
+                });
         }
 
-        function editNewHTML() {
-            model.widget.widgetType = "HTML";
-            model.widget = widgetService.createWidget(model.pageId, model.widget);
+        function editNewHTML(widget) {
+            widget.widgetType = "HTML";
+            widgetService.createWidget(model.pageId, model.userId, model.websiteId, widget)
+                .then(function (response) {
+                    model.widget = response.data;
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget/" + model.widget._id);
+                });
         }
 
     }

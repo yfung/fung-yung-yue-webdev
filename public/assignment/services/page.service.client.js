@@ -31,11 +31,11 @@
         }
 
         function updatePage(pageId, userId, websiteId, page) {
-            $http.put("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId, page)
+            return $http.put("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId, page)
         }
 
         function deletePage(pageId, userId, websiteId) {
-            $http.delete("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId);
+            return $http.delete("/api/user/" + userId + "/website/" + websiteId + "/page/" + pageId);
         }
 
     }

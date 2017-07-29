@@ -1,0 +1,72 @@
+var app = require("../express");
+
+var widgets = [
+    { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
+    { "_id": "234", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+    { "_id": "345", "widgetType": "IMAGE", "pageId": "321", "width": "100%",
+        "url": "http://lorempixel.com/400/200/"},
+    { "_id": "456", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"},
+    { "_id": "567", "widgetType": "HEADING", "pageId": "321", "size": 4, "text": "Lorem ipsum"},
+    { "_id": "678", "widgetType": "YOUTUBE", "pageId": "321", "width": "100%",
+        "url": "https://youtu.be/AM2Ivdi9c4E" },
+    { "_id": "789", "widgetType": "HTML", "pageId": "321", "text": "<p>Lorem ipsum</p>"}
+];
+
+app.get("/api/user/:userId/website/:websiteId/page/:pageId/widget", findWidgetsByPageId);
+app.post("/api/user/:userId/website/:websiteId/page/:pageId/widget", createWidget);
+app.get("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", findWidgetById);
+app.delete("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
+app.put("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
+
+function findWidgetsByPageId(request, response) {
+    var pageWidgets = [];
+
+    for (var w in widgets) {
+        if (widgets[w].pageId === request.params.pageId) {
+            pageWidgets.push(widgets[w]);
+        }
+    }
+    response.json(pageWidgets);
+}
+
+function createWidget(request, response) {
+    var pageId = request.params.pageId;
+    var widget = request.body;
+
+    widget.pageId = pageId;
+    widget._id = (new Date()).getTime() + "";
+    widgets.push(widget);
+    response.json(widget);
+}
+
+function findWidgetById(request, response) {
+    for (var w in widgets) {
+        if (widgets[w]._id === request.params.widgetId) {
+            response.send(widgets[w]);
+            return;
+        }
+    }
+}
+
+function deleteWidget(request, response) {
+    for (var w in widgets) {
+        if (widgets[w]._id === request.params.widgetId) {
+            widgets.splice(w, 1);
+            response.send("1");
+            return;
+        }
+    }
+    response.sendStatus(404);
+}
+
+function updateWidget(request, response) {
+    var widget = request.body;
+
+    for (var w in widgets) {
+        if (widgets[w]._id === request.params.widgetId) {
+            widgets[w] = widget;
+            response.json(widget);
+        }
+    }
+    response.sendStatus(404);
+}

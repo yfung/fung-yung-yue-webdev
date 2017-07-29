@@ -14,7 +14,11 @@
         this.trustUrlResource = trustUrlResource;
 
         function init() {
-            model.widgets = widgetService.findWidgetsByPageId(model.pageId);
+            widgetService
+                .findWidgetsByPageId(model.pageId, model.userId, model.websiteId)
+                .then(function(widgets) {
+                    model.widgets = widgets;
+                });
         }
         init();
 

@@ -26,13 +26,13 @@
     </div>
 
     <a class="btn btn-default btn-block btn-primary"
-       ng-click="model.updateWidget()"
+       ng-click="model.updateWidget(model.widget)"
        href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
        id="update-button">Update</a>
 
     <a class="btn btn-default btn-block btn-danger"
        ng-click="model.deleteWidget()"
-       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
+       href
        id="delete-button">Delete</a>
 
 </div>
