@@ -7,7 +7,16 @@
         function linkFunction(scope, element) {
 
             var widgetList = element.find("widget-list");
-            widgetList.sortable();
+            widgetList.sortable({
+                start: function (event, ui) {
+                    var initial = $(ui.item).index();
+                },
+                stop: function (event, ui) {
+                    var final = $(ui.item).index();
+                    $http.put("/page/:pageId/widget?initial=" + initial + "&final=" + final);
+                }
+            });
+
         }
         return {
             templateURL: "",
