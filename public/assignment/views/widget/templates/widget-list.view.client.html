@@ -13,7 +13,8 @@
 
 <div class="container-fluid">
 
-    <div ng-repeat="widget in model.widgets" id="widget-list">
+    <div id="widget-list"></div>
+    <div ng-repeat="widget in model.widgets">
         <div ng-switch="widget.widgetType">
             <div ng-switch-when="HEADING">
                 <ng-include src="'views/widget/templates/widget-heading.view.client.html'">

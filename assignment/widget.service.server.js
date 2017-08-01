@@ -20,7 +20,8 @@ app.post("/api/user/:userId/website/:websiteId/page/:pageId/widget", createWidge
 app.get("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", findWidgetById);
 app.delete("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 app.put("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
-app.post ("/api/upload", upload.single('myFile'), uploadImage);
+app.post("/api/upload", upload.single('myFile'), uploadImage);
+app.post("/page/:pageId/widget", sortWidget);
 
 function findWidgetsByPageId(request, response) {
     var pageWidgets = [];
@@ -103,4 +104,15 @@ function uploadImage(req, res) {
     var callbackUrl   = "/assignment/#!/user/" + userId + "/website/" + websiteId + "/page/" + pageId + "/widget/" + widgetId;
 
     res.redirect(callbackUrl);
+}
+
+function sortWidget(request, response) {
+    var initial = request.query.initial;
+    var final = request.query.final;
+    var widget = widgets[initial];
+
+    widgets.splice(initial, 1);
+    widgets.splice(final, 0, widget);
+
+    response.json(widgets);
 }
