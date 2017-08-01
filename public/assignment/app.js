@@ -1,4 +1,4 @@
 (function () {
     angular
-        .module("yungApp", ["ngRoute"]);
+        .module("yungApp", ['ngRoute']);
 })();

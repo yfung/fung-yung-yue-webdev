@@ -13,23 +13,7 @@
 
 <div class="container-fluid">
 
-    <div id="widget-list"></div>
-    <div ng-repeat="widget in model.widgets">
-        <div ng-switch="widget.widgetType">
-            <div ng-switch-when="HEADING">
-                <ng-include src="'views/widget/templates/widget-heading.view.client.html'">
-            </div>
-            <div ng-switch-when="IMAGE">
-                <ng-include src="'views/widget/templates/widget-image.view.client.html'">
-            </div>
-            <div ng-switch-when="YOUTUBE">
-                <ng-include src="'views/widget/templates/widget-youtube.view.client.html'">
-            </div>
-            <div ng-switch-when="HTML">
-                <ng-include src="'views/widget/templates/widget-html.view.client.html'">
-            </div>
-        </div>
-    </div>
+    <widget-list id="widget-list"></widget-list>
 
 </div>
 
