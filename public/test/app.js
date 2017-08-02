@@ -1,10 +1,10 @@
 function init() {
     gapi.client.setApiKey("AIzaSyDZgNj95Ym17jJOTZYmXron01aQezQBVwc");
-    gapi.client.load("youtube", "v3", searchForVideo);
-
+    gapi.client.load("youtube", "v3", function() {
+    });
 }
 
-function searchForVideo() {
+$(function () {
 
     var videoSearchField = $("#videoSearchField");
     var searchButton = $("#searchButton");
@@ -21,7 +21,7 @@ function searchForVideo() {
         request.execute(renderVideo(response));
 
     });
-}
+});
 
 function renderVideo(response) {
 
