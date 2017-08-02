@@ -19,7 +19,7 @@
             });
         }
         return {
-            templateURL: "../views/widget/templates/widget-list.html",
+            templateUrl: "../views/widget/templates/widget-list.html",
             link: linkFunction
         }
     }
