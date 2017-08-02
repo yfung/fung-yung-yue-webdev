@@ -1,61 +1,52 @@
-(function() {
-    angular
-        .module("TestApp", [])
-        .controller("TestController", TestController)
-        .filter('reverse', function() {
-            return function(items) {
-                if(items) {
-                    return items.slice().reverse();
-                } else {
-                    return items;
-                }
-            };
+function init() {
+    gapi.client.setApiKey("AIzaSyDZgNj95Ym17jJOTZYmXron01aQezQBVwc");
+    gapi.client.load("youtube", "v3", searchForVideo);
+
+}
+
+function searchForVideo() {
+
+    var videoSearchField = $("#videoSearchField");
+    var searchButton = $("#searchButton");
+
+    searchButton.click(function () {
+
+        var request = gapi.client.youtube.search.list({
+            type: "video",
+            maxResults: 10,
+            order: "viewCount",
+            q: videoSearchField
         });
 
-    function TestController($http) {
-        var vm = this;
-        vm.createMessage = createMessage;
-        vm.deleteMessage = deleteMessage;
+        request.execute(renderVideo(response));
 
-        function init() {
-            findAllMessages();
-        }
-        init();
+    });
+}
 
-        function createMessage(message) {
-            vm.message = "";
-            var obj = {
-                message: message
-            };
-            $http.post("/api/test", obj)
-                .then(
-                    findAllMessages,
-                    function(err) {
-                        vm.error = err;
-                    }
-                );
-        }
+function renderVideo(response) {
 
-        function deleteMessage(message) {
-            $http.delete("/api/test/" + message._id)
-                .then(
-                    findAllMessages,
-                    function(err) {
-                        vm.error = err;
-                    }
-                );
-        }
+    var table = $("<table>");
+    table.addClass("table");
 
-        function findAllMessages() {
-            $http.get("/api/test")
-                .then(
-                    function(response) {
-                        vm.messages = response.data;
-                    },
-                    function(err) {
-                        vm.error = err;
-                    }
-                );
-        }
+    var results = response.result;
+
+    for (var v in results.items) {
+        var video = results[v];
+        var tr = $("<tr>");
+        var td = $("<td>");
+        td.append(video.snippet.title);
+        tr.append(td);
+
+        var vid = $("<iframe>");
+        vid.attr("src", "https://www.youtube.com/watch?v=" + video.snippet.id.videoId);
+        vid.attr("width", "40");
+
+        td = $("<td>");
+        td.append(vid);
+        tr.append(td);
+
+        table.append(tr);
     }
-})();
+
+    $("#searchResults").append(table);
+}
