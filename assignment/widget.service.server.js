@@ -21,7 +21,7 @@ app.get("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", fi
 app.delete("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", deleteWidget);
 app.put("/api/user/:userId/website/:websiteId/page/:pageId/widget/:widgetId", updateWidget);
 app.post("/api/upload", upload.single('myFile'), uploadImage);
-app.post("/page/:pageId/widget", sortWidget);
+app.put("/page/:pageId/widget", sortWidget);
 
 function findWidgetsByPageId(request, response) {
     var pageWidgets = [];

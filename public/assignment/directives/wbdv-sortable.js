@@ -3,10 +3,10 @@
         .module("yungDirectives", [])
         .directive("widgetList", widgetListDirective);
 
-    function widgetListDirective($http, widgetService) {
+    function widgetListDirective($http, $routeParams) {
         function linkFunction(scope, element) {
 
-            var widgetList = element.find("div");
+            var widgetList = element.find("ul");
             var initial = -1;
             widgetList.sortable({
                 start: function (event, ui) {
@@ -14,7 +14,7 @@
                 },
                 stop: function (event, ui) {
                     var final = $(ui.item).index();
-                    $http.put("/page/" + widgetService.model.pageId + "/widget?initial=" + initial + "&final=" + final);
+                    $http.put("/page/" + $routeParams.pageId + "/widget?initial=" + initial + "&final=" + final);
                 }
             });
         }
