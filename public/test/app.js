@@ -1,53 +1,43 @@
-function init() {
-    gapi.client.setApiKey("AIzaSyDZgNj95Ym17jJOTZYmXron01aQezQBVwc");
-    gapi.client.load("youtube", "v3", function () {
-        searchVideo();
-    });
-}
+(function () {
+    $(init);
 
-function searchVideo() {
+    function init() {
+        var api_key = '78d4d2baebb25b906657a9a40ff7e684';
+        var searchButton = $("#searchButton");
 
-    var videoSearchField = $("#videoSearchField");
-    var searchButton = $("#searchButton");
-
-    searchButton.click(function () {
-
-        var request = gapi.client.youtube.search.list({
-            type: "video",
-            maxResults: 10,
-            order: "viewCount",
-            q: videoSearchField
+        searchButton.click(function () {
+            var songSearchField = $("#songSearchField");
+            $.ajax({
+                type: 'GET',
+                url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + songSearchField.val() + '&api_key=' + api_key + '&format=json&limit=5',
+                success: renderSongs
+            })
         });
 
-        request.execute(renderVideo(response));
-
-    });
-}
-
-function renderVideo(response) {
-
-    var table = $("<table>");
-    table.addClass("table");
-
-    var results = response.result;
-
-    for (var v in results.items) {
-        var video = results[v];
-        var tr = $("<tr>");
-        var td = $("<td>");
-        td.append(video.snippet.title);
-        tr.append(td);
-
-        var vid = $("<iframe>");
-        vid.attr("src", "https://www.youtube.com/watch?v=" + video.snippet.id.videoId);
-        vid.attr("width", "40");
-
-        td = $("<td>");
-        td.append(vid);
-        tr.append(td);
-
-        table.append(tr);
     }
 
-    $("#searchResults").append(table);
-}
+    function renderSongs(response) {
+
+        console.log(response);
+
+        var table = $("<table>");
+        table.addClass("table");
+
+        var results = response.results.trackmatches.track;
+
+        for (var s in results) {
+            var song = results[s];
+            var tr = $("<tr>");
+            var tdname = $("<td>");
+            var tdartist = $("<td>");
+            tdname.append(song.name);
+            tdartist.append(song.artist);
+            tr.append(tdname);
+            tr.append(tdartist);
+
+            table.append(tr);
+        }
+
+        $("#searchResults").append(table);
+    }
+})();
