@@ -6,6 +6,7 @@ userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
 userModel.findUserByCredentials = findUserByCredentials;
+userModel.getAllUsers = getAllUsers;
 module.exports = userModel;
 
 function findUserByCredentials(username, password) {
@@ -23,4 +24,8 @@ function createUser(user) {
 
 function findUserById(userId) {
     return userModel.findById(userId);
+}
+
+function getAllUsers() {
+    return userModel.find();
 }

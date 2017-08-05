@@ -1,6 +1,6 @@
-var app = require("../express");
+var app = require("../../express");
 
-var multer = require("../public/vendor/multer");
+var multer = require("../../public/vendor/multer/index");
 var upload = multer({ dest: './public/uploads' });
 
 var widgets = [
