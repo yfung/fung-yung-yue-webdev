@@ -16,11 +16,19 @@
         init();
 
         function buttonSearch(search) {
-            $.ajax({
-                type: 'GET',
-                url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + search + '&api_key=' + api_key + '&format=json&limit=5',
-                success: renderSongs
-            })
+            if (!$("#cbox").is(":checked")) {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + search + '&api_key=' + api_key + '&format=json&limit=5',
+                    success: renderSongs
+                })
+            } else {
+                $.ajax({
+                    type: 'GET',
+                    url: 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + search + '&api_key=' + api_key + '&format=json',
+                    success: renderSongId
+                })
+            }
         }
     }
 
@@ -67,6 +75,29 @@
                 controller: "detailsController",
                 controllerAs: "model"
             })
+    }
+
+    function renderSongId(response) {
+        console.log(response);
+        var table = $("<table>");
+        table.addClass("table");
+        var results = response.track;
+        var tr = $("<tr>");
+        var a = $("<a>");
+        var tdname = $("<td>");
+        var tdartist = $("<td>");
+        a.append(results.name);
+        a.attr('href', function () {
+            return this.href + "/test/#!/track/" + results.mbid;
+        });
+        tdname.append(a);
+        tdartist.append(results.artist.name);
+        tr.append(tdname);
+        tr.append(tdartist);
+
+        table.append(tr);
+        $("#searchResults").append(table);
+
     }
 
     function renderSongs(response) {
