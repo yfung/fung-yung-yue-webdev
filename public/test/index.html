@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="lastFM">
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
@@ -12,15 +12,7 @@
 </head>
 
 <body>
-<div class="container-fluid">
-    <h1>LAST.FM API</h1>
-    <h2>Search By Song Name</h2>
-    <input id="songSearchField" class="form-control"/>
-    <button id="searchButton" class="btn btn-block btn-primary">Search</button>
-
-    <div id="searchResults">
-
-    </div>
+<div ng-view class="container-fluid">
 
 </div>
 </body>
