@@ -82,13 +82,12 @@ function updateUser(request, response) {
 function deleteUser(request, response) {
     var userId = request.params.userId;
 
-    for (var u in users) {
-        if (users[u]._id === userId) {
-            users.splice(u, 1);
-            // 1 means success
+    userModel
+        .deleteUser(userId)
+        .then(function () {
             response.send("1");
-            return;
-        }
-    }
-    response.sendStatus(404);
+        }, function (err) {
+            response.sendStatus(404).send(err);
+        });
+
 }

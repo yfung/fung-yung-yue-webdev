@@ -5,6 +5,7 @@ var userModel = mongoose.model("UserModel", userSchema);
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
+userModel.deleteUser = deleteUser;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.getAllUsers = getAllUsers;
 module.exports = userModel;
@@ -28,4 +29,8 @@ function findUserById(userId) {
 
 function getAllUsers() {
     return userModel.find();
+}
+
+function deleteUser(userId) {
+    return userModel.remove({_id: userId});
 }
