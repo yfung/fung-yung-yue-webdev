@@ -4,3 +4,4 @@ var db = require("./database");
 var widgetModel = mongoose.model("widgetModel", widgetSchema);
 
 module.exports = widgetModel;
+
