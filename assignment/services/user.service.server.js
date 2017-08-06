@@ -39,16 +39,12 @@ function findUser(request, response) {
                 response.sendStatus(404).send(err);
                 return;
             });
-        return;
     } else if (username) {
-        for (var u in users) {
-            if (users[u].username === username) {
-                response.send(users[u]);
-                return;
-            }
-        }
+        userModel.findUserByUsername(username)
+            .then(function (user) {
+               response.json(user);
+            });
     }
-    response.send("0");
 }
 
 function registerUser(request, response) {
