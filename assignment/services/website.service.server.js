@@ -35,7 +35,6 @@ function findWebsiteById(request, response) {
         .findWebsiteById(websiteId)
         .then(function (website) {
                 response.send(website);
-                return;
             },
             function (err) {
                 response.sendStatus(404).send(err);
