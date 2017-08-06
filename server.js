@@ -10,7 +10,6 @@ app.use(express.static(__dirname + '/public'));
 
 require("./test/app");
 require("./assignment/app");
-require("./public/project/app");
 
 var port = process.env.PORT || 3000;
 
