@@ -20,7 +20,7 @@
             userService.findUserByUsernameAndPassword(user.username, user.password)
                 .then(function (response) {
                     user = response.data;
-                    if (user === "0") {
+                    if (user === null) {
                         model.errorMessage = "Username or password was incorrect. Please try again!"
                     } else {
                         $rootScope.currentUser = user;

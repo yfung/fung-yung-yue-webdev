@@ -39,10 +39,12 @@ function findUser(request, response) {
                 response.sendStatus(404).send(err);
                 return;
             });
+        return;
     } else if (username) {
         userModel.findUserByUsername(username)
             .then(function (user) {
                response.json(user);
+               return;
             });
     }
 }
