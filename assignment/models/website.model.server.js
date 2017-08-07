@@ -10,7 +10,7 @@ this.updateWebsite = updateWebsite;
 module.exports = websiteModel;
 
 function createWebsite(website) {
-    websiteModel.create(website);
+    return websiteModel.create(website);
 }
 
 function findWebsitesForUser(userId) {
