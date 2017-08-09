@@ -14,8 +14,6 @@ function findPagesForWebsite(request, response) {
         .findPagesByWebsiteId(websiteId)
         .then(function (pages) {
             response.send(pages);
-        }, function (err) {
-            response.sendStatus(404).send(err);
         });
 }
 
@@ -52,10 +50,8 @@ function deletePage(request, response) {
 
     pageModel
         .deletePage(websiteId, pageId)
-        .then(function () {
-            response.send("1");
-        }, function (err) {
-            response.sendStatus(404).send(err);
+        .then(function (status) {
+            response.json(status);
         });
 }
 
