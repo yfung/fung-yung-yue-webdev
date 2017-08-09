@@ -1,5 +1,6 @@
 var app = require("../../express");
 var widgetModel = require("../models/widget.model.server");
+var pageModel = require("../models/page.model.server");
 
 var multer = require("../../public/vendor/multer/index");
 var upload = multer({dest: './public/uploads'});
@@ -15,10 +16,10 @@ app.put("/page/:pageId/widget", sortWidget);
 function findWidgetsByPageId(request, response) {
     var pageId = request.params.pageId;
 
-    widgetModel
-        .findWidgetsByPageId(pageId)
-        .then(function (pages) {
-            response.json(pages);
+    pageModel
+        .findPageById(pageId)
+        .then(function (page) {
+            response.json(page.widgets);
         });
 }
 
