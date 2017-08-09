@@ -48,9 +48,10 @@ function findWidgetById(request, response) {
 
 function deleteWidget(request, response) {
     var widgetId = request.params.widgetId;
+    var pageId = request.params.pageId;
 
     widgetModel
-        .deleteWidget(widgetId)
+        .deleteWidget(pageId, widgetId)
         .then(function () {
             response.send("1");
         }, function (err) {
