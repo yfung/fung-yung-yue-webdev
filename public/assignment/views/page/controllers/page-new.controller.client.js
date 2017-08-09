@@ -24,7 +24,7 @@
             pageService
                 .createPage(model.websiteId, model.userId, page)
                 .then(function () {
-                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page")
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page");
                 });
         }
 

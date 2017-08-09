@@ -14,6 +14,8 @@ function findPagesForWebsite(request, response) {
         .findPagesByWebsiteId(websiteId)
         .then(function (pages) {
             response.send(pages);
+        }, function (err) {
+            response.sendStatus(404).send(err);
         });
 }
 
@@ -26,8 +28,10 @@ function createPage(request, response) {
     pageModel
         .createPage(page)
         .then(function (page) {
-            response.send(page);
-        })
+            response.json(page);
+        }, function (err) {
+            response.sendStatus(500).send(err);
+        });
 }
 
 function findPageById(request, response) {
@@ -37,14 +41,17 @@ function findPageById(request, response) {
         .findPageById(pageId)
         .then(function (page) {
             response.send(page);
+        }, function (err) {
+            response.sendStatus(404).send(err);
         });
 }
 
 function deletePage(request, response) {
     var pageId = request.params.pageId;
+    var websiteId = request.params.websiteId;
 
     pageModel
-        .deletePage(pageId)
+        .deletePage(websiteId, pageId)
         .then(function () {
             response.send("1");
         }, function (err) {
@@ -59,8 +66,6 @@ function updatePage(request, response) {
     pageModel
         .updatePage(pageId, page)
         .then(function (status) {
-            response.send(status);
-        }, function (err) {
-            response.sendStatus(404).send(err);
+            response.json(status);
         });
 }
