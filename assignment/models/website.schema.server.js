@@ -1,7 +1,9 @@
 var mongoose = require("mongoose");
 var websiteSchema = mongoose.Schema({
     name: String,
-    developerId: String,
-    description: String
+    description: String,
+    developerId: {type: mongoose.Schema.Types.ObjectId, ref:"UserModel"},
+    created: {type: Date, default: Date.now},
+    pages: [{type: mongoose.Schema.Types.ObjectId, ref:"PageModel"}]
 }, {collection: "website"});
 module.exports = websiteSchema;

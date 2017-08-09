@@ -1,15 +1,27 @@
 var mongoose = require("mongoose");
 var websiteSchema = require("./website.schema.server");
+var userModel = require("./user.model.server");
 var websiteModel = mongoose.model("WebsiteModel", websiteSchema);
-this.createWebsite = createWebsite;
-this.findWebsitesForUser = findWebsitesForUser;
-this.findWebsiteById = findWebsiteById;
-this.deleteWebsite = deleteWebsite;
-this.updateWebsite = updateWebsite;
+websiteModel.createWebsite = createWebsite;
+websiteModel.findWebsitesForUser = findWebsitesForUser;
+websiteModel.findWebsiteById = findWebsiteById;
+websiteModel.deleteWebsite = deleteWebsite;
+websiteModel.updateWebsite = updateWebsite;
+websiteModel.addPage = addPage;
+websiteModel.deletePage = deletePage;
 module.exports = websiteModel;
 
 function createWebsite(website) {
-    return websiteModel.create(website);
+    var websiteTmp = null;
+    return websiteModel
+        .create(website)
+        .then(function (websiteDoc) {
+            websiteTmp = websiteDoc;
+            return userModel.addWebsite(website.developerId, websiteDoc._id);
+        })
+        .then(function (userDoc) {
+            return websiteTmp;
+        });
 }
 
 function findWebsitesForUser(userId) {
@@ -17,7 +29,7 @@ function findWebsitesForUser(userId) {
 }
 
 function findWebsiteById(websiteId) {
-    return websiteModel.find({_id: websiteId});
+    return websiteModel.findById(websiteId);
 }
 
 function updateWebsite(websiteId, website) {
@@ -25,6 +37,29 @@ function updateWebsite(websiteId, website) {
         {$set: website});
 }
 
-function deleteWebsite(websiteId) {
-    return websiteModel.remove({_id: websiteId});
+function deleteWebsite(userId, websiteId) {
+    return websiteModel
+        .remove({_id: websiteId})
+        .then(function (status) {
+            return userModel.removeWebsite(userId, websiteId);
+        });
+}
+
+function addPage(websiteId, pageId) {
+    return websiteModel
+        .findById(websiteId)
+        .then(function (website) {
+            website.pages.push(pageId);
+            return website.save();
+        });
+}
+
+function deletePage(websiteId, pageId) {
+    return websiteModel
+        .findById(websiteId)
+        .then(function (website) {
+            var index = website.pages.indexOf(pageId);
+            website.pages.splice(index, 1);
+            return website.save();
+        });
 }

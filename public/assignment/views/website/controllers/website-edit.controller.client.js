@@ -40,9 +40,7 @@
             websiteService
                 .deleteWebsite(model.websiteId, model.userId)
                 .then(function (response) {
-                    if (response.data === "1") {
-                        $location.url("/user/" + model.userId + "/website");
-                    }
+                    $location.url("/user/" + model.userId + "/website");
                 });
         }
     }

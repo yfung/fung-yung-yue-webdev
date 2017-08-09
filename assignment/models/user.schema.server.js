@@ -5,6 +5,7 @@ var userSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
     isAdmin: Boolean,
-    email: String
+    email: String,
+    websites: [{type: mongoose.Schema.Types.ObjectId, ref:"WebsiteModel"}]
 }, {collection: "user"});
 module.exports = userSchema;

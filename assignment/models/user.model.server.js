@@ -4,10 +4,12 @@ var userModel = mongoose.model("UserModel", userSchema);
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.updateUser = updateUser;
-userModel.findUserByUsername =findUserByUsername;
+userModel.findUserByUsername = findUserByUsername;
 userModel.deleteUser = deleteUser;
 userModel.findUserByCredentials = findUserByCredentials;
 userModel.getAllUsers = getAllUsers;
+userModel.addWebsite = addWebsite;
+userModel.removeWebsite = removeWebsite;
 module.exports = userModel;
 
 function findUserByCredentials(username, password) {
@@ -37,4 +39,23 @@ function getAllUsers() {
 
 function deleteUser(userId) {
     return userModel.remove({_id: userId});
+}
+
+function addWebsite(developerId, websiteId) {
+    return userModel
+        .findById(developerId)
+        .then(function (user) {
+            user.websites.push(websiteId);
+            return user.save();
+        });
+}
+
+function removeWebsite(developerId, websiteId) {
+    return userModel
+        .findById(developerId)
+        .then(function (user) {
+            var index = user.websites.indexOf(websiteId);
+            user.websites.splice(index, 1);
+            return user.save();
+        });
 }

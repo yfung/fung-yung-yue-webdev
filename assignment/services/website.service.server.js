@@ -10,7 +10,8 @@ app.delete("/api/user/:userId/website/:websiteId", deleteWebsite);
 function findWebsitesForUser(request, response) {
     var userId = request.params.userId;
 
-    websiteModel.findWebsitesForUser(userId)
+    websiteModel
+        .findWebsitesForUser(userId)
         .then(function (websites) {
             response.send(websites);
         });
@@ -24,7 +25,9 @@ function createWebsite(request, response) {
     websiteModel
         .createWebsite(website)
         .then(function (website) {
-            response.send(website);
+            response.json(website);
+        }, function (err) {
+            response.sendStatus(500).send(err);
         });
 }
 
@@ -34,11 +37,11 @@ function findWebsiteById(request, response) {
     websiteModel
         .findWebsiteById(websiteId)
         .then(function (website) {
-                response.send(website);
+                response.json(website);
             },
             function (err) {
                 response.sendStatus(404).send(err);
-            })
+            });
 }
 
 function updateWebsite(request, response) {
@@ -56,12 +59,11 @@ function updateWebsite(request, response) {
 
 function deleteWebsite(request, response) {
     var websiteId = request.params.websiteId;
+    var userId = request.params.userId;
 
     websiteModel
-        .deleteWebsite(websiteId)
-        .then(function () {
-            response.send("1");
-        }, function (err) {
-            response.sendStatus(404).send(err);
+        .deleteWebsite(userId, websiteId)
+        .then(function (status) {
+            response.json(status);
         });
 }

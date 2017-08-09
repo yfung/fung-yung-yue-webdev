@@ -15,7 +15,8 @@
     <ul class="list-group">
         <li class="list-group-item" id="table-header">
             <div class="row">
-                <div class="col-xs-10">Name</div>
+                <div class="col-xs-6">Name</div>
+                <div class="col-xs-4">Created</div>
                 <div class="col-xs-2">
                     <a href="/user/{{model.userId}}/website/new/">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
@@ -25,7 +26,8 @@
         </li>
         <li ng-repeat="website in model.websites" class="list-group-item">
             <div class="row">
-                <a class="col-xs-10" href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                <a class="col-xs-6" href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page">{{website.name}}</a>
+                <div class="col-xs-4">{{website.created | date}}</div>
                 <div class="col-xs-2 pull-right">
                     <a href="index.html#!/user/{{model.userId}}/website/{{website._id}}/">
                         <span class="glyphicon glyphicon-cog pull-right" name="list-glyph"></span>
