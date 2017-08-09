@@ -31,6 +31,8 @@ function createWidget(request, response) {
         .createWidget(widget)
         .then(function (widget) {
             response.send(widget);
+        }, function (err) {
+            response.sendStatus(500).send(err);
         });
 }
 

@@ -36,9 +36,7 @@
             widgetService
                 .deleteWidget(model.widgetId, model.userId, model.websiteId, model.pageId)
                 .then(function (response) {
-                    if (response.data === "1") {
-                        $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
-                    }
+                    $location.url("/user/" + model.userId + "/website/" + model.websiteId + "/page/" + model.pageId + "/widget");
                 });
         }
 

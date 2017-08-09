@@ -1,11 +1,12 @@
 var mongoose = require("mongoose");
 var widgetSchema = require("./widget.schema.server");
-var widgetModel = mongoose.model("widgetModel", widgetSchema);
-this.findWidgetsByPageId = findWidgetsByPageId;
-this.createWidget = createWidget;
-this.findWidgetById = findWidgetById;
-this.deleteWidget = deleteWidget;
-this.updateWidget = updateWidget;
+var pageModel = require("./page.model.server");
+var widgetModel = mongoose.model("WidgetModel", widgetSchema);
+widgetModel.findWidgetsByPageId = findWidgetsByPageId;
+widgetModel.createWidget = createWidget;
+widgetModel.findWidgetById = findWidgetById;
+widgetModel.deleteWidget = deleteWidget;
+widgetModel.updateWidget = updateWidget;
 
 module.exports = widgetModel;
 
@@ -14,7 +15,17 @@ function findWidgetsByPageId(pageId) {
 }
 
 function createWidget(widget) {
-    return widgetModel.create(widget);
+    var widgetTmp = null;
+    return widgetModel
+        .create(widget)
+        .then(function (widgetDoc) {
+            widgetTmp = widgetDoc;
+            return pageModel.addWidget(widget.pageId, widgetDoc._id);
+        })
+        .then(function (userDoc) {
+            return widgetTmp;
+        });
+
 }
 
 function findWidgetById(widgetId) {
