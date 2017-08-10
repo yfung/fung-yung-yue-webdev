@@ -103,12 +103,16 @@ function uploadImage(req, res) {
 }
 
 function sortWidget(request, response) {
+    var pageId = request.params.pageId;
     var initial = request.query.initial;
     var final = request.query.final;
-    var widget = widgets[initial];
 
-    widgets.splice(initial, 1);
-    widgets.splice(final, 0, widget);
-
-    response.json(widgets);
+    pageModel
+        .findById(pageId)
+        .then(function (page) {
+            var temp = page.widgets[initial];
+            page.widgets.splice(initial, 1);
+            page.widgets.splice(final, 0, temp);
+            return page.save();
+        });
 }

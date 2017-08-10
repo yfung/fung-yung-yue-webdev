@@ -21,7 +21,7 @@
         return {
             templateUrl: "views/widget/templates/widget-list.html",
             link: linkFunction
-        }
+        };
     }
 
 })();
