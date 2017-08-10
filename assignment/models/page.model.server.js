@@ -29,7 +29,8 @@ function findPagesByWebsiteId(websiteId) {
 }
 
 function findPageById(pageId) {
-    return pageModel.findById(pageId);
+    return pageModel.findById(pageId)
+        .populate("widgets");
 }
 
 function updatePage(pageId, page) {

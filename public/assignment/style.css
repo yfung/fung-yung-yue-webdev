@@ -76,7 +76,7 @@ img {
     padding-bottom: 10px;
 }
 
-iframe {
+.youtube-widget iframe {
     border: none;
     position: absolute;
     top: 0;
