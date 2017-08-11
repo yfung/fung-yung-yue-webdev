@@ -1,6 +1,9 @@
 #home {
     letter-spacing: 10px;
     align-content: center;
+    background-image: url("http://travelhdwallpapers.com/wp-content/uploads/2014/01/Eiffel-Tower-24.jpg");
+    background-color: #cccccc;
+    min-height: 100%;
 }
 
 .navbar-fixed-top {
