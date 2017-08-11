@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("rhythmShark")
+        .module("rhythmSharkZ")
         .controller("pregisterController", registerController);
 
     function registerController(userService, $location) {
@@ -22,7 +22,7 @@
             userService.findUserByUsername(user.username)
                 .then(function (response) {
                     var _user = response.data;
-                    if (_user === "0") {
+                    if (_user === null) {
                         return userService.registerUser(user);
                     } else {
                         model.error = "User already exists!";
