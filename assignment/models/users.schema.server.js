@@ -7,6 +7,6 @@ var userSchema = mongoose.Schema({
     isAdmin: Boolean,
     email: String,
     dob: Date,
-    gender: {type: String, enum:[]}
+    gender: {type: String, enum:['Male', 'Female']}
 }, {collection: "user"});
 module.exports = userSchema;
