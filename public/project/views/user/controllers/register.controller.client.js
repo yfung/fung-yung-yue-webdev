@@ -1,7 +1,7 @@
 (function () {
     angular
-        .module("yungApp")
-        .controller("registerController", registerController);
+        .module("rhythmShark")
+        .controller("pregisterController", registerController);
 
     function registerController(userService, $location) {
         var model = this;

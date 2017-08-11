@@ -2,8 +2,8 @@
 
     // controllers and configs return the app itself, so they do not all need to be declared
     angular
-        .module("yungApp")
-        .controller("loginController", loginController);
+        .module("rhythmShark")
+        .controller("ploginController", loginController);
 
     function loginController($location, userService, $rootScope) {
         var model = this;

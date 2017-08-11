@@ -2,8 +2,8 @@
 
     // controllers and configs return the app itself, so they do not all need to be declared
     angular
-        .module("yungApp")
-        .controller("profileController", profileController);
+        .module("rhythmShark")
+        .controller("pprofileController", profileController);
 
     function profileController($routeParams, userService, $location) {
         var model = this;
