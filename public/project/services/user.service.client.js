@@ -16,7 +16,7 @@
         return api;
 
         function updateUser(userId, user) {
-            return $http.put("/api/user/" + userId, user)
+            return $http.put("/api/user/" + userId, user);
         }
 
         function registerUser(user) {
