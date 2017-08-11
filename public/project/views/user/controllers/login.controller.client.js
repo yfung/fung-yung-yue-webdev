@@ -3,7 +3,7 @@
     // controllers and configs return the app itself, so they do not all need to be declared
     angular
         .module("rhythmShark")
-        .controller("ploginController", loginController);
+        .controller("loginController", loginController);
 
     function loginController($location, userService, $rootScope) {
         var model = this;
@@ -24,7 +24,7 @@
                         model.errorMessage = "Username or password was incorrect. Please try again!"
                     } else {
                         $rootScope.currentUser = user;
-                        $location.url("user/" + user._id);
+                        $location.url("profile/" + user._id);
                     }
                 });
         }

@@ -1,7 +1,7 @@
 (function () {
     angular
         .module("rhythmSharkZ")
-        .controller("pregisterController", registerController);
+        .controller("registerController", registerController);
 
     function registerController(userService, $location) {
         var model = this;
@@ -30,7 +30,7 @@
                 })
                 .then(function (response) {
                     _user = response.data;
-                    $location.url("/user/" + _user._id);
+                    $location.url("/profile/" + _user._id);
                 });
 
         }

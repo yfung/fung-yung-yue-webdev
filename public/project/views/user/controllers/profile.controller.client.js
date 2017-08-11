@@ -3,7 +3,7 @@
     // controllers and configs return the app itself, so they do not all need to be declared
     angular
         .module("rhythmShark")
-        .controller("pprofileController", profileController);
+        .controller("profileController", profileController);
 
     function profileController($routeParams, userService, $location) {
         var model = this;
