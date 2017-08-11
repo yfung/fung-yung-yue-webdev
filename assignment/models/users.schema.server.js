@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-var userSchema = mongoose.Schema({
+var usersSchema = mongoose.Schema({
     username: String,
     password: String,
     firstName: String,
@@ -10,4 +10,4 @@ var userSchema = mongoose.Schema({
     gender: {type: String, enum:['Male', 'Female']},
     about: String
 }, {collection: "user"});
-module.exports = userSchema;
+module.exports = usersSchema;
