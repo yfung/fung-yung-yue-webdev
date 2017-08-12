@@ -7,5 +7,5 @@ var userSchema = mongoose.Schema({
     isAdmin: Boolean,
     email: String,
     websites: [{type: mongoose.Schema.Types.ObjectId, ref:"WebsiteModel"}]
-}, {collection: "users"});
+}, {collection: "user"});
 module.exports = userSchema;
