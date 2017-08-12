@@ -11,25 +11,11 @@
     </div>
 
     <div class="form-group">
-        <label for="header-text">Text</label>
-        <input name="header-text"
-               id="header-text"
-               type="text"
-               ng-model="model.playlist.text"
-               placeholder="Text"
-               class="form-control"/>
+        <label for="description">Description</label>
+        <textarea name="description" id="description" type="text" placeholder="Description" class="form-control"
+                  ng-model="model.playlist.description"
+                  rows="3"></textarea>
     </div>
-
-    <div class="form-group">
-        <label for="header-size">Size</label>
-        <input name="header-size"
-               id="header-size"
-               ng-model="model.playlist.size"
-               type="text"
-               placeholder="Size"
-               class="form-control"/>
-    </div>
-
 
     <a class="btn btn-default btn-block btn-primary"
        ng-click="model.createPlaylist(model.playlist)">
