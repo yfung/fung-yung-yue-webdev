@@ -3,10 +3,9 @@
         .module("rhythmShark")
         .controller("playlistController", playlistController);
 
-    function playlistController($location, playlistService, userService) {
+    function playlistController(playlistService, userService) {
         var model = this;
 
-        model.createPlaylist = createPlaylist;
         model.deletePlaylist = deletePlaylist;
 
         function init() {
@@ -19,12 +18,11 @@
 
         init();
 
-        function createPlaylist() {
-
-        }
-
         function deletePlaylist() {
+            playlistService.deletePlaylist()
+                .then(function (response) {
 
+                });
         }
     }
 
