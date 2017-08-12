@@ -11,7 +11,7 @@ app.delete("/api/user/:userId", deleteUser);
 
 function getAllUsers(req, response) {
     userModel
-        .getAllUsers
+        .getAllUsers()
         .then(function (users) {
             response.send(users);
         });
