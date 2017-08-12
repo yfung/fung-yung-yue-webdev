@@ -1,12 +1,12 @@
 (function () {
     angular
         .module("rhythmShark")
-        .controller("playlistController", playlistController);
+        .controller("newPlaylistController", newPlaylistController);
 
-    function playlistController(playlistService, userService, $location) {
+    function newPlaylistController(playlistService, userService, $location) {
         var model = this;
 
-        model.deletePlaylist = deletePlaylist;
+        model.createPlaylist = createPlaylist;
 
         function init() {
             userService.findUserById(model.userId)
@@ -18,8 +18,8 @@
 
         init();
 
-        function deletePlaylist() {
-            playlistService.deletePlaylist()
+        function createPlaylist(playlist) {
+            playlistService.createPlaylist(playlist)
                 .then(function () {
                     $location.url("/playlist" + model.user._id + "/playlist");
                 });

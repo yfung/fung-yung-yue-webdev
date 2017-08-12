@@ -6,9 +6,14 @@
     function playlistService($http) {
 
         var api = {
+            "createPlaylist": createPlaylist,
             "deletePlaylist": deletePlaylist
         };
         return api;
+
+        function createPlaylist(playlist) {
+            return $http.post("/api/playlists/", playlist);
+        }
 
         function deletePlaylist(playlistId) {
             return $http.delete("/api/playlists/" + playlistId);
