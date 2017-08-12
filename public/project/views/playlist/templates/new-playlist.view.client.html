@@ -6,6 +6,7 @@
                id="header-name"
                type="text"
                placeholder="Name"
+               ng-model="model.playlist.name"
                class="form-control"/>
     </div>
 
@@ -14,7 +15,7 @@
         <input name="header-text"
                id="header-text"
                type="text"
-               ng-model="model.widget.text"
+               ng-model="model.playlist.text"
                placeholder="Text"
                class="form-control"/>
     </div>
@@ -23,7 +24,7 @@
         <label for="header-size">Size</label>
         <input name="header-size"
                id="header-size"
-               ng-model="model.widget.size"
+               ng-model="model.playlist.size"
                type="text"
                placeholder="Size"
                class="form-control"/>
@@ -31,13 +32,7 @@
 
 
     <a class="btn btn-default btn-block btn-primary"
-       ng-click="model.updateWidget(model.widget)"
-       href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{model.pageId}}/widget"
-       id="update-button">Update</a>
+       ng-click="model.createPlaylist(model.playlist)">
+        Create Playlist</a>
 
-    <a class="btn btn-default btn-block btn-danger"
-       ng-click="model.deleteWidget()"
-       href
-       id="delete-button">Delete</a>
-    
 </div>
