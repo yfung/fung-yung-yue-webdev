@@ -25,7 +25,7 @@
                 controller: "profileController",
                 controllerAs: "model"
             })
-            .when("/profile/:userId/playlist/:playlistId", {
+            .when("/profile/:userId/playlist", {
                 templateUrl: "views/playlist/templates/playlist.view.client.html",
                 controller: "playlistController",
                 controllerAs: "model"
