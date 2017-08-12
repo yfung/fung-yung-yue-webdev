@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+    <h2>PLAYLISTS</h2>
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col-xs-6">Name</div>
+                <div class="col-xs-4">Created</div>
+                <div class="col-xs-2">
+                    <span class="glyphicon glyphicon-cog pull-right"></span>
+                </div>
+            </div>
+        </li>
+        <li ng-repeat="playlist in model.playlists" class="list-group-item">
+            <div class="row">
+                <a class="col-xs-6" href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page">{{playlist.name}}</a>
+                <div class="col-xs-4">{{playlist.dateCreated | date}}</div>
+                <div class="col-xs-2 pull-right">
+                    <!-- Button to delete here-->
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
