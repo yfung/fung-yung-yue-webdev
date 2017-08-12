@@ -8,6 +8,9 @@ var usersSchema = mongoose.Schema({
     email: String,
     dob: Date,
     gender: {type: String, enum:['Male', 'Female']},
-    about: String
+    about: String,
+    playlists: [],
+    followers: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}],
+    following: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}]
 }, {collection: "users"});
 module.exports = usersSchema;
