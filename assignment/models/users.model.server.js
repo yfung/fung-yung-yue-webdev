@@ -10,7 +10,7 @@ usersModel.findUserByCredentials = findUserByCredentials;
 module.exports = usersModel;
 
 function findUserById(userId) {
-    return userModels.findById(userId);
+    return usersModel.findById(userId);
 }
 
 function findUserByCredentials(username, password) {
