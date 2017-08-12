@@ -19,6 +19,7 @@
         init();
 
         function createPlaylist(playlist) {
+            playlist.createdBy = model.user._id;
             playlistService.createPlaylist(playlist)
                 .then(function () {
                     $location.url("/playlist" + model.user._id + "/playlist");
