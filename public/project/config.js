@@ -24,6 +24,11 @@
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
                 controllerAs: "model"
+            })
+            .when("/profile/:userId/playlist/:playlistId", {
+                templateUrl: "views/playlist/templates/playlist.view.client.html",
+                controller: "playlistController",
+                controllerAs: "model"
             });
     }
 })();
