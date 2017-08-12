@@ -7,7 +7,6 @@ usersModel.updateUser = updateUser;
 usersModel.findUserByUsername = findUserByUsername;
 usersModel.deleteUser = deleteUser;
 usersModel.findUserByCredentials = findUserByCredentials;
-
 module.exports = usersModel;
 
 function findUserById(userId) {

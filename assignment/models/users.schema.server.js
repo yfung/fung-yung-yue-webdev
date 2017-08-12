@@ -9,5 +9,5 @@ var usersSchema = mongoose.Schema({
     dob: Date,
     gender: {type: String, enum:['Male', 'Female']},
     about: String
-}, {collection: "user"});
+}, {collection: "users"});
 module.exports = usersSchema;
