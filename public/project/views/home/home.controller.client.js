@@ -1,7 +1,7 @@
 (function() {
     angular
         .module("rhythmShark")
-        .controller("phomeController", homeController);
+        .controller("homeController", homeController);
 
     function homeController() {
         var model = this;
