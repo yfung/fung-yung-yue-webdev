@@ -1,6 +1,6 @@
 (function () {
     angular
-        .module("rhythmSharkZ")
+        .module("rhythmShark")
         .controller("registerController", registerController);
 
     function registerController(userService, $location) {
