@@ -10,6 +10,7 @@
         model.playlistId = $routeParams["playlistId"];
 
         model.deletePlaylist = deletePlaylist;
+        model.removeTrack = removeTrack;
 
         function init() {
             playlistService.findPlaylistById(model.userId, model.playlistId)
@@ -24,6 +25,14 @@
             playlistService.deletePlaylist(model.userId, model.playlistId)
                 .then(function () {
                     $location.url("/profile/" + model.userId + "/playlist");
+                });
+        }
+
+        function removeTrack(songId) {
+            playlistService
+                .removeTrack(songId)
+                .then(function () {
+                    $location.url("/profile/" + model.userId + "/playlist/" + model.playlistId);
                 });
         }
     }
