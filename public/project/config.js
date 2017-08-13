@@ -42,7 +42,7 @@
             })
             .when("/profile/:userId/search", {
                 templateUrl: "views/search/templates/search.view.client.html",
-                controller: "trackController",
+                controller: "searchController",
                 controllerAs: "model"
             })
             .when("/profile/:userId/track/:trackID", {
