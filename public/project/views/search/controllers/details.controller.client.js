@@ -25,8 +25,7 @@
 
         function addToPlaylist(playlist) {
             playlistService.addSong(model.userId, playlist._id, model.song)
-                .then(function () {
-
+                .then(function (response) {
                 });
         }
 
