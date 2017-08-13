@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </li>
-            <li ng-repeat="song in model.songs" class="list-group-item">
+            <li ng-repeat="song in model.playlist.songs" class="list-group-item">
                 <div class="row">
                     <a class="col-xs-6" href="index.html#!/profile/{{model.userId}}/playlist/{{model.playlistId}}/{{song.id}}">{{song.name}}</a>
                     <div class="col-xs-4">{{song.dateAdded | date}}</div>
