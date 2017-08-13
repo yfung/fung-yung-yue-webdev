@@ -11,12 +11,12 @@
         };
         return api;
 
-        function createPlaylist(playlist) {
-            return $http.post("/api/playlist/", playlist);
+        function createPlaylist(userId, playlist) {
+            return $http.post("/api/profile/" + userId + "playlist/", playlist);
         }
 
-        function deletePlaylist(playlistId) {
-            return $http.delete("/api/playlist/" + playlistId);
+        function deletePlaylist(userId, playlistId) {
+            return $http.delete("/api/profile/" + userId + "playlist/" + playlistId);
         }
     }
 

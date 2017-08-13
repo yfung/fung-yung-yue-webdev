@@ -1,8 +1,8 @@
 var app = require("../../express");
 var playlistModel = require("../models/playlist.model.server");
 
-app.post("/api/playlist", createPlaylist);
-app.delete("/api/playlist/:playlistId", deletePlaylist);
+app.post("/api/profile/:userId/playlist", createPlaylist);
+app.delete("/api/profile/:userId/playlist/:playlistId", deletePlaylist);
 
 function createPlaylist(request, response) {
     var playlist = request.body;
