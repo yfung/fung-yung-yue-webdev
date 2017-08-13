@@ -5,12 +5,18 @@
 
     var api_key = '78d4d2baebb25b906657a9a40ff7e684';
 
-    function detailsController($routeParams) {
+    function detailsController($routeParams, userService) {
         var model = this;
-        model.id = $routeParams.trackID;
+        model.trackId = $routeParams.trackID;
+        model.userId = $routeParams["userId"];
 
         function init() {
-            getTrack(model.id);
+            getTrack(model.trackId);
+            userService.findUserById(model.userId)
+                .then(function (response) {
+                    model.user = response.data;
+                    model.playlists = model.user.playlists;
+                });
         }
 
         init();
