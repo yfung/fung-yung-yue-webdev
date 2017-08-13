@@ -8,7 +8,8 @@
         var api = {
             "createPlaylist": createPlaylist,
             "deletePlaylist": deletePlaylist,
-            "findPlaylistById": findPlaylistById
+            "findPlaylistById": findPlaylistById,
+            "addSong": addSong
         };
         return api;
 
@@ -22,6 +23,10 @@
 
         function deletePlaylist(userId, playlistId) {
             return $http.delete("/api/profile/" + userId + "/playlist/" + playlistId);
+        }
+
+        function addSong(userId, playlistId, song) {
+            return $http.put("/api/profile/" + userId + "/playlist/" + playlistId + "/song", song);
         }
     }
 

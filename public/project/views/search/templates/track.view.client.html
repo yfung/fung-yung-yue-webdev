@@ -2,7 +2,8 @@
 <h1 id="trackData"></h1>
 
 <ul class="list-group">
-    <li class="list-group-item" ng-repeat="playlist in model.playlists">
-        {{playlist.name}}
+    <li class="btn btn-default btn-block" ng-repeat="playlist in model.playlists"
+    ng-click="model.addtoPlaylist(playlist)">
+        Add to {{playlist.name}}
     </li>
 </ul>

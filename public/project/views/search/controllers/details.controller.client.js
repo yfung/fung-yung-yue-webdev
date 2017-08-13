@@ -5,10 +5,12 @@
 
     var api_key = '78d4d2baebb25b906657a9a40ff7e684';
 
-    function detailsController($routeParams, userService) {
+    function detailsController($routeParams, userService, playlistService) {
         var model = this;
         model.trackId = $routeParams.trackID;
         model.userId = $routeParams["userId"];
+
+        model.addToPlaylist = addToPlaylist;
 
         function init() {
             getTrack(model.trackId);
@@ -21,6 +23,13 @@
 
         init();
 
+        function addToPlaylist(playlist) {
+            playlistService.addSong(model.userId, playlist._id, model.song)
+                .then(function () {
+
+                });
+        }
+
         function getTrack(id) {
             $.ajax({
                 type: 'GET',
@@ -30,6 +39,13 @@
                 var songArtist = $("<div>");
                 var songPlays = $("<div>");
                 var songId = $("<div>");
+
+                model.song = {name: response.track.name,
+                    artist: response.track.artist.name, id: response.track.mbid,
+                    album: response.track.album.title,
+                    albumArt: response.track.album.image,
+                    duration: response.track.duration
+                };
 
                 songName.append("Track Title: " + response.track.name);
                 songArtist.append("Artist: " + response.track.artist.name);

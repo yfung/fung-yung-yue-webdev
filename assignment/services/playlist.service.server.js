@@ -4,6 +4,7 @@ var playlistModel = require("../models/playlist.model.server");
 app.post("/api/profile/:userId/playlist", createPlaylist);
 app.delete("/api/profile/:userId/playlist/:playlistId", deletePlaylist);
 app.get("/api/profile/:userId/playlist/:playlistId", findPlaylistById);
+app.put("/api/profile/:userId/playlist/:playlistId/song", addSong)
 
 function findPlaylistById(request, response) {
     var playlistId = request.params.playlistId;
@@ -35,5 +36,16 @@ function deletePlaylist(request, response) {
         .deletePlaylist(userId, playlistId)
         .then(function (status) {
             response.json(status);
+        });
+}
+
+function addSong(request, response) {
+    var song = request.body;
+    var playlistId = request.params.playlistId;
+
+    playlistModel
+        .addSong(playlistId, song)
+        .then(function (playlist) {
+            response.json(playlist);
         });
 }

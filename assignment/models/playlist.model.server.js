@@ -5,6 +5,7 @@ var playlistModel = mongoose.model("PlaylistModel", playlistSchema);
 playlistModel.createPlaylist = createPlaylist;
 playlistModel.deletePlaylist = deletePlaylist;
 playlistModel.findPlaylistById = findPlaylistById;
+playlistModel.addSong = addSong;
 
 module.exports = playlistModel;
 
@@ -31,5 +32,16 @@ function deletePlaylist(userId, playlistId) {
         .remove({_id: playlistId})
         .then(function (status) {
             return usersModel.deletePlaylist(userId, playlistId);
+        });
+}
+
+function addSong(playlistId, song) {
+    song.dateAdded = Date.now();
+
+    return playlistModel
+        .findPlaylistById(playlistId)
+        .then(function (playlist) {
+            playlist.songs.push(song);
+            return playlist.save();
         });
 }
