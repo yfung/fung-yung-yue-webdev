@@ -30,7 +30,7 @@
 
         function removeTrack(songId) {
             playlistService
-                .removeTrack(songId)
+                .removeTrack(model.userId, model.playlistId, songId)
                 .then(function () {
                     $location.url("/profile/" + model.userId + "/playlist/" + model.playlistId);
                 });

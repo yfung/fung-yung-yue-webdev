@@ -6,6 +6,7 @@ playlistModel.createPlaylist = createPlaylist;
 playlistModel.deletePlaylist = deletePlaylist;
 playlistModel.findPlaylistById = findPlaylistById;
 playlistModel.addSong = addSong;
+playlistModel.deleteSong = deleteSong;
 
 module.exports = playlistModel;
 
@@ -40,6 +41,16 @@ function addSong(playlistId, song) {
         .findPlaylistById(playlistId)
         .then(function (playlist) {
             playlist.songs.push(song);
+            return playlist.save();
+        });
+}
+
+function deleteSong(songId, playlistId) {
+    return playlistModel
+        .findPlaylistById(playlistId)
+        .then(function (playlist) {
+            var index = playlist.songs.indexOf(songId);
+            playlist.songs.splice(index, 1);
             return playlist.save();
         });
 }
