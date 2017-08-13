@@ -7,6 +7,7 @@ usersModel.updateUser = updateUser;
 usersModel.findUserByUsername = findUserByUsername;
 usersModel.deleteUser = deleteUser;
 usersModel.findUserByCredentials = findUserByCredentials;
+usersModel.addPlaylist = addPlaylist;
 module.exports = usersModel;
 
 function findUserById(userId) {
@@ -33,4 +34,13 @@ function updateUser(userId, user) {
 
 function deleteUser(userId) {
     return usersModel.remove({_id: userId});
+}
+
+function addPlaylist(userId, playlistId) {
+    return usersModel
+        .findUserById(userId)
+        .then(function (user) {
+            user.playlists.push(playlistId);
+            return user.save();
+        });
 }
