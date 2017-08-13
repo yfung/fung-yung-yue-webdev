@@ -14,7 +14,7 @@
         </li>
         <li ng-repeat="playlist in model.playlists" class="list-group-item">
             <div class="row">
-                <a class="col-xs-6" href="index.html#!/user/{{model.userId}}/website/{{website._id}}/page">{{playlist.name}}</a>
+                <a class="col-xs-6" href="index.html#!/profile/{{model.userId}}/playlist/{{playlist._id}}">{{playlist.name}}</a>
                 <div class="col-xs-4">{{playlist.dateCreated | date}}</div>
                 <div class="col-xs-2 pull-right">
                     <!-- Button to delete here-->

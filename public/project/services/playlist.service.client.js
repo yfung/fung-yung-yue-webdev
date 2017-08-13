@@ -7,9 +7,14 @@
 
         var api = {
             "createPlaylist": createPlaylist,
-            "deletePlaylist": deletePlaylist
+            "deletePlaylist": deletePlaylist,
+            "findPlaylistById": findPlaylistById
         };
         return api;
+
+        function findPlaylistById(userId, playlistId) {
+            return $http.get("/api/profile/" + userId + "/playlist/" + playlistId);
+        }
 
         function createPlaylist(userId, playlist) {
             return $http.post("/api/profile/" + userId + "/playlist/", playlist);
