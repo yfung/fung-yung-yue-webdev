@@ -2,14 +2,35 @@
 
     <div class="col-sm-9">
         <div class="form-group">
-            <label for="page-name">Name</label>
-            <input name="page-name"
-                   id="page-name"
+            <label for="playlist-name">Playlist Name</label>
+            <input name="playlist-name"
+                   id="playlist-name"
                    type="text"
                    placeholder="Name"
                    ng-model="model.playlist.name"
                    class="form-control"/>
         </div>
+
+        <ul class="list-group">
+            <li class="list-group-item">
+                <div class="row">
+                    <div class="col-xs-6">Name</div>
+                    <div class="col-xs-4">Created</div>
+                    <div class="col-xs-2">
+                        <span class="glyphicon glyphicon-trash pull-right"></span>
+                    </div>
+                </div>
+            </li>
+            <li ng-repeat="song in model.songs" class="list-group-item">
+                <div class="row">
+                    <a class="col-xs-6" href="index.html#!/profile/{{model.userId}}/playlist/{{model.playlistId}}/{{song.id}}">{{song.name}}</a>
+                    <div class="col-xs-4">{{song.dateAdded | date}}</div>
+                    <div class="col-xs-2 pull-right">
+                        <!-- Button to delete here-->
+                    </div>
+                </div>
+            </li>
+        </ul>
 
         <a class="btn btn-default btn-block btn-danger"
            ng-click="model.deletePlaylist()"
