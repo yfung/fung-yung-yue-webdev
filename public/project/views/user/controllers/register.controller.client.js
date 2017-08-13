@@ -26,6 +26,7 @@
                         return userService.registerUser(user);
                     } else {
                         model.error = "User already exists!";
+                        return;
                     }
                 })
                 .then(function (response) {
