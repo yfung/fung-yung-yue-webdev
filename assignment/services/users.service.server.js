@@ -33,7 +33,7 @@ function findUser(request, response) {
     } else if (username) {
         usersModel.findUserByUsername(username)
             .then(function (user) {
-                response.send(user);
+                response.json(user);
                 return;
             });
     }

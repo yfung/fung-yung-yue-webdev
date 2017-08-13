@@ -3,8 +3,9 @@
         .module("rhythmShark")
         .controller("newPlaylistController", newPlaylistController);
 
-    function newPlaylistController(playlistService, userService, $location) {
+    function newPlaylistController(playlistService, userService, $location, $routeParams) {
         var model = this;
+        model.userId = $routeParams["userId"];
 
         model.createPlaylist = createPlaylist;
 
@@ -19,10 +20,10 @@
         init();
 
         function createPlaylist(playlist) {
-            playlist.createdBy = model.user._id;
+            playlist.createdBy = model.userId;
             playlistService.createPlaylist(playlist)
                 .then(function () {
-                    $location.url("/playlist" + model.user._id + "/playlist");
+                    $location.url("/profile/" + model.user._id + "/playlist");
                 });
         }
     }
