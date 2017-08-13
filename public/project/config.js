@@ -34,6 +34,11 @@
                 templateUrl: "views/playlist/templates/new-playlist.view.client.html",
                 controller: "newPlaylistController",
                 controllerAs: "model"
+            })
+            .when("/profile/:userId/playlist/:playlistId", {
+                templateUrl: "views/playlist/templates/playlist-detail.view.client.html",
+                controller: "playlistDetailController",
+                controllerAs: "model"
             });
     }
 })();

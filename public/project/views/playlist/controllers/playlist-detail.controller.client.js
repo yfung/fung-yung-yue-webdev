@@ -12,7 +12,7 @@
         model.deletePlaylist = deletePlaylist;
 
         function init() {
-            playlistService.findPlaylistById(model.playlistId)
+            playlistService.findPlaylistById(model.userId, model.playlistId)
                 .then(function (response) {
                     model.playlist = response.data;
                 });

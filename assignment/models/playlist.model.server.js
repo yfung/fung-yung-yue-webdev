@@ -4,7 +4,7 @@ var usersModel = require("./users.model.server");
 var playlistModel = mongoose.model("PlaylistModel", playlistSchema);
 playlistModel.createPlaylist = createPlaylist;
 playlistModel.deletePlaylist = deletePlaylist;
-playlistModel.findPlaylistbyId = findPlaylistById;
+playlistModel.findPlaylistById = findPlaylistById;
 
 module.exports = playlistModel;
 

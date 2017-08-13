@@ -1,0 +1,19 @@
+<div class="container-fluid">
+
+    <div class="col-sm-9">
+        <div class="form-group">
+            <label for="page-name">Name</label>
+            <input name="page-name"
+                   id="page-name"
+                   type="text"
+                   placeholder="Name"
+                   ng-model="model.playlist.name"
+                   class="form-control"/>
+        </div>
+
+        <a class="btn btn-default btn-block btn-danger"
+           ng-click="model.deletePage()"
+           href
+           id="deleteButton">Delete</a>
+    </div>
+</div>
