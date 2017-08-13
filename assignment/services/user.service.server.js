@@ -2,20 +2,11 @@ var app = require("../../express");
 var userModel = require("../models/user.model.server");
 
 // All url with api are meant to return dynamic data
-app.get("/api/users", getAllUsers);
 app.get("/api/user/:userId", getUserById);
 app.get("/api/user", findUser);
 app.post("/api/user", registerUser);
 app.put("/api/user/:userId", updateUser);
 app.delete("/api/user/:userId", deleteUser);
-
-function getAllUsers(req, response) {
-    userModel
-        .getAllUsers()
-        .then(function (users) {
-            response.send(users);
-        });
-}
 
 function getUserById(request, response) {
     userModel
