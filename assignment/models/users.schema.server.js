@@ -9,7 +9,7 @@ var usersSchema = mongoose.Schema({
     dob: Date,
     gender: {type: String, enum:['Male', 'Female']},
     about: String,
-    playlists: [],
+    playlists: [{type: mongoose.Schema.Types.ObjectId, ref:"PlaylistModel"}],
     followers: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}],
     following: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}]
 }, {collection: "users"});
