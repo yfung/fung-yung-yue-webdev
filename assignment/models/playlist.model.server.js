@@ -36,8 +36,6 @@ function deletePlaylist(userId, playlistId) {
 }
 
 function addSong(playlistId, song) {
-    song.dateAdded = Date.now();
-
     return playlistModel
         .findPlaylistById(playlistId)
         .then(function (playlist) {

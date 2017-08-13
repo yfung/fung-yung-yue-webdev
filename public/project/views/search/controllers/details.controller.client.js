@@ -19,6 +19,7 @@
                     model.user = response.data;
                     model.playlists = model.user.playlists;
                 });
+
         }
 
         init();
