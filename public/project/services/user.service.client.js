@@ -11,7 +11,8 @@
             "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,
-            "deleteUser": deleteUser
+            "deleteUser": deleteUser,
+            "getAllUsers": getAllUsers
         };
         return api;
 
@@ -37,6 +38,10 @@
 
         function deleteUser(userId) {
             return $http.delete("/api/users/" + userId);
+        }
+
+        function getAllUsers() {
+            return $http.get("/api/users/all");
         }
 
     }

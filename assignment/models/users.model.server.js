@@ -9,6 +9,7 @@ usersModel.deleteUser = deleteUser;
 usersModel.findUserByCredentials = findUserByCredentials;
 usersModel.addPlaylist = addPlaylist;
 usersModel.deletePlaylist = deletePlaylist;
+usersModel.getAllUsers = getAllUsers;
 module.exports = usersModel;
 
 function findUserById(userId) {
@@ -54,4 +55,10 @@ function deletePlaylist(userId, playlistId) {
             user.playlists.splice(index, 1);
             return user.save();
         });
+}
+
+function getAllUsers() {
+    return usersModel
+        .find()
+        .populate("playlists");
 }

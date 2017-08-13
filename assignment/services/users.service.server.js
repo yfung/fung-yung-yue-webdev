@@ -6,6 +6,7 @@ app.get("/api/users", findUser);
 app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
+app.get("/api/users/all", getAllUsers);
 
 function getUserById(request, response) {
     usersModel
@@ -70,5 +71,12 @@ function deleteUser(request, response) {
         }, function (err) {
             response.sendStatus(404).send(err);
         });
+}
 
+function getAllUsers(request, response) {
+    usersModel
+        .getAllUsers()
+        .then(function(users) {
+            response.json(users);
+        });
 }
