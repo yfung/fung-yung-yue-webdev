@@ -8,6 +8,7 @@ usersModel.findUserByUsername = findUserByUsername;
 usersModel.deleteUser = deleteUser;
 usersModel.findUserByCredentials = findUserByCredentials;
 usersModel.addPlaylist = addPlaylist;
+usersModel.deletePlaylist = deletePlaylist;
 module.exports = usersModel;
 
 function findUserById(userId) {
@@ -41,6 +42,16 @@ function addPlaylist(userId, playlistId) {
         .findUserById(userId)
         .then(function (user) {
             user.playlists.push(playlistId);
+            return user.save();
+        });
+}
+
+function deletePlaylist(userId, playlistId) {
+    return usersModel
+        .findUserById(userId)
+        .then(function (user) {
+            var index = user.playlists.indexOf(playlistId);
+            user.playlists.splice(index, 1);
             return user.save();
         });
 }
