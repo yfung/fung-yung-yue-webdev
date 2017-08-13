@@ -20,6 +20,10 @@ function createPlaylist(playlist) {
         });
 }
 
-function deletePlaylist(playlistId) {
-    return playlistModel.remove({_id: playlistId});
+function deletePlaylist(userId, playlistId) {
+    return playlistModel
+        .remove({_id: playlistId})
+        .then(function (status) {
+            return usersModel.deletePlaylist(userId, playlistId);
+        });
 }

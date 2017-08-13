@@ -9,8 +9,8 @@ function createPlaylist(request, response) {
 
     playlistModel
         .createPlaylist(playlist)
-        .then(function (res) {
-            response.json(res);
+        .then(function (playlistDoc) {
+            response.json(playlistDoc);
         }, function (err) {
             response.sendStatus(500).send(err);
         });
@@ -18,9 +18,10 @@ function createPlaylist(request, response) {
 
 function deletePlaylist(request, response) {
     var playlistId = request.params.playlistId;
+    var userId = request.params.userId;
 
     playlistModel
-        .deletePlaylist(playlistId)
+        .deletePlaylist(userId, playlistId)
         .then(function (status) {
             response.json(status);
         });
