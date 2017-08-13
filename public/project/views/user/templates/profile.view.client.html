@@ -48,6 +48,15 @@
         <a class="btn btn-default btn-block btn-primary"
            href="#!/profile/{{model.user._id}}/playlist">Playlists</a>
 
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="playlist in model.user.playlists">
+                {{playlist.name}}
+            </li>
+        </ul>
+
+        <a class="btn btn-default btn-block btn-primary"
+           href="#!/profile/{{model.user._id}}/search">Search Songs</a>
+
         <a class="btn btn-default btn-block btn-danger"
            ng-click="model.updateUser(model.user)">Update</a>
 

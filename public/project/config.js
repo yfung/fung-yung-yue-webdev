@@ -39,6 +39,16 @@
                 templateUrl: "views/playlist/templates/playlist-detail.view.client.html",
                 controller: "playlistDetailController",
                 controllerAs: "model"
+            })
+            .when("/profile/:userId/search", {
+                templateUrl: "views/search/templates/search.view.client.html",
+                controller: "trackController",
+                controllerAs: "model"
+            })
+            .when("/profile/:userId/track/:trackID", {
+                templateUrl: "views/search/templates/track.view.client.html",
+                controller: "detailsController",
+                controllerAs: "model"
             });
     }
 })();
