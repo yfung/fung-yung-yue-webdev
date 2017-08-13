@@ -3,7 +3,7 @@
         .module("rhythmShark")
         .controller("playlistDetailController", playlistDetailController);
 
-    function playlistDetailController(playlistService, userService, $location, $routeParams) {
+    function playlistDetailController(playlistService, $location, $routeParams) {
         var model = this;
 
         model.userId = $routeParams["userId"];
@@ -21,9 +21,9 @@
         init();
 
         function deletePlaylist() {
-            playlistService.deletePlaylist()
+            playlistService.deletePlaylist(model.userId, model.playlistId)
                 .then(function () {
-                    $location.url("/playlist" + model.user._id + "/playlist");
+                    $location.url("/playlist" + model.userId + "/playlist");
                 });
         }
     }
