@@ -41,7 +41,7 @@
         }
 
         function getAllUsers() {
-            return $http.get("/api/users/all");
+            return $http.get("/api/users");
         }
 
     }

@@ -6,7 +6,7 @@ app.get("/api/users", findUser);
 app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
-app.get("/api/users/all", getAllUsers);
+app.get("/api/users", getAllUsers);
 
 function getUserById(request, response) {
     usersModel
