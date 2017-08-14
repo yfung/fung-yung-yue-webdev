@@ -49,6 +49,11 @@
                 templateUrl: "views/search/templates/track.view.client.html",
                 controller: "detailsController",
                 controllerAs: "model"
+            })
+            .when("/community", {
+                templateUrl: "views/user/templates/community.view.client.html",
+                controller: "communityController",
+                controllerAs: "model"
             });
     }
 })();
