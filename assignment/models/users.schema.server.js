@@ -10,7 +10,6 @@ var usersSchema = mongoose.Schema({
     gender: {type: String, enum:['Male', 'Female']},
     about: String,
     playlists: [{type: mongoose.Schema.Types.ObjectId, ref:"PlaylistModel"}],
-    followers: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}],
-    following: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}]
+    comments: []
 }, {collection: "users"});
 module.exports = usersSchema;
