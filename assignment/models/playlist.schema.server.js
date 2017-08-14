@@ -4,6 +4,6 @@ var playlistSchema = mongoose.Schema({
     dateCreated: {type: Date, default: Date.now()},
     description: String,
     createdBy: {type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"},
-    songs: [{}]
+    songs: [{name: String, artist: String, mbid: String, album: String, duration: String}]
 }, {collection: "playlists"});
 module.exports = playlistSchema;

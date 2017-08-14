@@ -41,9 +41,9 @@
                 var songId = $("<div>");
 
                 model.song = {name: response.track.name,
-                    artist: response.track.artist.name, id: response.track.mbid,
+                    artist: response.track.artist.name,
+                    mbid: response.track.mbid,
                     album: response.track.album.title,
-                    albumArt: response.track.album.image,
                     duration: response.track.duration
                 };
 
