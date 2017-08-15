@@ -10,6 +10,9 @@
             <div class="row">
                 <a class="col-xs-6" href="index.html#!/community/{{user._id}}">{{user.username}}</a>
                 <div class="col-xs-4">{{user.playlists.length}}</div>
+                <div class="col-xs-2 pull-right" ng-show="user.isAdmin">
+                    <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove User</a>
+                </div>
             </div>
         </li>
     </ul>
