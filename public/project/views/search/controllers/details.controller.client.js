@@ -36,9 +36,11 @@
                 url: 'https://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + id + '&api_key=' + api_key + '&format=json&limit=5',
             }).done(function (response) {
                 var songName = $("<h1>");
-                var songArtist = $("<div>");
-                var songPlays = $("<div>");
-                var songId = $("<div>");
+                var songArtist = $("<h2>");
+                var songAlbum = $("<h2>");
+                var songPlays = $("<h4>");
+                var songImage = $("<img>");
+                var songWiki = $("<p>");
 
                 model.song = {name: response.track.name,
                     artist: response.track.artist.name,
@@ -48,14 +50,18 @@
                 };
 
                 songName.append(response.track.name);
-                songArtist.append("Artist: " + response.track.artist.name);
-                songPlays.append("Total Listens: " + response.track.playcount);
-                songId.append("Track ID: " + response.track.mbid);
+                songArtist.append(response.track.artist.name);
+                songPlays.append("Plays: " + response.track.playcount);
+                songWiki.append(response.track.wiki.content);
+                songImage.attr("src", response.track.album.image[response.track.album.image.length - 1]['#text']);
+                songAlbum.append(response.track.album.title);
 
                 $("#trackData").append(songName);
                 $("#trackData").append(songArtist);
+                $("#trackData").append(songAlbum);
                 $("#trackData").append(songPlays);
-                $("#trackData").append(songId);
+                $("#trackData").append(songWiki);
+                $("#trackImage").append(songImage);
 
             });
         }

@@ -79,3 +79,8 @@ a {
 #searchResults {
     padding-top: 20px;
 }
+
+img {
+    height: 100%;
+    width: 100%;
+}
