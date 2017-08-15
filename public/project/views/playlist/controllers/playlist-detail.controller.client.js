@@ -28,11 +28,11 @@
                 });
         }
 
-        function removeTrack(songId) {
+        function removeTrack(song) {
             playlistService
-                .removeTrack(model.userId, model.playlistId, songId)
+                .removeSong(model.userId, model.playlistId, song.mbid)
                 .then(function () {
-                    $location.url("/profile/" + model.userId + "/playlist/" + model.playlistId);
+                    window.location.reload(true);
                 });
         }
     }

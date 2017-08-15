@@ -5,7 +5,7 @@ app.post("/api/profile/:userId/playlist", createPlaylist);
 app.delete("/api/profile/:userId/playlist/:playlistId", deletePlaylist);
 app.get("/api/profile/:userId/playlist/:playlistId", findPlaylistById);
 app.put("/api/profile/:userId/playlist/:playlistId/song", addSong);
-app.delete("/api/profile/:userId/playlist/:playlistId/song/songId", removeSong);
+app.delete("/api/profile/:userId/playlist/:playlistId/song/:songId", removeSong);
 
 
 function findPlaylistById(request, response) {
