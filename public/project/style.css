@@ -1,12 +1,8 @@
 body, h1, h2, h3, h4, h5, h6 {
     font-family: "Lato", sans-serif;
+    color: black;
 }
 
-body, html {
-    height: 100%;
-    color: black;
-    line-height: 1.8;
-}
 .bgimg-1 {
     background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Black-music-white-piano-classy-HD-Wallpaper.jpg");
     min-height: 100vh;
@@ -20,6 +16,28 @@ body, html {
     letter-spacing: 10px;
 }
 
-.w3-top {
+#homeNav {
     color: white;
+}
+
+.w3-bar {
+    color: white;
+    background-color: black;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+}
+
+#content {
+    padding-top: 40px;
+    background-color: white;
+    min-height: 100vh;
+}
+
+.btn {
+    color: black;
+}
+
+.btn-primary {
+    background-color: lightskyblue;
 }
