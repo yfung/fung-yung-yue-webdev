@@ -3,17 +3,16 @@
         .module("rhythmShark")
         .controller("communityUserController", communityUserController);
 
-    function communityUserController(userService, $location, $routeParams, $scope) {
+    function communityUserController(userService, $location, $routeParams, $rootScope) {
         var model = this;
         model.userId = $routeParams["userId"];
         model.follow = follow;
-        model.unfollow = unfollow;
 
         function init() {
             userService.findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
-                    if (model.user._id in $scope.user.follows) {
+                    if (model.user._id in $rootScope.user.follows) {
                         model.followed = "Followed";
                     } else {
                         model.follows = "Follows";

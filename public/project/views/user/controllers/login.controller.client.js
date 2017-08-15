@@ -10,7 +10,8 @@
 
         model.login = login;
 
-        function init() {}
+        function init() {
+        }
 
         init();
 
@@ -21,8 +22,12 @@
                     if (user === null) {
                         model.errorMessage = "Username or password was incorrect. Please try again!";
                     } else {
-                        $rootScope.user = userService.findUserById(user._id);
-                        $location.url("profile/" + user._id);
+                        userService.findUserById(user._id)
+                            .then(function (user) {
+                                $rootScope.user = user.data;
+                                $location.url("profile/" + user.data._id);
+
+                            });
                     }
                 });
         }

@@ -86,5 +86,4 @@ function follow(userId, followId) {
                 return follow.save();
             }
         });
-
 }
