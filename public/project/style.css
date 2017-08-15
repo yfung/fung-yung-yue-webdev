@@ -1,12 +1,25 @@
-#home {
-    letter-spacing: 10px;
-    align-content: center;
-    background-image: url("http://travelhdwallpapers.com/wp-content/uploads/2014/01/Eiffel-Tower-24.jpg");
-    background-color: #cccccc;
-    min-height: 100%;
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato", sans-serif;
 }
 
-.navbar {
-    background-color: black;
+body, html {
+    height: 100%;
+    color: black;
+    line-height: 1.8;
+}
+.bgimg-1 {
+    background-image: url("https://www.pixelstalk.net/wp-content/uploads/2016/05/Black-music-white-piano-classy-HD-Wallpaper.jpg");
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.w3-wide {
+    letter-spacing: 10px;
+}
+
+.w3-top {
     color: white;
 }
