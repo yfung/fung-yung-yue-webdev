@@ -1,9 +1,29 @@
-<h1>TRACK DATA</h1>
-<h1 id="trackData"></h1>
+<div class="w3-top">
+    <div class="w3-bar" id="homeNav">
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+        <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            MY PROFILE</a>
+        <a href="#!/profile/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            EDIT PROFILE</a>
+        <a href="#!/community/{{model.userId}}/playlist" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-th"></i> MY PLAYLISTS</a>
+        <a href="#!/community/{{model.user._id}}/search" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-music"></i> FIND MUSIC</a>
+        <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
+        <a href="#!/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+    </div>
+</div>
 
-<ul class="list-group">
-    <li class="btn btn-default btn-block" ng-repeat="playlist in model.playlists"
-    ng-click="model.addToPlaylist(playlist)">
-        Add to {{playlist.name}}
-    </li>
-</ul>
+<div id="content">
+
+    <div class="container-fluid" id="body">
+        <div id="trackData"></div><br/>
+
+        <ul class="list-group">
+            <li class="btn btn-default btn-block" ng-repeat="playlist in model.playlists"
+                ng-click="model.addToPlaylist(playlist)">
+                Add to {{playlist.name}}
+            </li>
+        </ul>
+    </div>
+</div>

@@ -23,7 +23,7 @@
             playlist.createdBy = model.userId;
             playlistService.createPlaylist(model.userId, playlist)
                 .then(function () {
-                    $location.url("/profile/" + model.user._id + "/playlist");
+                    $location.url("/community/" + model.user._id + "/playlist");
                 });
         }
     }

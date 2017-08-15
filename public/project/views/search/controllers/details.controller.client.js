@@ -35,7 +35,7 @@
                 type: 'GET',
                 url: 'https://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + id + '&api_key=' + api_key + '&format=json&limit=5',
             }).done(function (response) {
-                var songName = $("<div>");
+                var songName = $("<h1>");
                 var songArtist = $("<div>");
                 var songPlays = $("<div>");
                 var songId = $("<div>");
@@ -47,7 +47,7 @@
                     duration: response.track.duration
                 };
 
-                songName.append("Track Title: " + response.track.name);
+                songName.append(response.track.name);
                 songArtist.append("Artist: " + response.track.artist.name);
                 songPlays.append("Total Listens: " + response.track.playcount);
                 songId.append("Track ID: " + response.track.mbid);
