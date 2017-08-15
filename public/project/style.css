@@ -62,3 +62,16 @@ h1 {
     min-height: 100vh;
     border-left: 1px solid black;
 }
+
+.glyphicon {
+    color: black;
+}
+
+#table-header {
+    color: white;
+    background-color: black;
+}
+
+a {
+    color: orangered;
+}

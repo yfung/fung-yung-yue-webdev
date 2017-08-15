@@ -1,19 +1,41 @@
-<div class="container-fluid">
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-6">Name</div>
-                <div class="col-xs-4">Playlists</div>
-            </div>
-        </li>
-        <li ng-repeat="user in model.users" class="list-group-item">
-            <div class="row">
-                <a class="col-xs-6" href="index.html#!/community/{{user._id}}">{{user.username}}</a>
-                <div class="col-xs-4">{{user.playlists.length}}</div>
-                <div class="col-xs-2 pull-right" ng-show="user.isAdmin">
-                    <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove User</a>
+<div class="w3-top">
+    <div class="w3-bar" id="homeNav">
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+        <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            MY PROFILE</a>
+        <a href="#!/profile/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            EDIT PROFILE</a>
+        <a href="#!/community/{{model.userId}}/playlist" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-th"></i> MY PLAYLISTS</a>
+        <a href="#!/community/{{model.user._id}}/search" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-music"></i> FIND MUSIC</a>
+        <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
+        <a href="#!/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+    </div>
+</div>
+
+<div id="content">
+
+    <div class="container-fluid" id="body">
+        <ul class="list-group">
+            <li class="list-group-item" id="table-header">
+                <div class="row">
+                    <div class="col-xs-4">Name</div>
+                    <div class="col-xs-4">Playlists</div>
+                    <div class="col-xs-2">Followers</div>
+                    <div class="col-xs-2 pull-right">Admin</div>
                 </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+            <li ng-repeat="user in model.users" class="list-group-item">
+                <div class="row">
+                    <a class="col-xs-4" href="index.html#!/community/{{user._id}}">{{user.username}}</a>
+                    <div class="col-xs-4">{{user.playlists.length}}</div>
+                    <div class="col-xs-2">{{user.followers.length}}</div>
+                    <div class="col-xs-2 pull-right">
+                        <a class="btn btn-default" ng-click="model.removeUser(user)">Remove User</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </div>

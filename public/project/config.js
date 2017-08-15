@@ -25,12 +25,12 @@
                 controller: "profileController",
                 controllerAs: "model"
             })
-            .when("/profile/:userId/playlist", {
+            .when("/community/:userId/playlist", {
                 templateUrl: "views/playlist/templates/playlist.view.client.html",
                 controller: "playlistController",
                 controllerAs: "model"
             })
-            .when("/profile/:userId/playlist/new", {
+            .when("/community/:userId/playlist/new", {
                 templateUrl: "views/playlist/templates/new-playlist.view.client.html",
                 controller: "newPlaylistController",
                 controllerAs: "model"
@@ -40,12 +40,12 @@
                 controller: "playlistDetailController",
                 controllerAs: "model"
             })
-            .when("/profile/:userId/search", {
+            .when("/community/:userId/search", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "searchController",
                 controllerAs: "model"
             })
-            .when("/profile/:userId/track/:trackID", {
+            .when("/community/:userId/track/:trackID", {
                 templateUrl: "views/search/templates/track.view.client.html",
                 controller: "detailsController",
                 controllerAs: "model"
