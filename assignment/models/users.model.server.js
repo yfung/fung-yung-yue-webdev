@@ -84,7 +84,7 @@ function follow(userId, followId) {
                 }
             }
             user.save();
-            updateUser = user;
+            updatedUser = user;
         });
     usersModel
         .findUserById(followId)
