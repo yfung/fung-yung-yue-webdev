@@ -23,7 +23,7 @@
         function deletePlaylist(playlist) {
             playlistService.deletePlaylist(playlist.createdBy, playlist._id)
                 .then(function () {
-                    $location.reload();
+                    window.location.reload(true);
                 });
         }
     }
