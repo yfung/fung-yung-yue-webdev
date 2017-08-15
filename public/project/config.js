@@ -54,6 +54,11 @@
                 templateUrl: "views/user/templates/community.view.client.html",
                 controller: "communityController",
                 controllerAs: "model"
+            })
+            .when("/community/:userId", {
+                templateUrl: "views/user/templates/community-profile.view.client.html",
+                controller: "communityUserController",
+                controllerAs: "model"
             });
     }
 })();

@@ -21,7 +21,7 @@
                     if (user === null) {
                         model.errorMessage = "Username or password was incorrect. Please try again!";
                     } else {
-                        $rootScope.user = user;
+                        $rootScope.user = userService.findUserById(user._id);
                         $location.url("profile/" + user._id);
                     }
                 });

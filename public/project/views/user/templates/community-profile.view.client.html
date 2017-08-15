@@ -1,0 +1,62 @@
+<nav class="navbar navbar-fixed-top">
+    <header>{{model.user.firstName}} {{model.user.lastName}}
+        <a href="#!/user/{{model.userId}}">
+            <span class="glyphicon glyphicon-ok pull-right">
+            </span>
+        </a>
+    </header>
+</nav>
+
+<div class="container-fluid">
+
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input name="username"
+               id="username"
+               ng-model="model.user.username"
+               placeholder="Username"
+               class="form-control">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input name="email"
+               id="email"
+               ng-model="Email"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input name="firstName"
+               id="firstName"
+               ng-model="model.user.firstName"
+               placeholder="First Name"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input name="lastName"
+               id="lastName"
+               ng-model="model.user.lastName"
+               placeholder="Last Name"
+               class="form-control"/>
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-default btn-block btn-primary" ng-show="">Follow</a>
+
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="playlist in model.user.playlists">
+                {{playlist.name}}
+            </li>
+        </ul>
+
+</div>
+
+<nav class="navbar navbar-fixed-bottom">
+    <a href="#!/user/{{model.user._id}}">
+        <span class="glyphicon glyphicon-user pull-right"></span>
+    </a>
+</nav>
