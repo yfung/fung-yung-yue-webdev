@@ -92,3 +92,7 @@ img {
 .glyphicon {
     color: darkorange;
 }
+
+label {
+    font-size: 120%;
+}
