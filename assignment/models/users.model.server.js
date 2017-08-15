@@ -51,8 +51,7 @@ function deletePlaylist(userId, playlistId) {
     return usersModel
         .findUserById(userId)
         .then(function (user) {
-            var index = user.playlists.indexOf(playlistId);
-            user.playlists.splice(index, 1);
+            user.playlists.remove({_id: playlistId});
             return user.save();
         });
 }

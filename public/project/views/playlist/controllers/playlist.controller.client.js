@@ -20,10 +20,10 @@
 
         init();
 
-        function deletePlaylist() {
-            playlistService.deletePlaylist()
+        function deletePlaylist(playlist) {
+            playlistService.deletePlaylist(playlist.createdBy, playlist._id)
                 .then(function () {
-                    $location.url("/playlist" + model.user._id + "/playlist");
+                    $location.reload();
                 });
         }
     }
