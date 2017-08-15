@@ -1,78 +1,64 @@
-<nav class="navbar navbar-fixed-top">
-    <header>{{model.user.firstName}} {{model.user.lastName}}
-        <a href="#!/user/{{model.userId}}">
-            <span class="glyphicon glyphicon-ok pull-right">
-            </span>
-        </a>
-    </header>
-</nav>
-
-<div class="container-fluid">
-
-    <div class="form-group">
-        <label for="username">Username</label>
-        <input name="username"
-               id="username"
-               ng-model="model.user.username"
-               placeholder="Username"
-               class="form-control">
-    </div>
-
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input name="email"
-               id="email"
-               ng-model="Email"
-               class="form-control"/>
-    </div>
-
-    <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input name="firstName"
-               id="firstName"
-               ng-model="model.user.firstName"
-               placeholder="First Name"
-               class="form-control"/>
-    </div>
-
-    <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input name="lastName"
-               id="lastName"
-               ng-model="model.user.lastName"
-               placeholder="Last Name"
-               class="form-control"/>
-    </div>
-
-    <div class="form-group">
-        <a class="btn btn-default btn-block btn-primary" ng-click="model.follow()" ng-show="model.follows">Follow</a>
-        <a class="btn btn-default btn-block btn-primary" ng-show="model.followed" ng-click="model.follow()">Unfollow</a>
-
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="playlist in model.user.playlists">
-                {{playlist.name}}
-            </li>
-        </ul>
-
-        <h2>Follows</h2>
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="follows in model.user.follows">
-                {{follows.username}}
-            </li>
-        </ul>
-
-        <h2>Followers</h2>
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="follower in model.user.followers">
-                {{follower.username}}
-            </li>
-        </ul>
-
+<div class="w3-top">
+    <div class="w3-bar" id="homeNav">
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+        <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            MY PROFILE</a>
+        <a href="#!/profile/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            EDIT PROFILE</a>
+        <a href="#!/profile/{{model.userId}}/playlist" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-th"></i> MY PLAYLISTS</a>
+        <a href="#!/profile/{{model.user._id}}/search" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-music"></i> FIND MUSIC</a>
+        <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
+        <a href="#!/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
     </div>
 </div>
 
-<nav class="navbar navbar-fixed-bottom">
-    <a href="#!/profile/{{model.user._id}}">
-        <span class="glyphicon glyphicon-user pull-right"></span>
-    </a>
-</nav>
+<div id="content">
+
+    <div class="container-fluid" id="body">
+
+        <div class="col-sm-7">
+            <h1 id="user-name">{{model.user.firstName}} {{model.user.lastName}}</h1>
+            <h4>Username: {{model.user.username}}</h4>
+            <h4>Email: {{model.user.email}}</h4><br/>
+            <h4>About Me:</h4>
+            <p>{{model.user.about}}</p><br/>
+
+            <h2>Playlists</h2>
+            <ul class="list-group">
+                <a class="list-group-item" ng-repeat="playlist in model.user.playlists"
+                   href="#!/profile/59925f28fae6772e7c110ff6/playlist/{{playlist._id}}">
+                    {{playlist.name}}
+                </a>
+            </ul>
+
+        </div>
+
+        <div class="col-sm-5 col-xs-hidden">
+            <div class="form-group">
+                <a class="btn btn-default btn-block btn-primary" ng-click="model.follow()"
+                   ng-show="model.follows">Follow</a>
+                <a class="btn btn-default btn-block btn-primary" ng-show="model.followed"
+                   ng-click="model.follow()">Unfollow</a>
+
+                <h2>Follows</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="follows in model.user.follows">
+                        {{follows.username}}
+                    </li>
+                </ul><br/>
+
+                <h2>Followers</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="follower in model.user.followers">
+                        {{follower.username}}
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

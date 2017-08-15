@@ -28,7 +28,7 @@
             <label for="email">Email</label>
             <input name="email"
                    id="email"
-                   ng-model="Email"
+                   ng-model="model.user.email"
                    class="form-control"/>
         </div>
 
@@ -48,6 +48,17 @@
                    ng-model="model.user.lastName"
                    placeholder="Last Name"
                    class="form-control"/>
+        </div>
+
+        <div class="form-group">
+            <label for="about">About Me</label>
+            <textarea name="about"
+                      id="about"
+                      type="text"
+                      placeholder="Music I like, Hobbies..."
+                      ng-model="model.user.about"
+                      class="form-control"
+                      rows="3"></textarea>
         </div>
 
         <div class="form-group">

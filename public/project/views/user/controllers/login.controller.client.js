@@ -25,7 +25,7 @@
                         userService.findUserById(user._id)
                             .then(function (user) {
                                 $rootScope.user = user.data;
-                                $location.url("profile/" + user.data._id);
+                                $location.url("community/" + user.data._id);
                             });
                     }
                 });
