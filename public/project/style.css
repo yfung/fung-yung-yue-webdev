@@ -16,8 +16,17 @@ body, h1, h2, h3, h4, h5, h6, input, label {
     letter-spacing: 10px;
 }
 
+#title {
+    white-space: nowrap;
+}
+
+#title-text {
+    border: white 1px solid;
+}
+
 #homeNav {
     color: white;
+    border-bottom: white 1px solid;
 }
 
 .w3-bar {
