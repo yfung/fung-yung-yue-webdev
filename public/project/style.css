@@ -75,3 +75,7 @@ h1 {
 a {
     color: orangered;
 }
+
+#searchResults {
+    padding-top: 20px;
+}

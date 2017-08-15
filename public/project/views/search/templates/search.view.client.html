@@ -1,11 +1,33 @@
-<h1>LAST.FM API</h1>
-<h2>Search By Song Name</h2>
-<h4>**Some songs do not have an ID**</h4>
-<input id="songSearchField" ng-model='search' class="form-control"/>
-<button id="searchButton" class="btn btn-block btn-primary" ng-click="model.buttonSearch(search)">Search</button>
-<span> Search By Id?
-    <input type="checkbox" id='cbox'/>
-</span>
-<div id="searchResults">
+<div class="w3-top">
+    <div class="w3-bar" id="homeNav">
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+        <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            MY PROFILE</a>
+        <a href="#!/profile/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            EDIT PROFILE</a>
+        <a href="#!/community/{{model.userId}}/playlist" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-th"></i> MY PLAYLISTS</a>
+        <a href="#!/community/{{model.user._id}}/search" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-music"></i> FIND MUSIC</a>
+        <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
+        <a href="#!/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+    </div>
+</div>
 
+<div id="content">
+
+    <div class="container-fluid" id="body">
+
+        <h1>LAST.FM API</h1>
+        <h2>Search By Song Name</h2>
+        <input id="songSearchField" ng-model='search' class="form-control"/>
+        <button id="searchButton" class="btn btn-block btn-primary" ng-click="model.buttonSearch(search)">Search</button><br/>
+        <span> Search By Id?
+            <input type="checkbox" id='cbox'/>
+        </span>
+
+        <div id="searchResults">
+        </div>
+
+    </div>
 </div>

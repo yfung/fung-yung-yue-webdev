@@ -36,51 +36,66 @@
         }
 
         function renderSongId(response) {
-            var table = $("<table>");
-            table.addClass("table");
             var results = response.track;
-            var tr = $("<tr>");
-            var a = $("<a>");
-            var tdname = $("<td>");
-            var tdartist = $("<td>");
-            a.append(results.name);
-            a.attr('href', function () {
-                return this.href + "/project/#!/profile/" + model.userId + "/track/" + results.mbid;
+            var table = $("<ul class='list-group'></ul>");
+            var th = $("<li class='list-group-item' id='table-header'></li>");
+            var thRow = $("<div class='row'></div>");
+            var trData = $("<div class='row'></div>");
+            var thData = $("<div class='col-xs-4'>Name</div><div class='col-xs-4'>Artist</div><div class='col-xs-4'>Album</div>");
+            thRow.append(thData);
+            th.append(thRow);
+            var tr = $("<li class='list-group-item'></li>");
+            var tdname = $("<a class='col-xs-4'></a>");
+            var tdartist = $("<div class='col-xs-4'></div>");
+            var tdalbum = $("<div class='col-xs-4'></div>");
+            tdname.append(results.name);
+            tdname.attr('href', function () {
+                return this.href + "/project/#!/community/" + model.userId + "/track/" + results.mbid;
             });
-            tdname.append(a);
             tdartist.append(results.artist.name);
-            tr.append(tdname);
-            tr.append(tdartist);
+            tdalbum.append(results.album.title);
 
+            trData.append(tdname);
+            trData.append(tdartist);
+            trData.append(tdalbum);
+            tr.append(trData);
+            table.append(th);
             table.append(tr);
+
             $("#searchResults").append(table);
 
         }
 
         function renderSongs(response) {
-
-            var table = $("<table>");
-            table.addClass("table");
-
             var results = response.results.trackmatches.track;
+
+            var table = $("<ul class='list-group'>");
+            var th = $("<li class='list-group-item' id='table-header'></li>");
+            var thRow = $("<div class='row'></div>");
+            var thData = $("<div class='col-xs-4'>Name</div><div class='col-xs-4'>Artist</div><div class='col-xs-4'>Album</div>");
+            thRow.append(thData);
+            th.append(thRow);
+            table.append(th);
 
             for (var s in results) {
                 var song = results[s];
 
                 if (song.mbid != "") {
-                    var tr = $("<tr>");
-                    var a = $("<a>");
-                    var tdname = $("<td>");
-                    var tdartist = $("<td>");
-                    a.append(song.name);
-                    a.attr('href', function () {
-                        return this.href + "/project/#!/profile/" + model.userId + "/track/" + song.mbid;
+                    var trRow = $("<div class='row'></div>");
+                    var tr = $("<li class='list-group-item'></li>");
+                    var tdname = $("<a class='col-xs-4'></a>");
+                    var tdartist = $("<div class='col-xs-4'></div>");
+                    var tdalbum = $("<div class='col-xs-4'></div>");
+                    tdname.append(song.name);
+                    tdname.attr('href', function () {
+                        return this.href + "/project/#!/community/" + model.userId + "/track/" + song.mbid;
                     });
-                    tdname.append(a);
                     tdartist.append(song.artist);
-                    tr.append(tdname);
-                    tr.append(tdartist);
-
+                    tdalbum.append(song.album);
+                    trRow.append(tdname);
+                    trRow.append(tdartist);
+                    trRow.append(tdalbum);
+                    tr.append(trRow);
                     table.append(tr);
                 }
             }
