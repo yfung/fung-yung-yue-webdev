@@ -18,14 +18,17 @@
 
     <div class="container-fluid" id="body">
         <div class="col-sm-4" id="trackImage"></div>
-        <div class="col-sm-8" id="trackData"></div><br/>
+        <div class="col-sm-8" id="trackData"></div>
+    </div>
+
+    <div class="container-fluid">
 
         <ul class="list-group">
-            <li class="btn btn-default btn-block" ng-repeat="playlist in model.playlists"
+            <li class="btn btn-warning btn-block" ng-repeat="playlist in model.playlists"
                 ng-click="model.addToPlaylist(playlist)">
                 Add to {{playlist.name}}
             </li>
         </ul>
-
     </div>
+
 </div>
