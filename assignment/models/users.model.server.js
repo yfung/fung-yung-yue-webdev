@@ -69,24 +69,27 @@ function follow(userId, followId) {
     usersModel
         .findUserById(userId)
         .then(function (user) {
-            var followOrNo = user.follows.indexOf(followId);
-            if (followOrNo === -1) {
-                user.follows.push(followId);
-                user.save();
-            } else {
-                user.follows.splice(followOrNo, 1);
+            for (var i = 0; i < user.follows.length; i++) {
+                if (user.follows[i].id === followId) {
+                    user.follows.splice(i, 1);
+                    break;
+                } else {
+                    user.follows.push(followId);
+                }
             }
+            user.save();
         });
     return usersModel
         .findUserById(followId)
         .then(function (follow) {
-            var followOrNo = follow.followers.indexOf(userId);
-            if (followOrNo === -1) {
-                follow.followers.push(userId);
-                follow.save();
-            } else {
-                follow.followers.splice(followOrNo, 1);
-                return follow.save();
+            for (var i = 0; i < follow.followers.length; i++) {
+                if (follow.followers[i].id === userId) {
+                    follow.followers.splice(i, 1);
+                    break;
+                } else {
+                    follow.followers.push(userId);
+                }
             }
+            follow.save();
         });
 }

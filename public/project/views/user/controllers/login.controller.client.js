@@ -26,7 +26,6 @@
                             .then(function (user) {
                                 $rootScope.user = user.data;
                                 $location.url("profile/" + user.data._id);
-
                             });
                     }
                 });
