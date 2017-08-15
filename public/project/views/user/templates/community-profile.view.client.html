@@ -54,6 +54,20 @@
             </li>
         </ul>
 
+        <h2>Follows</h2>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="follows in model.user.follows">
+                {{follows.username}}
+            </li>
+        </ul>
+
+        <h2>Followers</h2>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="follower in model.user.followers">
+                {{follower.username}}
+            </li>
+        </ul>
+
     </div>
 </div>
 

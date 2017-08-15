@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6 {
+body, h1, h2, h3, h4, h5, h6, input, label {
     font-family: "Lato", sans-serif;
     color: black;
 }
@@ -23,9 +23,9 @@ body, h1, h2, h3, h4, h5, h6 {
 .w3-bar {
     color: white;
     background-color: black;
-    top: 0px;
-    right: 0px;
-    left: 0px;
+    top: 0;
+    right: 0;
+    left: 0;
 }
 
 #content {
@@ -44,4 +44,8 @@ body, h1, h2, h3, h4, h5, h6 {
 
 .btn-danger {
     background-color: indianred;
+}
+
+#body {
+    padding-top: 20px;
 }
