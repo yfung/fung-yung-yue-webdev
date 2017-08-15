@@ -66,6 +66,7 @@ function getAllUsers() {
 }
 
 function follow(userId, followId) {
+    var updatedUser = null;
     usersModel
         .findUserById(userId)
         .then(function (user) {
@@ -83,8 +84,9 @@ function follow(userId, followId) {
                 }
             }
             user.save();
+            updateUser = user;
         });
-    return usersModel
+    usersModel
         .findUserById(followId)
         .then(function (follow) {
             if (follow.followers.length === 0) {
@@ -102,4 +104,5 @@ function follow(userId, followId) {
             }
             follow.save();
         });
+    return updateUser;
 }
