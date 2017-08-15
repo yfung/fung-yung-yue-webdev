@@ -64,7 +64,7 @@ function getAllUsers() {
 }
 
 function follow(userId, followId) {
-    return usersModel
+    usersModel
         .findUserById(userId)
         .then(function (user) {
             var followOrNo = user.follows.indexOf(followId);
@@ -74,7 +74,8 @@ function follow(userId, followId) {
             } else {
                 user.follows.splice(followOrNo, 1);
             }
-        })
+        });
+    return usersModel
         .findUserById(followId)
         .then(function (follow) {
             var followOrNo = follow.followers.indexOf(userId);

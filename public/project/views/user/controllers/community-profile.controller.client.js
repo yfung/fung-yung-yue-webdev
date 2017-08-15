@@ -24,7 +24,7 @@
 
         function follow() {
             userService
-                .follow($scope.user._id, model.userId)
+                .follow($rootScope.user._id, model.userId)
                 .then(function (response) {
                     window.location.reload(true);
                 });
