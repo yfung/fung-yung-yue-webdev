@@ -15,7 +15,9 @@ module.exports = usersModel;
 
 function findUserById(userId) {
     return usersModel.findById(userId)
-        .populate("playlists");
+        .populate("playlists")
+        .populate("follows")
+        .populate("followers");
 }
 
 function findUserByCredentials(username, password) {
