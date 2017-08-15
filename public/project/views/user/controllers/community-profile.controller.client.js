@@ -13,13 +13,17 @@
             userService.findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
-                    if ($rootScope.user.follows.length === 0) {model.follows = "Follows";}
-                    for (var i = 0; i < $rootScope.user.follows.length; i++) {
-                        if (model.user._id === $rootScope.user.follows[i]._id) {
-                            model.followed = "Followed";
-                            break;
-                        } else {
+                    if ($rootScope.user._id != model.userId) {
+                        if ($rootScope.user.follows.length === 0) {
                             model.follows = "Follows";
+                        }
+                        for (var i = 0; i < $rootScope.user.follows.length; i++) {
+                            if (model.user._id === $rootScope.user.follows[i]._id) {
+                                model.followed = "Followed";
+                                break;
+                            } else {
+                                model.follows = "Follows";
+                            }
                         }
                     }
                 });

@@ -90,7 +90,7 @@ function follow(userId, followId) {
         .findUserById(followId)
         .then(function (follow) {
             if (follow.followers.length === 0) {
-                follow.followers.push(followId);
+                follow.followers.push(userId);
             } else {
                 for (var i = 0; i < follow.followers.length; i++) {
                     if (follow.followers[i].id === userId) {
