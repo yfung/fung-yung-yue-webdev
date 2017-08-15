@@ -1,43 +1,79 @@
-<div class="container-fluid">
+<div class="w3-top">
+    <div class="w3-bar" id="homeNav">
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+        <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            MY PROFILE</a>
+        <a href="#!/profile/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            EDIT PROFILE</a>
+        <a href="#!/community/{{model.userId}}/playlist" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-th"></i> MY PLAYLISTS</a>
+        <a href="#!/community/{{model.user._id}}/search" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-music"></i> FIND MUSIC</a>
+        <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
+        <a href="#!/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+    </div>
+</div>
 
-    <div class="col-sm-9">
-        <div class="form-group">
-            <label for="playlist-name">Playlist Name</label>
-            <input name="playlist-name"
-                   id="playlist-name"
-                   type="text"
-                   placeholder="Name"
-                   ng-model="model.playlist.name"
-                   class="form-control"/>
+<div id="content">
+
+    <div class="container-fluid" id="body">
+
+        <div class="col-sm-7">
+            <ul class="list-group">
+                <li class="list-group-item" id="table-header">
+                    <div class="row">
+                        <div class="col-xs-6">Name</div>
+                        <div class="col-xs-4">Created</div>
+                        <div class="col-xs-2">
+                            <span class="glyphicon glyphicon-trash pull-right"></span>
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="song in model.playlist.songs" class="list-group-item">
+                    <div class="row">
+                        <a class="col-xs-6"
+                           href="index.html#!/profile/{{model.userId}}/track/{{song.id}}">{{song.name}}</a>
+                        <div class="col-xs-4">{{song.dateAdded | date}}</div>
+                        <div class="col-xs-2 pull-right">
+                            <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove Track</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
         </div>
 
-        <ul class="list-group">
-            <li class="list-group-item">
-                <div class="row">
-                    <div class="col-xs-6">Name</div>
-                    <div class="col-xs-4">Created</div>
-                    <div class="col-xs-2">
-                        <span class="glyphicon glyphicon-trash pull-right"></span>
-                    </div>
-                </div>
-            </li>
-            <li ng-repeat="song in model.playlist.songs" class="list-group-item">
-                <div class="row">
-                    <a class="col-xs-6" href="index.html#!/profile/{{model.userId}}/track/{{song.id}}">{{song.name}}</a>
-                    <div class="col-xs-4">{{song.dateAdded | date}}</div>
-                    <div class="col-xs-2 pull-right">
-                        <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove Track</a>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <div class="col-sm-5">
 
-        <a class="btn btn-default btn-block btn-primary"
-           href="#!/profile/{{model.user._id}}/search">Search Songs</a>
+            <h1>{{model.playlist.name}}</h1>
 
-        <a class="btn btn-default btn-block btn-danger"
-           ng-click="model.deletePlaylist()"
-           href
-           id="deleteButton">Delete</a>
+            <div class="form-group">
+                <label for="playlist-name">Playlist Name</label>
+                <input name="playlist-name"
+                       id="playlist-name"
+                       type="text"
+                       placeholder="Name"
+                       ng-model="model.playlist.name"
+                       class="form-control"/>
+            </div>
+
+            <div class="form-group">
+                <label for="about">Playlist Description</label>
+                <textarea name="about"
+                          id="about"
+                          type="text"
+                          placeholder="Genre, Artists..."
+                          ng-model="model.playlist.description"
+                          class="form-control"
+                          rows="3"></textarea>
+            </div>
+
+            <a class="btn btn-default btn-block btn-warning"
+               href="#!/community/{{model.user._id}}/search">Search Songs</a>
+
+            <a class="btn btn-default btn-block btn-danger"
+               ng-click="model.deletePlaylist()"
+               href
+               id="deleteButton">Delete</a>
+        </div>
     </div>
 </div>
