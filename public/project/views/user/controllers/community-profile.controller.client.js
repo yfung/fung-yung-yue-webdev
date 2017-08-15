@@ -13,7 +13,6 @@
             userService.findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
-                    $rootScope.user = model.user;
                     if ($rootScope.user.follows.length === 0) {model.follows = "Follows";}
                     for (var i = 0; i < $rootScope.user.follows.length; i++) {
                         if (model.user._id === $rootScope.user.follows[i]._id) {
@@ -32,7 +31,7 @@
             userService
                 .follow($rootScope.user._id, model.userId)
                 .then(function (response) {
-                    window.location.reload(true);
+                    //window.location.reload(true);
                 });
         }
 

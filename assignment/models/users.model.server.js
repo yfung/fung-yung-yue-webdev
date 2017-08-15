@@ -78,6 +78,7 @@ function follow(userId, followId) {
                         break;
                     } else {
                         user.follows.push(followId);
+                        break;
                     }
                 }
             }
@@ -95,6 +96,7 @@ function follow(userId, followId) {
                         break;
                     } else {
                         follow.followers.push(userId);
+                        break;
                     }
                 }
             }
