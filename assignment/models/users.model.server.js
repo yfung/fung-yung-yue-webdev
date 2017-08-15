@@ -69,12 +69,16 @@ function follow(userId, followId) {
     usersModel
         .findUserById(userId)
         .then(function (user) {
-            for (var i = 0; i < user.follows.length; i++) {
-                if (user.follows[i].id === followId) {
-                    user.follows.splice(i, 1);
-                    break;
-                } else {
-                    user.follows.push(followId);
+            if (user.follows.length === 0) {
+                user.follows.push(followId);
+            } else {
+                for (var i = 0; i < user.follows.length; i++) {
+                    if (user.follows[i].id === followId) {
+                        user.follows.splice(i, 1);
+                        break;
+                    } else {
+                        user.follows.push(followId);
+                    }
                 }
             }
             user.save();
@@ -82,12 +86,16 @@ function follow(userId, followId) {
     return usersModel
         .findUserById(followId)
         .then(function (follow) {
-            for (var i = 0; i < follow.followers.length; i++) {
-                if (follow.followers[i].id === userId) {
-                    follow.followers.splice(i, 1);
-                    break;
-                } else {
-                    follow.followers.push(userId);
+            if (follow.followers.length === 0) {
+                follow.followers.push(followId);
+            } else {
+                for (var i = 0; i < follow.followers.length; i++) {
+                    if (follow.followers[i].id === userId) {
+                        follow.followers.splice(i, 1);
+                        break;
+                    } else {
+                        follow.followers.push(userId);
+                    }
                 }
             }
             follow.save();
