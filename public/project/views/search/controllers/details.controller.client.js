@@ -5,7 +5,7 @@
 
     var api_key = 'c4e8f9d79935bb08a49633af8cbf10b1';
 
-    function detailsController($routeParams, userService, playlistService) {
+    function detailsController($routeParams, userService, playlistService, $location) {
         var model = this;
         model.trackId = $routeParams.trackID;
         model.userId = $routeParams["userId"];
@@ -27,6 +27,7 @@
         function addToPlaylist(playlist) {
             playlistService.addSong(model.userId, playlist._id, model.song)
                 .then(function (response) {
+                    $location.url("/community/" + model.userId + "/playlist/" + playlist._id);
                 });
         }
 
