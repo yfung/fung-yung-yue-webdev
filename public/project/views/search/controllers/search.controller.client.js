@@ -72,7 +72,7 @@
             var table = $("<ul class='list-group'>");
             var th = $("<li class='list-group-item' id='table-header'></li>");
             var thRow = $("<div class='row'></div>");
-            var thData = $("<div class='col-xs-4'>Name</div><div class='col-xs-4'>Artist</div><div class='col-xs-4'>Album</div>");
+            var thData = $("<div class='col-xs-8'>Name</div><div class='col-xs-4'>Artist</div>");
             thRow.append(thData);
             th.append(thRow);
             table.append(th);
@@ -83,18 +83,15 @@
                 if (song.mbid != "") {
                     var trRow = $("<div class='row'></div>");
                     var tr = $("<li class='list-group-item'></li>");
-                    var tdname = $("<a class='col-xs-4'></a>");
+                    var tdname = $("<a class='col-xs-8'></a>");
                     var tdartist = $("<div class='col-xs-4'></div>");
-                    var tdalbum = $("<div class='col-xs-4'></div>");
                     tdname.append(song.name);
                     tdname.attr('href', function () {
                         return this.href + "/project/#!/community/" + model.userId + "/track/" + song.mbid;
                     });
                     tdartist.append(song.artist);
-                    tdalbum.append(song.album);
                     trRow.append(tdname);
                     trRow.append(tdartist);
-                    trRow.append(tdalbum);
                     tr.append(trRow);
                     table.append(tr);
                 }
