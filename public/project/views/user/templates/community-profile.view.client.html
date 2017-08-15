@@ -27,10 +27,19 @@
 
             <h2>Playlists</h2>
             <ul class="list-group">
-                <a class="list-group-item" ng-repeat="playlist in model.user.playlists"
-                   href="#!/community/59925f28fae6772e7c110ff6/playlist/{{playlist._id}}">
-                    {{playlist.name}}
-                </a>
+                <li class="list-group-item table-header">
+                    <div class="row">
+                        <div class="col-xs-6">Name</div>
+                        <div class="col-xs-6">Date Created</div>
+                    </div>
+                </li>
+
+                <li ng-repeat="playlist in model.user.playlists" class="list-group-item">
+                    <div class="row">
+                        <a class="col-xs-6" href="#!/community/59925f28fae6772e7c110ff6/playlist/{{playlist._id}}">{{playlist.name}}</a>
+                        <div class="col-xs-6">{{playlist.dateCreated | date}}</div>
+                    </div>
+                </li>
             </ul>
 
         </div>
@@ -44,15 +53,34 @@
 
                 <h2>Follows</h2>
                 <ul class="list-group">
-                    <li class="list-group-item" ng-repeat="follows in model.user.follows">
-                        {{follows.username}}
+                    <li class="list-group-item table-header">
+                        <div class="row">
+                            <div class="col-xs-8">Name</div>
+                            <div class="col-xs-4">Followers</div>
+                        </div>
                     </li>
-                </ul><br/>
+                    <li class="list-group-item" ng-repeat="follows in model.user.follows">
+                        <div class="row">
+                            <div class="col-xs-8">{{follows.username}}</div>
+                            <div class="col-xs-4">{{follows.followers.length}}</div>
+                        </div>
+                    </li>
+                </ul>
+                <br/>
 
                 <h2>Followers</h2>
                 <ul class="list-group">
+                    <li class="list-group-item table-header">
+                        <div class="row">
+                            <div class="col-xs-8">Name</div>
+                            <div class="col-xs-4">Followers</div>
+                        </div>
+                    </li>
                     <li class="list-group-item" ng-repeat="follower in model.user.followers">
-                        {{follower.username}}
+                        <div class="row">
+                            <div class="col-xs-8">{{follower.username}}</div>
+                            <div class="col-xs-4">{{follower.followers.length}}</div>
+                        </div>
                     </li>
                 </ul>
 
