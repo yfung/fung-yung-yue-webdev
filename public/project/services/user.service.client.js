@@ -12,7 +12,8 @@
             "registerUser": registerUser,
             "updateUser": updateUser,
             "deleteUser": deleteUser,
-            "getAllUsers": getAllUsers
+            "getAllUsers": getAllUsers,
+            "addFollow": addFollow
         };
         return api;
 
@@ -42,6 +43,10 @@
 
         function getAllUsers() {
             return $http.get("/api/allusers");
+        }
+
+        function addFollow(userId, followId) {
+            return $http.put("/api/users/" + userId + "/follow/" + followId);
         }
 
     }

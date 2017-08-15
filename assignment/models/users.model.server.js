@@ -10,6 +10,7 @@ usersModel.findUserByCredentials = findUserByCredentials;
 usersModel.addPlaylist = addPlaylist;
 usersModel.deletePlaylist = deletePlaylist;
 usersModel.getAllUsers = getAllUsers;
+usersModel.addFollower = addFollower;
 module.exports = usersModel;
 
 function findUserById(userId) {
@@ -60,4 +61,19 @@ function getAllUsers() {
     return usersModel
         .find()
         .populate("playlists");
+}
+
+function addFollower(userId, followId) {
+    return usersModel
+        .findUserById(userId)
+        .then(function (user) {
+            user.follows.push(followId);
+            user.save();
+        })
+        .findUserById(followId)
+        .then(function (follow) {
+            follow.followers.push(userId);
+            return follow.save();
+        });
+
 }

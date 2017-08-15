@@ -45,7 +45,8 @@
     </div>
 
     <div class="form-group">
-        <a class="btn btn-default btn-block btn-primary" ng-show="">Follow</a>
+        <a class="btn btn-default btn-block btn-primary" ng-click="model.follow()" ng-show="model.follows">Follow</a>
+        <a class="btn btn-default btn-block btn-primary" ng-show="model.followed">Followed</a>
 
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="playlist in model.user.playlists">
