@@ -55,7 +55,7 @@ h1 {
 }
 
 #user-name {
-    color: orangered;
+    color: darkorange;
 }
 
 .col-sm-5 {
@@ -73,7 +73,7 @@ h1 {
 }
 
 a {
-    color: orangered;
+    color: orange;
 }
 
 #searchResults {
@@ -83,4 +83,12 @@ a {
 img {
     height: 100%;
     width: 100%;
+}
+
+.fa {
+    color: darkorange;
+}
+
+.glyphicon {
+    color: darkorange;
 }

@@ -1,29 +1,48 @@
-<div class="container-fluid">
+<div class="w3-top">
+    <div class="w3-bar" id="homeNav">
+        <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
+        <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            MY PROFILE</a>
+        <a href="#!/profile/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
+            EDIT PROFILE</a>
+        <a href="#!/community/{{model.userId}}/playlist" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-th"></i> MY PLAYLISTS</a>
+        <a href="#!/community/{{model.user._id}}/search" class="w3-bar-item w3-button w3-hide-small"><i
+                class="fa fa-music"></i> FIND MUSIC</a>
+        <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
+        <a href="#!/" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
+    </div>
+</div>
 
-    <h2>PLAYLISTS</h2>
+<div id="content">
 
-    <ul class="list-group">
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-xs-6">Name</div>
-                <div class="col-xs-4">Created</div>
-                <div class="col-xs-2">
-                    <span class="glyphicon glyphicon-cog pull-right"></span>
+    <div class="container-fluid" id="body">
+
+        <h2>PLAYLISTS</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item" id="table-header">
+                <div class="row">
+                    <div class="col-xs-6">Name</div>
+                    <div class="col-xs-4">Created</div>
+                    <div class="hidden-xs col-sm-2 pull-right">
+                        <span class="glyphicon glyphicon-cog"></span>
+                    </div>
                 </div>
-            </div>
-        </li>
-        <li ng-repeat="playlist in model.playlists" class="list-group-item">
-            <div class="row">
-                <a class="col-xs-6" href="index.html#!/community/{{model.userId}}/playlist/{{playlist._id}}">{{playlist.name}}</a>
-                <div class="col-xs-4">{{playlist.dateCreated | date}}</div>
-                <div class="col-xs-2 pull-right">
-                    <a class="btn btn-default" ng-click="model.deletePlaylist(playlist)">Remove Playlist</a>
+            </li>
+            <li ng-repeat="playlist in model.playlists" class="list-group-item">
+                <div class="row">
+                    <a class="col-xs-6" href="index.html#!/community/{{model.userId}}/playlist/{{playlist._id}}">{{playlist.name}}</a>
+                    <div class="col-xs-4">{{playlist.dateCreated | date}}</div>
+                    <div class="hidden-xs col-sm-2 pull-right">
+                        <a class="btn btn-default" ng-click="model.deletePlaylist(playlist)">Remove Playlist</a>
+                    </div>
                 </div>
-            </div>
-        </li>
-    </ul>
+            </li>
+        </ul>
 
-    <a class="btn btn-default btn-block btn-primary"
-       href="#!/community/{{model.user._id}}/playlist/new">New Playlist</a>
+        <a class="btn btn-default btn-block btn-warning"
+           href="#!/community/{{model.user._id}}/playlist/new">New Playlist</a>
 
+    </div>
 </div>
