@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var usersSchema = require("./users.schema.server");
 var usersModel = mongoose.model("UsersModel", usersSchema);
-var playlistModel = require("./playlist.model.server");
 usersModel.createUser = createUser;
 usersModel.findUserById = findUserById;
 usersModel.updateUser = updateUser;
@@ -36,11 +35,7 @@ function updateUser(userId, user) {
 }
 
 function deleteUser(userId) {
-    return usersModel
-        .remove({_id: userId})
-        .then(function () {
-            return playlistModel.removeUserPlaylists(userId);
-        });
+    return usersModel.remove({_id: userId});
 }
 
 function addPlaylist(userId, playlistId) {

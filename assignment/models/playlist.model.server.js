@@ -7,7 +7,6 @@ playlistModel.deletePlaylist = deletePlaylist;
 playlistModel.findPlaylistById = findPlaylistById;
 playlistModel.addSong = addSong;
 playlistModel.deleteSong = deleteSong;
-playlistModel.removeUserPlaylists = removeUserPlaylists;
 
 module.exports = playlistModel;
 
@@ -54,9 +53,4 @@ function deleteSong(songId, playlistId) {
             playlist.songs.splice(index, 1);
             return playlist.save();
         });
-}
-
-function removeUserPlaylists(userId) {
-    return playlistModel
-        .remove({createdBy: userId});
 }
