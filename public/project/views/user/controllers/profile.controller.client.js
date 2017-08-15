@@ -5,12 +5,13 @@
         .module("rhythmShark")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, userService, $location) {
+    function profileController($routeParams, userService, $location, $rootScope) {
         var model = this;
         model.userId = $routeParams["userId"];
 
         model.updateUser = updateUser;
         model.unregister = unregister;
+        model.logOut = logOut;
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
@@ -35,6 +36,11 @@
                     }
                 });
         }
+
+        function logOut() {
+            $rootScope.user = null;
+        }
+
     }
 
 })();
