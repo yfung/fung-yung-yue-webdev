@@ -3,7 +3,7 @@
         .module("rhythmShark")
         .controller("searchController", searchController);
 
-    var api_key = '78d4d2baebb25b906657a9a40ff7e684';
+    var api_key = 'c4e8f9d79935bb08a49633af8cbf10b1';
 
     function searchController($routeParams) {
 
