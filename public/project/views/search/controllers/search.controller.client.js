@@ -23,13 +23,13 @@
             if (!$("#cbox").is(":checked")) {
                 $.ajax({
                     type: 'GET',
-                    url: 'http://ws.audioscrobbler.com/2.0/?method=track.search&track=' + search + '&api_key=' + api_key + '&format=json&limit=11',
+                    url: 'https://ws.audioscrobbler.com/2.0/?method=track.search&track=' + search + '&api_key=' + api_key + '&format=json&limit=11',
                     success: renderSongs
                 });
             } else {
                 $.ajax({
                     type: 'GET',
-                    url: 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + search + '&api_key=' + api_key + '&format=json&limit=11',
+                    url: 'https://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + search + '&api_key=' + api_key + '&format=json&limit=11',
                     success: renderSongId
                 });
             }

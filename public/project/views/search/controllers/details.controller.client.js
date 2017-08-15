@@ -33,7 +33,7 @@
         function getTrack(id) {
             $.ajax({
                 type: 'GET',
-                url: 'http://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + id + '&api_key=' + api_key + '&format=json&limit=5',
+                url: 'https://ws.audioscrobbler.com/2.0/?method=track.getInfo&mbid=' + id + '&api_key=' + api_key + '&format=json&limit=5',
             }).done(function (response) {
                 var songName = $("<div>");
                 var songArtist = $("<div>");
