@@ -13,7 +13,7 @@
             "updateUser": updateUser,
             "deleteUser": deleteUser,
             "getAllUsers": getAllUsers,
-            "addFollow": addFollow
+            "follow": follow
         };
         return api;
 
@@ -45,7 +45,7 @@
             return $http.get("/api/allusers");
         }
 
-        function addFollow(userId, followId) {
+        function follow(userId, followId) {
             return $http.put("/api/users/" + userId + "/follow/" + followId);
         }
 

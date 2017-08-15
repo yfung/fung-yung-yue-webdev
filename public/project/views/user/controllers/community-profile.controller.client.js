@@ -7,6 +7,7 @@
         var model = this;
         model.userId = $routeParams["userId"];
         model.follow = follow;
+        model.unfollow = unfollow;
 
         function init() {
             userService.findUserById(model.userId)
@@ -24,7 +25,7 @@
 
         function follow() {
             userService
-                .addFollow($scope.user._id, model.userId)
+                .follow($scope.user._id, model.userId)
                 .then(function (response) {
                     window.location.reload(true);
                 });

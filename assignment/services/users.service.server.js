@@ -7,7 +7,7 @@ app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
 app.get("/api/allusers", getAllUsers);
-app.put("/api/users/:userId/follow/:followId", addFollow);
+app.put("/api/users/:userId/follow/:followId", follow);
 
 function getUserById(request, response) {
     usersModel
@@ -82,12 +82,12 @@ function getAllUsers(request, response) {
         });
 }
 
-function addFollow(request, response) {
+function follow(request, response) {
     var userId = request.params.userId;
     var followId = request.params.followId;
 
     usersModel
-        .addFollower(userId, followId)
+        .follow(userId, followId)
         .then(function(user) {
             response.json(user);
         });
