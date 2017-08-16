@@ -2,7 +2,7 @@ var app = require("../../express");
 var usersModel = require("../models/users.model.server");
 
 app.get("/api/users/:userId", getUserById);
-app.get("/api/users", findUser);
+app.post("/api/users/login", findUser);
 app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
@@ -18,8 +18,8 @@ function getUserById(request, response) {
 }
 
 function findUser(request, response) {
-    var username = request.query.username;
-    var password = request.query.password;
+    var username = request.body.username;
+    var password = request.body.password;
 
     if (username && password) {
         usersModel

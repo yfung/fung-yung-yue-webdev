@@ -7,7 +7,7 @@
 
         var api = {
             "findUserByUsername": findUserByUsername,
-            "findUserByUsernameAndPassword": findUserByUsernameAndPassword,
+            "findUserByUsernameAndPassword": login,
             "findUserById": findUserById,
             "registerUser": registerUser,
             "updateUser": updateUser,
@@ -33,8 +33,8 @@
             return $http.get("/api/users/" + userId);
         }
 
-        function findUserByUsernameAndPassword(username, password) {
-            return $http.get("/api/users?username=" + username + "&password=" + password);
+        function login(username, password) {
+            return $http.post("/api/users/login", {username: username, password: password});
         }
 
         function deleteUser(userId) {
