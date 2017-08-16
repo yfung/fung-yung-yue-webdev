@@ -8,10 +8,7 @@
             .when("/", {
                 templateUrl: "views/home/home.html",
                 controller: "homeController",
-                controllerAs: "model",
-                resolve: {
-                    currentUser: checkLogin
-                }
+                controllerAs: "model"
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
