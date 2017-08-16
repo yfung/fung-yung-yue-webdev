@@ -5,13 +5,13 @@
 
     var api_key = 'c4e8f9d79935bb08a49633af8cbf10b1';
 
-    function searchController($routeParams) {
+    function searchController(currentUser) {
 
         var model = this;
 
         model.buttonSearch = buttonSearch;
 
-        model.userId = $routeParams["userId"];
+        model.userId = currentUser._id;
 
         function init() {
         }

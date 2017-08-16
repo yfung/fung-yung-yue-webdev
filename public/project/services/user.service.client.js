@@ -13,7 +13,8 @@
             "updateUser": updateUser,
             "deleteUser": deleteUser,
             "getAllUsers": getAllUsers,
-            "follow": follow
+            "follow": follow,
+            "checkLogin": checkLogin
         };
         return api;
 
@@ -47,6 +48,13 @@
 
         function follow(userId, followId) {
             return $http.put("/api/users/" + userId + "/follow/" + followId);
+        }
+
+        function checkLogin() {
+            return $http.get("/api/checkLogin")
+                .then(function (response) {
+                    return response.data;
+                });
         }
 
     }

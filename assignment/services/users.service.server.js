@@ -15,6 +15,11 @@ app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
 app.get("/api/allusers", getAllUsers);
 app.put("/api/users/:userId/follow/:followId", follow);
+app.get("/api/checkLogin", checkLogin);
+
+function checkLogin(request, response) {
+    response.send(request.isAuthenticated() ? request.user : '0');
+}
 
 function localStrategy(username, password, done) {
     usersModel

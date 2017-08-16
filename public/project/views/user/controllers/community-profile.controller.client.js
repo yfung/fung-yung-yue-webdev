@@ -3,7 +3,7 @@
         .module("rhythmShark")
         .controller("communityUserController", communityUserController);
 
-    function communityUserController(userService, $routeParams, $rootScope) {
+    function communityUserController(userService, $routeParams, currentUser) {
         var model = this;
         model.userId = $routeParams["userId"];
         model.follow = follow;
@@ -13,12 +13,12 @@
             userService.findUserById(model.userId)
                 .then(function (response) {
                     model.user = response.data;
-                    if ($rootScope.user._id != model.userId) {
-                        if ($rootScope.user.follows.length === 0) {
+                    if (currentUser._id != model.userId) {
+                        if (currentUser.follows.length === 0) {
                             model.follows = "Follows";
                         }
-                        for (var i = 0; i < $rootScope.user.follows.length; i++) {
-                            if (model.user._id === $rootScope.user.follows[i]._id) {
+                        for (var i = 0; i < currentUser.follows.length; i++) {
+                            if (model.user._id === currentUser.follows[i]._id) {
                                 model.followed = "Followed";
                                 break;
                             } else {
@@ -33,7 +33,7 @@
 
         function follow() {
             userService
-                .follow($rootScope.user._id, model.userId)
+                .follow(currentUser._id, model.userId)
                 .then(function (response) {
                     //window.location.reload(true);
                 });

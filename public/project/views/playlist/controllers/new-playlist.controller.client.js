@@ -3,9 +3,9 @@
         .module("rhythmShark")
         .controller("newPlaylistController", newPlaylistController);
 
-    function newPlaylistController(playlistService, userService, $location, $routeParams) {
+    function newPlaylistController(playlistService, userService, $location, currentUser) {
         var model = this;
-        model.userId = $routeParams["userId"];
+        model.userId = currentUser._id;
 
         model.createPlaylist = createPlaylist;
 

@@ -5,10 +5,10 @@
 
     var api_key = 'c4e8f9d79935bb08a49633af8cbf10b1';
 
-    function detailsController($routeParams, userService, playlistService, $location) {
+    function detailsController($routeParams, userService, playlistService, $location, currentUser) {
         var model = this;
         model.trackId = $routeParams.trackID;
-        model.userId = $routeParams["userId"];
+        model.userId = currentUser._id;
 
         model.addToPlaylist = addToPlaylist;
 

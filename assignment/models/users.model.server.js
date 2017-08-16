@@ -21,7 +21,10 @@ function findUserById(userId) {
 }
 
 function findUserByCredentials(username, password) {
-    return usersModel.findOne({username: username, password: password});
+    return usersModel.findOne({username: username, password: password})
+        .populate("playlists")
+        .populate("follows")
+        .populate("followers");
 }
 
 function findUserByUsername(username) {

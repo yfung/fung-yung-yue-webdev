@@ -5,9 +5,9 @@
         .module("rhythmShark")
         .controller("profileController", profileController);
 
-    function profileController($routeParams, userService, $location, $rootScope) {
+    function profileController(userService, $location, $rootScope, currentUser) {
         var model = this;
-        model.userId = $routeParams["userId"];
+        model.userId = currentUser._id;
 
         model.updateUser = updateUser;
         model.unregister = unregister;

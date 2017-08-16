@@ -3,10 +3,10 @@
         .module("rhythmShark")
         .controller("playlistDetailController", playlistDetailController);
 
-    function playlistDetailController(playlistService, $location, $routeParams) {
+    function playlistDetailController(playlistService, $location, $routeParams, currentUser) {
         var model = this;
 
-        model.userId = $routeParams["userId"];
+        model.userId = currentUser._id;
         model.playlistId = $routeParams["playlistId"];
 
         model.deletePlaylist = deletePlaylist;

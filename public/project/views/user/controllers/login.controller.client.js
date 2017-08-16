@@ -24,7 +24,6 @@
                     } else {
                         userService.findUserById(user._id)
                             .then(function (user) {
-                                $rootScope.user = user.data;
                                 $location.url("community/" + user.data._id);
                             });
                     }

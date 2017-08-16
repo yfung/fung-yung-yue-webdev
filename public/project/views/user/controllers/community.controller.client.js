@@ -3,7 +3,7 @@
         .module("rhythmShark")
         .controller("communityController", communityController);
 
-    function communityController(userService, $location) {
+    function communityController(userService) {
         var model = this;
 
         function init() {

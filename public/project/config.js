@@ -8,7 +8,10 @@
             .when("/", {
                 templateUrl: "views/home/home.html",
                 controller: "homeController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
@@ -20,45 +23,84 @@
                 controller: "registerController",
                 controllerAs: "model"
             })
-            .when("/profile/:userId", {
+            .when("/profile", {
                 templateUrl: "views/user/templates/profile.view.client.html",
                 controller: "profileController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community/:userId/playlist", {
                 templateUrl: "views/playlist/templates/playlist.view.client.html",
                 controller: "playlistController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community/:userId/playlist/new", {
                 templateUrl: "views/playlist/templates/new-playlist.view.client.html",
                 controller: "newPlaylistController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community/:userId/playlist/:playlistId", {
                 templateUrl: "views/playlist/templates/playlist-detail.view.client.html",
                 controller: "playlistDetailController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community/:userId/search", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "searchController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community/:userId/track/:trackID", {
                 templateUrl: "views/search/templates/track.view.client.html",
                 controller: "detailsController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community", {
                 templateUrl: "views/user/templates/community.view.client.html",
                 controller: "communityController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             })
             .when("/community/:userId", {
                 templateUrl: "views/user/templates/community-profile.view.client.html",
                 controller: "communityUserController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: checkLogin
+                }
             });
+
+        function checkLogin(userService, $q, $location) {
+            var deferred = $q.defer();
+            userService
+                .checkLogin()
+                .then(function (user) {
+                    if (user === "0") {
+                        deferred.reject();
+                        $location.url("/login");
+                    } else {
+                        deferred.resolve(user);
+                    }
+                });
+            return deferred.promise;
+        }
     }
 })();
