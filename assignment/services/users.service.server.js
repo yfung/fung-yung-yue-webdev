@@ -1,28 +1,37 @@
 var app = require("../../express");
+var passport = require("passport");
 var usersModel = require("../models/users.model.server");
+var LocalStrategy = require('passport-local').Strategy;
 
+passport.use(new LocalStrategy(localStrategy));
+
+app.post("/api/login", passport.authenticate('local'), login);
 app.get("/api/users/:userId", getUserById);
 app.post("/api/users", findUser);
-app.post("/api/login", login);
 app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
 app.get("/api/allusers", getAllUsers);
 app.put("/api/users/:userId/follow/:followId", follow);
 
-function login(request, response) {
-    var username = request.body.username;
-    var password = request.body.password;
-
+function localStrategy(username, password, done) {
     usersModel
         .findUserByCredentials(username, password)
         .then(function (user) {
-            response.json(user);
-            return;
-        }, function (err) {
-            response.sendStatus(404).send(err);
-            return;
-        });
+                if (!user) {
+                    return done(null, false);
+                }
+                return done(null, user);
+            }, function(err) {
+                if (err) { return done(err); }
+            }
+        );
+}
+
+
+function login(request, response) {
+    var user = request.user;
+    response.json(user);
 }
 
 function getUserById(request, response) {
