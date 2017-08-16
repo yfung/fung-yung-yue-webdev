@@ -2,7 +2,7 @@ var app = require("../../express");
 var usersModel = require("../models/users.model.server");
 
 app.get("/api/users/:userId", getUserById);
-app.post("/api/users/login", findUser);
+app.post("/api/users/find", findUser);
 app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
