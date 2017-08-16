@@ -26,7 +26,7 @@
         }
 
         function findUserByUsername(username) {
-            return $http.post("/api/users/find", {username: username});
+            return $http.post("/api/users", {username: username});
         }
 
         function findUserById(userId) {
@@ -34,7 +34,7 @@
         }
 
         function login(username, password) {
-            return $http.post("/api/users/find", {username: username, password: password});
+            return $http.post("/api/login", {username: username, password: password});
         }
 
         function deleteUser(userId) {

@@ -2,12 +2,28 @@ var app = require("../../express");
 var usersModel = require("../models/users.model.server");
 
 app.get("/api/users/:userId", getUserById);
-app.post("/api/users/find", findUser);
+app.post("/api/users", findUser);
+app.post("/api/login", login);
 app.post("/api/users", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
 app.get("/api/allusers", getAllUsers);
 app.put("/api/users/:userId/follow/:followId", follow);
+
+function login(request, response) {
+    var username = request.body.username;
+    var password = request.body.password;
+
+    usersModel
+        .findUserByCredentials(username, password)
+        .then(function (user) {
+            response.json(user);
+            return;
+        }, function (err) {
+            response.sendStatus(404).send(err);
+            return;
+        });
+}
 
 function getUserById(request, response) {
     usersModel
@@ -19,26 +35,12 @@ function getUserById(request, response) {
 
 function findUser(request, response) {
     var username = request.body.username;
-    var password = request.body.password;
 
-    if (username && password) {
-        usersModel
-            .findUserByCredentials(username, password)
-            .then(function (user) {
-                response.json(user);
-                return;
-            }, function (err) {
-                response.sendStatus(404).send(err);
-                return;
-            });
-        return;
-    } else if (username) {
-        usersModel.findUserByUsername(username)
-            .then(function (user) {
-                response.json(user);
-                return;
-            });
-    }
+    usersModel.findUserByUsername(username)
+        .then(function (user) {
+            response.json(user);
+            return;
+        });
 }
 
 function registerUser(request, response) {
@@ -77,7 +79,7 @@ function deleteUser(request, response) {
 function getAllUsers(request, response) {
     usersModel
         .getAllUsers()
-        .then(function(users) {
+        .then(function (users) {
             response.json(users);
         });
 }
@@ -88,7 +90,7 @@ function follow(request, response) {
 
     usersModel
         .follow(userId, followId)
-        .then(function(user) {
+        .then(function (user) {
             response.json(user);
         });
 }
