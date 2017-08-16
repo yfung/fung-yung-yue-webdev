@@ -61,7 +61,7 @@
                     </li>
                     <li class="list-group-item" ng-repeat="follows in model.user.follows">
                         <div class="row">
-                            <div class="col-xs-8">{{follows.username}}</div>
+                            <a class="col-xs-8" href="#!/community/{{follows._id}}">{{follows.username}}</a>
                             <div class="col-xs-4">{{follows.followers.length}}</div>
                         </div>
                     </li>
@@ -78,7 +78,7 @@
                     </li>
                     <li class="list-group-item" ng-repeat="follower in model.user.followers">
                         <div class="row">
-                            <div class="col-xs-8">{{follower.username}}</div>
+                            <a class="col-xs-8" href="#!/community/{{follower._id}}">{{follower.username}}</a>
                             <div class="col-xs-4">{{follower.followers.length}}</div>
                         </div>
                     </li>
