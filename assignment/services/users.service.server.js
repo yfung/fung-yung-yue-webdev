@@ -4,6 +4,8 @@ var usersModel = require("../models/users.model.server");
 var LocalStrategy = require('passport-local').Strategy;
 
 passport.use(new LocalStrategy(localStrategy));
+passport.serializeUser(serializeUser);
+passport.deserializeUser(deserializeUser);
 
 app.post("/api/login", passport.authenticate('local'), login);
 app.get("/api/users/:userId", getUserById);
@@ -28,6 +30,20 @@ function localStrategy(username, password, done) {
         );
 }
 
+function serializeUser(user, done) {
+    done(null, user);
+}
+
+function deserializeUser(user, done) {
+    usersModel
+        .findUserById(user._id)
+        .then(function (user){
+                done(null, user);
+            }, function(err){
+                done(err, null);
+            }
+        );
+}
 
 function login(request, response) {
     var user = request.user;
