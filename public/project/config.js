@@ -31,7 +31,7 @@
                     currentUser: checkLogin
                 }
             })
-            .when("/community/:userId/playlist", {
+            .when("/community/playlist", {
                 templateUrl: "views/playlist/templates/playlist.view.client.html",
                 controller: "playlistController",
                 controllerAs: "model",
@@ -39,7 +39,7 @@
                     currentUser: checkLogin
                 }
             })
-            .when("/community/:userId/playlist/new", {
+            .when("/community/playlist/new", {
                 templateUrl: "views/playlist/templates/new-playlist.view.client.html",
                 controller: "newPlaylistController",
                 controllerAs: "model",
@@ -47,7 +47,7 @@
                     currentUser: checkLogin
                 }
             })
-            .when("/community/:userId/playlist/:playlistId", {
+            .when("/community/playlist/:playlistId", {
                 templateUrl: "views/playlist/templates/playlist-detail.view.client.html",
                 controller: "playlistDetailController",
                 controllerAs: "model",
@@ -55,7 +55,7 @@
                     currentUser: checkLogin
                 }
             })
-            .when("/community/:userId/search", {
+            .when("/community/search", {
                 templateUrl: "views/search/templates/search.view.client.html",
                 controller: "searchController",
                 controllerAs: "model",
@@ -63,7 +63,7 @@
                     currentUser: checkLogin
                 }
             })
-            .when("/community/:userId/track/:trackID", {
+            .when("/community/track/:trackID", {
                 templateUrl: "views/search/templates/track.view.client.html",
                 controller: "detailsController",
                 controllerAs: "model",
