@@ -10,7 +10,7 @@ passport.deserializeUser(deserializeUser);
 app.post("/api/login", passport.authenticate('local'), login);
 app.get("/api/users/:userId", getUserById);
 app.post("/api/users", findUser);
-app.post("/api/users", registerUser);
+app.post("/api/register", registerUser);
 app.put("/api/users/:userId", updateUser);
 app.delete("/api/users/:userId", deleteUser);
 app.get("/api/allusers", getAllUsers);

@@ -23,7 +23,7 @@
         }
 
         function registerUser(user) {
-            return $http.post("/api/users", user);
+            return $http.post("/api/register", user);
         }
 
         function findUserByUsername(username) {
