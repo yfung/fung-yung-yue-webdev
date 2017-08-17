@@ -6,6 +6,7 @@
     function communityController(userService, currentUser, $location) {
         var model = this;
         model.logOut = logOut;
+        model.removeUser = removeUser;
 
         function init() {
             userService.getAllUsers()
@@ -23,6 +24,14 @@
             userService.logOut()
                 .then(function (response) {
                     $location.url("/");
+                });
+        }
+
+        function removeUser(user) {
+            userService
+                .deleteUser(user._id)
+                .then(function (response) {
+                    window.location.reload(true);
                 });
         }
     }
