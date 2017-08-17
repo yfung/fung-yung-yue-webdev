@@ -7,12 +7,18 @@ playlistModel.deletePlaylist = deletePlaylist;
 playlistModel.findPlaylistById = findPlaylistById;
 playlistModel.addSong = addSong;
 playlistModel.deleteSong = deleteSong;
+playlistModel.updatePlaylist = updatePlaylist;
 
 module.exports = playlistModel;
 
 function findPlaylistById(playlistId) {
     return playlistModel.findById(playlistId)
         .populate("songs");
+}
+
+function updatePlaylist(playlistId, playlist) {
+    return playlistModel.update({_id: playlistId},
+        {$set: playlist});
 }
 
 function createPlaylist(playlist) {

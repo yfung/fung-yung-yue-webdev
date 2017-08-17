@@ -10,7 +10,8 @@
             "deletePlaylist": deletePlaylist,
             "findPlaylistById": findPlaylistById,
             "addSong": addSong,
-            "removeSong": removeSong
+            "removeSong": removeSong,
+            "updatePlaylist" : updatePlaylist
         };
         return api;
 
@@ -32,6 +33,10 @@
 
         function removeSong(userId, playlistId, songId) {
             return $http.delete("/api/profile/" + userId + "/playlist/" + playlistId + "/song/" + songId);
+        }
+
+        function updatePlaylist(playlistId, playlist) {
+            return $http.put("/api/playlist/" + playlistId, playlist);
         }
     }
 

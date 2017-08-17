@@ -5,8 +5,22 @@ app.post("/api/profile/:userId/playlist", createPlaylist);
 app.delete("/api/profile/:userId/playlist/:playlistId", deletePlaylist);
 app.get("/api/profile/:userId/playlist/:playlistId", findPlaylistById);
 app.put("/api/profile/:userId/playlist/:playlistId/song", addSong);
+app.put("/api/playlist/:playlistId", updatePlaylist);
 app.delete("/api/profile/:userId/playlist/:playlistId/song/:songId", removeSong);
 
+
+function updatePlaylist(request, response) {
+    var playlistId = request.params.playlistId;
+    var playlist = request.body;
+
+    playlistModel
+        .updatePlaylist(playlistId, playlist)
+        .then(function (status) {
+            response.json(status);
+        }, function (err) {
+            response.sendStatus(404).send(err);
+        });
+}
 
 function findPlaylistById(request, response) {
     var playlistId = request.params.playlistId;

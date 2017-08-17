@@ -13,6 +13,7 @@
         model.removeTrack = removeTrack;
         model.logOut = logOut;
         model.goBack = goBack;
+        model.updatePlaylist =updatePlaylist;
 
         function init() {
             playlistService.findPlaylistById(model.userId, model.playlistId)
@@ -35,6 +36,13 @@
 
         function goBack() {
             window.history.back();
+        }
+
+        function updatePlaylist() {
+            playlistService.updatePlaylist(model.userId, model.playlistId)
+                .then(function () {
+                    $location.url("/community/playlist/" + model.playlistId);
+                });
         }
 
         function deletePlaylist() {
