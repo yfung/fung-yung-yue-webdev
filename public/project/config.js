@@ -8,17 +8,26 @@
             .when("/", {
                 templateUrl: "views/home/home.html",
                 controller: "homeController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: homeCheck
+                }
             })
             .when("/login", {
                 templateUrl: "views/user/templates/login.view.client.html",
                 controller: "loginController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: loginRegCheck
+                }
             })
             .when("/register", {
                 templateUrl: "views/user/templates/register.view.client.html",
                 controller: "registerController",
-                controllerAs: "model"
+                controllerAs: "model",
+                resolve: {
+                    currentUser: loginRegCheck
+                }
             })
             .when("/profile", {
                 templateUrl: "views/user/templates/profile.view.client.html",
@@ -93,6 +102,35 @@
                     if (user === "0") {
                         deferred.reject();
                         $location.url("/login");
+                    } else {
+                        deferred.resolve(user);
+                    }
+                });
+            return deferred.promise;
+        }
+
+        function loginRegCheck(userService, $q, $location) {
+            var deferred = $q.defer();
+            userService
+                .checkLogin()
+                .then(function (user) {
+                    if (user !== "0") {
+                        deferred.reject();
+                        $location.url("/");
+                    } else {
+                        deferred.resolve(user);
+                    }
+                });
+            return deferred.promise;
+        }
+
+        function homeCheck(userService, $q) {
+            var deferred = $q.defer();
+            userService
+                .checkLogin()
+                .then(function (user) {
+                    if (user === "0") {
+                        deferred.resolve(null);
                     } else {
                         deferred.resolve(user);
                     }
