@@ -169,7 +169,9 @@ function googleStrategy(token, refreshToken, profile, done) {
                 }
             },
             function(err) {
-                if (err) { return done(err); }
+                if (err) {
+                    console.log(err);
+                    return done(err); }
             }
         )
         .then(
@@ -177,7 +179,9 @@ function googleStrategy(token, refreshToken, profile, done) {
                 return done(null, user);
             },
             function(err){
-                if (err) { return done(err); }
+                if (err) {
+                    console.log(err);
+                    return done(err); }
             }
         );
 }
