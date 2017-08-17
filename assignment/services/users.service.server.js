@@ -5,9 +5,9 @@ var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var googleConfig = {
-    clientID     : "346999439175-de661ijvmlv1mtoo8i45lqflq3thdnhk.apps.googleusercontent.com",
-    clientSecret : "Uwc_SCM7pDNoB4jVINUmoYYw",
-    callbackURL  : "https://127.0.0.1/auth/google/callback"
+    clientID     : process.env.GOOGLE_CLIENT_ID,
+    clientSecret : process.env.GOOGLE_CLIENT_SECRET,
+    callbackURL  : process.env.GOOGLE_CALLBACK_URL
 };
 
 passport.use(new LocalStrategy(localStrategy));
