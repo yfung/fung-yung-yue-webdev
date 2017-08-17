@@ -30,8 +30,10 @@
                     }
                 })
                 .then(function (response) {
-                    _user = response.data;
-                    $location.url("/login");
+                    userService.logOut()
+                        .then(function (status) {
+                            $location.url("/login");
+                        });
                 });
 
         }
