@@ -12,6 +12,7 @@
 
         model.addToPlaylist = addToPlaylist;
         model.logOut = logOut;
+        model.goBack = goBack;
 
         function init() {
             getTrack(model.trackId);
@@ -24,6 +25,10 @@
         }
 
         init();
+
+        function goBack() {
+            window.history.back();
+        }
 
         function logOut() {
             userService.logOut()
