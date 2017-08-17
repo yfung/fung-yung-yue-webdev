@@ -40,7 +40,7 @@
         function deletePlaylist() {
             playlistService.deletePlaylist(model.userId, model.playlistId)
                 .then(function () {
-                    $location.url("/community/" + model.userId + "/playlist");
+                    $location.url("/community/playlist");
                 });
         }
 
