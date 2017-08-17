@@ -32,7 +32,7 @@
                 <li ng-repeat="song in model.playlist.songs" class="list-group-item">
                     <div class="row">
                         <a class="col-xs-6"
-                           href="index.html#!/profile/{{model.userId}}/track/{{song.id}}">{{song.name}}</a>
+                           href="index.html#!/community/track/{{song.mbid}}">{{song.name}}</a>
                         <div class="col-xs-4">{{song.dateAdded | date}}</div>
                         <div class="col-xs-2 pull-right" ng-show="model.edit">
                             <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove Track</a>
@@ -56,7 +56,7 @@
                 <li ng-repeat="song in model.playlist.songs" class="list-group-item">
                     <div class="row">
                         <a class="col-xs-6"
-                           href="index.html#!/profile/{{model.userId}}/track/{{song.id}}">{{song.name}}</a>
+                           href="index.html#!/community/track/{{song.mbid}}">{{song.name}}</a>
                         <div class="col-xs-4">{{song.dateAdded | date}}</div>
                         <div class="col-xs-2 pull-right" ng-show="model.edit">
                             <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove Track</a>
