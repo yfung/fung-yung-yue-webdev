@@ -10,6 +10,7 @@
         model.deletePlaylist = deletePlaylist;
         model.myId = currentUser._id;
         model.logOut = logOut;
+        model.goBack = goBack;
 
         function init() {
 
@@ -36,6 +37,10 @@
         }
 
         init();
+
+        function goBack() {
+            window.history.back();
+        }
 
         function follow() {
             userService

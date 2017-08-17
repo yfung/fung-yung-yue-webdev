@@ -12,6 +12,7 @@
         model.deletePlaylist = deletePlaylist;
         model.removeTrack = removeTrack;
         model.logOut = logOut;
+        model.goBack = goBack;
 
         function init() {
             playlistService.findPlaylistById(model.userId, model.playlistId)
@@ -30,6 +31,10 @@
                 .then(function (response) {
                     $location.url("/");
                 });
+        }
+
+        function goBack() {
+            window.history.back();
         }
 
         function deletePlaylist() {

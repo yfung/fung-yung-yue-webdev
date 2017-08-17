@@ -7,6 +7,7 @@
         var model = this;
         model.logOut = logOut;
         model.removeUser = removeUser;
+        model.goBack = goBack;
 
         function init() {
             userService.getAllUsers()
@@ -19,6 +20,10 @@
         }
 
         init();
+
+        function goBack() {
+            window.history.back();
+        }
 
         function logOut() {
             userService.logOut()

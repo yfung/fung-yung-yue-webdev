@@ -12,6 +12,7 @@
         model.updateUser = updateUser;
         model.unregister = unregister;
         model.logOut = logOut;
+        model.goBack = goBack;
 
         function init() {
             // routeParams is a map to all parameters of possible routes we gave i.e. /login
@@ -22,6 +23,10 @@
         }
 
         init();
+
+        function goBack() {
+            window.history.back();
+        }
 
         function updateUser(user) {
             userService

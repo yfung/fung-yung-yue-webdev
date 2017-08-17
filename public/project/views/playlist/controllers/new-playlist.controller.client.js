@@ -9,6 +9,7 @@
 
         model.createPlaylist = createPlaylist;
         model.logOut = logOut;
+        model.goBack = goBack;
 
         function init() {
             userService.findUserById(model.userId)
@@ -19,6 +20,10 @@
         }
 
         init();
+
+        function goBack() {
+            window.history.back();
+        }
 
         function logOut() {
             userService.logOut()
