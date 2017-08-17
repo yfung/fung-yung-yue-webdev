@@ -11,6 +11,7 @@
 
         model.buttonSearch = buttonSearch;
         model.logOut = logOut;
+        model.goBack = goBack;
 
         model.userId = currentUser._id;
 
@@ -18,6 +19,10 @@
         }
 
         init();
+
+        function goBack() {
+            
+        }
 
         function logOut() {
             userService.logOut()
