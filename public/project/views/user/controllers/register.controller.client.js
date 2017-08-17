@@ -28,14 +28,7 @@
                         model.error = "User already exists!";
                         return;
                     }
-                })
-                .then(function (response) {
-                    userService.logOut()
-                        .then(function (status) {
-                            $location.url("/login");
-                        });
                 });
-
         }
     }
 

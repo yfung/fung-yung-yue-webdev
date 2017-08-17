@@ -28,21 +28,22 @@
                 .updateUser(user._id, user)
                 .then(function () {
                     window.location.reload(true);
-                });;
+                });
         }
 
         function unregister() {
             userService
                 .deleteUser(model.userId)
                 .then(function (response) {
-                    if (response.data === "1") {
-                        $location.url("/login");
-                    }
+                    logOut();
                 });
         }
 
         function logOut() {
-            $rootScope.user = null;
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
         }
 
     }
