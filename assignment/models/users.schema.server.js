@@ -11,6 +11,10 @@ var usersSchema = mongoose.Schema({
     about: String,
     followers: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}],
     follows: [{type: mongoose.Schema.Types.ObjectId, ref:"UsersModel"}],
-    playlists: [{type: mongoose.Schema.Types.ObjectId, ref:"PlaylistModel"}]
+    playlists: [{type: mongoose.Schema.Types.ObjectId, ref:"PlaylistModel"}],
+    google: {
+        id: String,
+        token: String
+    }
 }, {collection: "users"});
 module.exports = usersSchema;

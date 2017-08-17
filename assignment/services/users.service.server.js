@@ -6,7 +6,8 @@ var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var googleConfig = {
     clientID     : "346999439175-de661ijvmlv1mtoo8i45lqflq3thdnhk.apps.googleusercontent.com",
-    clientSecret : "Uwc_SCM7pDNoB4jVINUmoYYw"
+    clientSecret : "Uwc_SCM7pDNoB4jVINUmoYYw",
+    callbackURL  : "https://127.0.0.1/auth/google/callback"
 };
 
 passport.use(new LocalStrategy(localStrategy));
@@ -27,8 +28,8 @@ app.get("/api/logout", logout);
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/#/profile',
-        failureRedirect: '/#/login'
+        successRedirect: 'project/index.html/#!/profile',
+        failureRedirect: 'project/index.html/#!/login'
     }));
 
 function checkLogin(request, response) {
@@ -146,7 +147,7 @@ function follow(request, response) {
 
 function googleStrategy(token, refreshToken, profile, done) {
     usersModel
-        .findUserById(profile.id)
+        .findUserByGoogleId(profile.id)
         .then(
             function(user) {
                 if(user) {

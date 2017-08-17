@@ -11,6 +11,7 @@ usersModel.addPlaylist = addPlaylist;
 usersModel.deletePlaylist = deletePlaylist;
 usersModel.getAllUsers = getAllUsers;
 usersModel.follow = follow;
+usersModel.findUserByGoogleId = findUserByGoogleId;
 module.exports = usersModel;
 
 function findUserById(userId) {
@@ -108,4 +109,8 @@ function follow(userId, followId) {
             follow.save();
         });
     return updateUser;
+}
+
+function findUserByGoogleId(googleId) {
+    return usersModel.findOne({'google.id': googleId});
 }
