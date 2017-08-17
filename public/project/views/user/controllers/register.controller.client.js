@@ -23,7 +23,10 @@
                 .then(function (response) {
                     var _user = response.data;
                     if (_user === null) {
-                        return userService.registerUser(user);
+                        return userService.registerUser(user)
+                            .then(function (status) {
+                                $location.url("/login");
+                            });
                     } else {
                         model.error = "User already exists!";
                         return;
