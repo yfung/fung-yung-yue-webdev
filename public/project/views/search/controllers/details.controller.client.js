@@ -11,6 +11,7 @@
         model.userId = currentUser._id;
 
         model.addToPlaylist = addToPlaylist;
+        model.logOut = logOut;
 
         function init() {
             getTrack(model.trackId);
@@ -23,6 +24,13 @@
         }
 
         init();
+
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
+        }
 
         function addToPlaylist(playlist) {
             playlistService.addSong(model.userId, playlist._id, model.song)

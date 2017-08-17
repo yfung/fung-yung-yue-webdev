@@ -3,8 +3,9 @@
         .module("rhythmShark")
         .controller("communityController", communityController);
 
-    function communityController(userService, currentUser) {
+    function communityController(userService, currentUser, $location) {
         var model = this;
+        model.logOut = logOut;
 
         function init() {
             userService.getAllUsers()
@@ -18,8 +19,12 @@
 
         init();
 
-        //delete users from this page as admin?
-
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
+        }
     }
 
 })();

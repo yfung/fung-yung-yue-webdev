@@ -3,7 +3,7 @@
         .module("rhythmShark")
         .controller("playlistDetailController", playlistDetailController);
 
-    function playlistDetailController(playlistService, $location, $routeParams, currentUser) {
+    function playlistDetailController(playlistService, $location, $routeParams, currentUser, userService) {
         var model = this;
 
         model.userId = currentUser._id;
@@ -11,6 +11,7 @@
 
         model.deletePlaylist = deletePlaylist;
         model.removeTrack = removeTrack;
+        model.logOut = logOut;
 
         function init() {
             playlistService.findPlaylistById(model.userId, model.playlistId)
@@ -23,6 +24,13 @@
         }
 
         init();
+
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
+        }
 
         function deletePlaylist() {
             playlistService.deletePlaylist(model.userId, model.playlistId)

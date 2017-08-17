@@ -8,6 +8,7 @@
         model.userId = currentUser._id;
 
         model.createPlaylist = createPlaylist;
+        model.logOut = logOut;
 
         function init() {
             userService.findUserById(model.userId)
@@ -18,6 +19,13 @@
         }
 
         init();
+
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
+        }
 
         function createPlaylist(playlist) {
             playlist.createdBy = model.userId;

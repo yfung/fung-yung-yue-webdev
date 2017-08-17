@@ -3,9 +3,8 @@
         .module("rhythmShark")
         .controller("homeController", homeController);
 
-    function homeController(currentUser) {
+    function homeController() {
         var model = this;
-        model.user = currentUser;
 
         function init() {
 

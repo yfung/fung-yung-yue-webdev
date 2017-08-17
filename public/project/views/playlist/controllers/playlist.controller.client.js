@@ -3,12 +3,13 @@
         .module("rhythmShark")
         .controller("playlistController", playlistController);
 
-    function playlistController(playlistService, userService, currentUser) {
+    function playlistController(playlistService, userService, currentUser, $location) {
         var model = this;
 
         model.userId = currentUser._id;
 
         model.deletePlaylist = deletePlaylist;
+        model.logOut = logOut;
 
         function init() {
             userService.findUserById(model.userId)
@@ -19,6 +20,13 @@
         }
 
         init();
+
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
+        }
 
         function deletePlaylist(playlist) {
             playlistService.deletePlaylist(playlist.createdBy, playlist._id)

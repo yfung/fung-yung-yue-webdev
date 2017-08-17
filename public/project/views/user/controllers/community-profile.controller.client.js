@@ -3,12 +3,13 @@
         .module("rhythmShark")
         .controller("communityUserController", communityUserController);
 
-    function communityUserController(userService, $routeParams, currentUser, playlistService) {
+    function communityUserController(userService, $routeParams, currentUser, playlistService, $location) {
         var model = this;
         model.userId = $routeParams["userId"];
         model.follow = follow;
         model.deletePlaylist = deletePlaylist;
         model.myId = currentUser._id;
+        model.logOut = logOut;
 
         function init() {
 
@@ -48,6 +49,13 @@
             playlistService.deletePlaylist(playlist.createdBy, playlist._id)
                 .then(function () {
                     window.location.reload(true);
+                });
+        }
+
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
                 });
         }
 

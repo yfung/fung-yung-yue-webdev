@@ -5,11 +5,12 @@
 
     var api_key = 'c4e8f9d79935bb08a49633af8cbf10b1';
 
-    function searchController(currentUser) {
+    function searchController(currentUser, $location) {
 
         var model = this;
 
         model.buttonSearch = buttonSearch;
+        model.logOut = logOut;
 
         model.userId = currentUser._id;
 
@@ -17,6 +18,13 @@
         }
 
         init();
+
+        function logOut() {
+            userService.logOut()
+                .then(function (response) {
+                    $location.url("/");
+                });
+        }
 
         function buttonSearch(search) {
             $("table").remove();
