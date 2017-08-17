@@ -32,7 +32,7 @@
             </li>
             <li ng-repeat="playlist in model.playlists" class="list-group-item">
                 <div class="row">
-                    <a class="col-xs-6" href="index.html#!/community/{{model.userId}}/playlist/{{playlist._id}}">{{playlist.name}}</a>
+                    <a class="col-xs-6" href="index.html#!/community/playlist/{{playlist._id}}">{{playlist.name}}</a>
                     <div class="col-xs-4">{{playlist.dateCreated | date}}</div>
                     <div class="hidden-xs col-sm-2 pull-right">
                         <a class="btn btn-default" ng-click="model.deletePlaylist(playlist)">Remove Playlist</a>
@@ -42,7 +42,7 @@
         </ul>
 
         <a class="btn btn-default btn-block btn-warning"
-           href="#!/community/{{model.user._id}}/playlist/new">New Playlist</a>
+           href="#!/community/playlist/new">New Playlist</a>
 
     </div>
 </div>
