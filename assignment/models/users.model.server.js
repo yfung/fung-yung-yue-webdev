@@ -70,8 +70,7 @@ function getAllUsers() {
 }
 
 function follow(userId, followId) {
-    var updatedUser = null;
-    usersModel
+    return usersModel
         .findUserById(userId)
         .then(function (user) {
             if (user.follows.length === 0) {
@@ -88,27 +87,32 @@ function follow(userId, followId) {
                 }
             }
             user.save();
-            updatedUser = user;
+        })
+        .then(function (response) {
+            return usersModel
+                .findUserById(followId)
+                .then(function (response) {
+                    return usersModel
+                        .findUserById(followId)
+                        .then(function (follow) {
+                            if (follow.followers.length === 0) {
+                                follow.followers.push(userId);
+                            } else {
+                                for (var i = 0; i < follow.followers.length; i++) {
+                                    if (follow.followers[i].id === userId) {
+                                        follow.followers.splice(i, 1);
+                                        break;
+                                    } else {
+                                        follow.followers.push(userId);
+                                        break;
+                                    }
+                                }
+                            }
+                            follow.save();
+                            return follow._doc;
+                        });
+                });
         });
-    usersModel
-        .findUserById(followId)
-        .then(function (follow) {
-            if (follow.followers.length === 0) {
-                follow.followers.push(userId);
-            } else {
-                for (var i = 0; i < follow.followers.length; i++) {
-                    if (follow.followers[i].id === userId) {
-                        follow.followers.splice(i, 1);
-                        break;
-                    } else {
-                        follow.followers.push(userId);
-                        break;
-                    }
-                }
-            }
-            follow.save();
-        });
-    return updateUser;
 }
 
 function findUserByGoogleId(googleId) {

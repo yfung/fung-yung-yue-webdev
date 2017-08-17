@@ -45,7 +45,7 @@
         function follow() {
             userService
                 .follow(currentUser._id, model.userId)
-                .then(function () {
+                .then(function (response) {
                     window.location.reload(true);
                 });
         }
