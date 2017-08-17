@@ -34,11 +34,15 @@
         </div>
 
         <div class="form-group">
-            <a class="btn btn-default btn-block btn-primary"
+            <a class="btn btn-default btn-block btn-warning"
                id="login-button"
                ng-click="model.login(model.user)">Login</a>
 
-            <a class="btn btn-default btn-block btn-warning"
+            <a href="/auth/google" class="btn btn-block btn-primary">
+                Login with Google
+            </a>
+
+            <a class="btn btn-default btn-block btn-danger"
                href="#!/register"
                id="register-button">Sign Up</a>
         </div>

@@ -2,8 +2,15 @@ var app = require("../../express");
 var passport = require("passport");
 var usersModel = require("../models/users.model.server");
 var LocalStrategy = require('passport-local').Strategy;
+var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+
+var googleConfig = {
+    clientID     : "346999439175-de661ijvmlv1mtoo8i45lqflq3thdnhk.apps.googleusercontent.com",
+    clientSecret : "Uwc_SCM7pDNoB4jVINUmoYYw"
+};
 
 passport.use(new LocalStrategy(localStrategy));
+passport.use(new GoogleStrategy(googleConfig, googleStrategy));
 passport.serializeUser(serializeUser);
 passport.deserializeUser(deserializeUser);
 
@@ -17,6 +24,12 @@ app.get("/api/allusers", getAllUsers);
 app.put("/api/users/:userId/follow/:followId", follow);
 app.get("/api/checkLogin", checkLogin);
 app.get("/api/logout", logout);
+app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        successRedirect: '/#/profile',
+        failureRedirect: '/#/login'
+    }));
 
 function checkLogin(request, response) {
     response.send(request.isAuthenticated() ? request.user : '0');
@@ -129,4 +142,41 @@ function follow(request, response) {
         .then(function (user) {
             response.json(user);
         });
+}
+
+function googleStrategy(token, refreshToken, profile, done) {
+    usersModel
+        .findUserById(profile.id)
+        .then(
+            function(user) {
+                if(user) {
+                    return done(null, user);
+                } else {
+                    var email = profile.emails[0].value;
+                    var emailParts = email.split("@");
+                    var newGoogleUser = {
+                        username:  emailParts[0],
+                        firstName: profile.name.givenName,
+                        lastName:  profile.name.familyName,
+                        email:     email,
+                        google: {
+                            id:    profile.id,
+                            token: token
+                        }
+                    };
+                    return usersModel.registerUser(newGoogleUser);
+                }
+            },
+            function(err) {
+                if (err) { return done(err); }
+            }
+        )
+        .then(
+            function(user){
+                return done(null, user);
+            },
+            function(err){
+                if (err) { return done(err); }
+            }
+        );
 }
