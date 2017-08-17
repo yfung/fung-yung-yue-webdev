@@ -7,6 +7,7 @@
         var model = this;
         model.userId = $routeParams["userId"];
         model.follow = follow;
+        model.myId = currentUser._id;
 
         function init() {
 
@@ -34,8 +35,8 @@
         function follow() {
             userService
                 .follow(currentUser._id, model.userId)
-                .then(function (response) {
-                    //window.location.reload(true);
+                .then(function () {
+                    window.location.reload(true);
                 });
         }
 

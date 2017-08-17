@@ -50,7 +50,7 @@
             var tdalbum = $("<div class='col-xs-4'></div>");
             tdname.append(results.name);
             tdname.attr('href', function () {
-                return this.href + "/project/#!/community/" + model.userId + "/track/" + results.mbid;
+                return this.href + "/project/#!/community/track/" + results.mbid;
             });
             tdartist.append(results.artist.name);
             tdalbum.append(results.album.title);
@@ -87,7 +87,7 @@
                     var tdartist = $("<div class='col-xs-4'></div>");
                     tdname.append(song.name);
                     tdname.attr('href', function () {
-                        return this.href + "/project/#!/community/" + model.userId + "/track/" + song.mbid;
+                        return this.href + "/project/#!/community/track/" + song.mbid;
                     });
                     tdartist.append(song.artist);
                     trRow.append(tdname);

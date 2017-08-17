@@ -16,6 +16,9 @@
             playlistService.findPlaylistById(model.userId, model.playlistId)
                 .then(function (response) {
                     model.playlist = response.data;
+                    if (currentUser._id === model.playlist.createdBy || currentUser.isAdmin) {
+                        model.edit = true;
+                    }
                 });
         }
 

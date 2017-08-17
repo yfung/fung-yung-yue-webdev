@@ -18,7 +18,7 @@
 
     <div class="container-fluid" id="body">
 
-        <div class="col-sm-7">
+        <div ng-show="!model.edit">
             <ul class="list-group">
                 <li class="list-group-item table-header">
                     <div class="row">
@@ -34,7 +34,7 @@
                         <a class="col-xs-6"
                            href="index.html#!/profile/{{model.userId}}/track/{{song.id}}">{{song.name}}</a>
                         <div class="col-xs-4">{{song.dateAdded | date}}</div>
-                        <div class="col-xs-2 pull-right">
+                        <div class="col-xs-2 pull-right" ng-show="model.edit">
                             <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove Track</a>
                         </div>
                     </div>
@@ -42,7 +42,31 @@
             </ul>
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-7" ng-show="model.edit">
+            <ul class="list-group">
+                <li class="list-group-item table-header">
+                    <div class="row">
+                        <div class="col-xs-6">Name</div>
+                        <div class="col-xs-4">Created</div>
+                        <div class="col-xs-2">
+                            <span class="glyphicon glyphicon-trash pull-right"></span>
+                        </div>
+                    </div>
+                </li>
+                <li ng-repeat="song in model.playlist.songs" class="list-group-item">
+                    <div class="row">
+                        <a class="col-xs-6"
+                           href="index.html#!/profile/{{model.userId}}/track/{{song.id}}">{{song.name}}</a>
+                        <div class="col-xs-4">{{song.dateAdded | date}}</div>
+                        <div class="col-xs-2 pull-right" ng-show="model.edit">
+                            <a class="btn btn-default" ng-click="model.removeTrack(song)">Remove Track</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-sm-5" ng-show="model.edit">
 
             <h1>{{model.playlist.name}}</h1>
 

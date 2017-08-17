@@ -24,7 +24,11 @@
         init();
 
         function updateUser(user) {
-            userService.updateUser(user._id, user);
+            userService
+                .updateUser(user._id, user)
+                .then(function () {
+                    window.location.reload(true);
+                });;
         }
 
         function unregister() {

@@ -27,7 +27,7 @@
         function addToPlaylist(playlist) {
             playlistService.addSong(model.userId, playlist._id, model.song)
                 .then(function (response) {
-                    $location.url("/community/" + model.userId + "/playlist/" + playlist._id);
+                    $location.url("/community/playlist/" + playlist._id);
                 });
         }
 
