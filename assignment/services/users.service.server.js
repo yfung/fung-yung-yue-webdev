@@ -28,8 +28,8 @@ app.get("/api/logout", logout);
 app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 app.get('/auth/google/callback',
     passport.authenticate('google', {
-        successRedirect: '/project/index.html/#!/profile',
-        failureRedirect: '/project/index.html/#!/login'
+        successRedirect: '/project/#!/profile',
+        failureRedirect: '/project/#!/login'
     }));
 
 function checkLogin(request, response) {
