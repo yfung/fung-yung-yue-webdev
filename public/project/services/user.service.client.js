@@ -14,7 +14,8 @@
             "deleteUser": deleteUser,
             "getAllUsers": getAllUsers,
             "follow": follow,
-            "checkLogin": checkLogin
+            "checkLogin": checkLogin,
+            "logOut": logOut
         };
         return api;
 
@@ -55,6 +56,10 @@
                 .then(function (response) {
                     return response.data;
                 });
+        }
+
+        function logOut() {
+            return $http.get("/api/logout");
         }
 
     }

@@ -16,6 +16,7 @@ app.delete("/api/users/:userId", deleteUser);
 app.get("/api/allusers", getAllUsers);
 app.put("/api/users/:userId/follow/:followId", follow);
 app.get("/api/checkLogin", checkLogin);
+app.get("/api/logout", logout);
 
 function checkLogin(request, response) {
     response.send(request.isAuthenticated() ? request.user : '0');
@@ -53,6 +54,11 @@ function deserializeUser(user, done) {
 function login(request, response) {
     var user = request.user;
     response.json(user);
+}
+
+function logout(req, res) {
+    req.logOut();
+    res.send(200);
 }
 
 function getUserById(request, response) {
