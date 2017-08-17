@@ -1,5 +1,6 @@
 <div class="w3-top">
     <div class="w3-bar" id="homeNav">
+        <a ng-click="model.goBack()" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-arrow-left"></i> Go Back</a>
         <a href="#" class="w3-bar-item w3-button"><i class="fa fa-home"></i> HOME</a>
         <a href="#!/community/{{model.userId}}" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i>
             MY PROFILE</a>
@@ -11,7 +12,6 @@
                 class="fa fa-music"></i> FIND MUSIC</a>
         <a href="#!/community" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-users"></i> COMMUNITY</a>
         <a ng-click="model.logOut()" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-sign-out"></i> SIGN OUT</a>
-        <a ng-click="model.goBack()" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-arrow-left"></i></a>
     </div>
 </div>
 
