@@ -3,10 +3,11 @@
         .module("rhythmShark")
         .controller("communityUserController", communityUserController);
 
-    function communityUserController(userService, $routeParams, currentUser) {
+    function communityUserController(userService, $routeParams, currentUser, playlistService) {
         var model = this;
         model.userId = $routeParams["userId"];
         model.follow = follow;
+        model.deletePlaylist = deletePlaylist;
         model.myId = currentUser._id;
 
         function init() {
@@ -27,6 +28,9 @@
                             }
                         }
                     }
+                    if (currentUser._id === model.userId || currentUser.isAdmin) {
+                        model.edit = true;
+                    }
                 });
         }
 
@@ -35,6 +39,13 @@
         function follow() {
             userService
                 .follow(currentUser._id, model.userId)
+                .then(function () {
+                    window.location.reload(true);
+                });
+        }
+
+        function deletePlaylist(playlist) {
+            playlistService.deletePlaylist(playlist.createdBy, playlist._id)
                 .then(function () {
                     window.location.reload(true);
                 });
