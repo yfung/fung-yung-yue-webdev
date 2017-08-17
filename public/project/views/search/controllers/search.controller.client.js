@@ -21,7 +21,7 @@
         init();
 
         function goBack() {
-            
+            window.history.back();
         }
 
         function logOut() {
