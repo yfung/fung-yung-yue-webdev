@@ -38,10 +38,10 @@
             window.history.back();
         }
 
-        function updatePlaylist() {
-            playlistService.updatePlaylist(model.userId, model.playlistId)
+        function updatePlaylist(playlist) {
+            playlistService.updatePlaylist(model.playlistId, playlist)
                 .then(function () {
-                    $location.url("/community/playlist/" + model.playlistId);
+                    window.location.reload(true);
                 });
         }
 
