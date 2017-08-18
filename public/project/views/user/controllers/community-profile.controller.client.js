@@ -27,6 +27,7 @@
                                     break;
                                 } else {
                                     model.follows = "Follows";
+                                    break;
                                 }
                             }
                         }
