@@ -25,11 +25,9 @@
                                 if (model.user._id === currentUser.follows[i]._id) {
                                     model.followed = "Followed";
                                     break;
-                                } else {
-                                    model.follows = "Follows";
-                                    break;
                                 }
                             }
+                            model.follows = "Follows";
                         }
                     }
                     if (currentUser._id === model.userId || currentUser.isAdmin) {
