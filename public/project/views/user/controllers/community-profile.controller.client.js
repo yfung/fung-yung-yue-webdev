@@ -27,7 +27,7 @@
                                     break;
                                 }
                             }
-                            if (model.followed === null) {
+                            if (model.followed === null || model.followed === undefined) {
                                 model.follows = "Follows";
                             }
                         }
