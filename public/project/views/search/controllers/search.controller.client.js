@@ -32,7 +32,7 @@
         }
 
         function buttonSearch(search) {
-            $("table").remove();
+            $("ul").remove();
             if (!$("#cbox").is(":checked")) {
                 $.ajax({
                     type: 'GET',
