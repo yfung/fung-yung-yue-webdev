@@ -27,7 +27,9 @@
                                     break;
                                 }
                             }
-                            model.follows = "Follows";
+                            if (model.followed === null) {
+                                model.follows = "Follows";
+                            }
                         }
                     }
                     if (currentUser._id === model.userId || currentUser.isAdmin) {
