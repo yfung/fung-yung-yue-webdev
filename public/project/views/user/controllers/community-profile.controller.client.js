@@ -20,13 +20,14 @@
                     if (currentUser._id != model.userId) {
                         if (currentUser.follows.length === 0) {
                             model.follows = "Follows";
-                        }
-                        for (var i = 0; i < currentUser.follows.length; i++) {
-                            if (model.user._id === currentUser.follows[i]._id) {
-                                model.followed = "Followed";
-                                break;
-                            } else {
-                                model.follows = "Follows";
+                        } else {
+                            for (var i = 0; i < currentUser.follows.length; i++) {
+                                if (model.user._id === currentUser.follows[i]._id) {
+                                    model.followed = "Followed";
+                                    break;
+                                } else {
+                                    model.follows = "Follows";
+                                }
                             }
                         }
                     }
