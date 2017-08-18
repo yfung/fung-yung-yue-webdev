@@ -66,7 +66,9 @@
                 songName.append(response.track.name);
                 songArtist.append(response.track.artist.name);
                 songPlays.append("Plays: " + response.track.playcount);
-                songWiki.append(response.track.wiki.content);
+                if (response.track.wiki != 'undefined') {
+                    songWiki.append(response.track.wiki.content);
+                }
                 songImage.attr("src", response.track.album.image[response.track.album.image.length - 1]['#text']);
                 songAlbum.append(response.track.album.title);
 
