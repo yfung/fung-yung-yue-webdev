@@ -3,7 +3,6 @@ var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-
 var secret = "encrypt";
 if (process.env.SECRET) {
     secret = process.env.SECRET;

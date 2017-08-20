@@ -3,6 +3,7 @@ var passport = require("passport");
 var usersModel = require("../models/users.model.server");
 var LocalStrategy = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var bcrypt = require('bcrypt-nodejs');
 
 var googleConfig = {
     clientID     : process.env.GOOGLE_CLIENT_ID,
@@ -38,11 +39,11 @@ function checkLogin(request, response) {
 
 function localStrategy(username, password, done) {
     usersModel
-        .findUserByCredentials(username, password)
+        .findUserByUsername(username)
         .then(function (user) {
                 if (!user) {
                     return done(null, false);
-                }
+                } else if (user && bcrypt.compareSync(password, user.password))
                 return done(null, user);
             }, function(err) {
                 if (err) { return done(err); }
@@ -95,6 +96,7 @@ function findUser(request, response) {
 
 function registerUser(request, response) {
     var user = request.body;
+    user.password = bcrypt.hashSync();
     usersModel.createUser(user)
         .then(function (user) {
             response.send(user);
